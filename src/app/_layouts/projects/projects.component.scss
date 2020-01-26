@@ -58,6 +58,24 @@ body, section{
     color: white;
     font-size:1vw;
 }
+.bp-button{
+    margin-top:2%;
+    margin-left:12%;
+}
+.bp-button span{
+    height:10vw;
+    width: 10vw;
+    background-color: #4D92D7;
+    padding-top:3%;
+    padding-bottom:3%;
+    padding-left:5%;
+    padding-right: 5%;
+    border-radius:30%;
+}
+.bp-button a {
+    color: white;
+    font-size:1vw;
+}
 .header{
     opacity:0;
 }
@@ -78,6 +96,11 @@ body, section{
     left:0;
     width: 1000px;
     height: 1000px; 
+}
+.bp-img{
+    position: absolute;
+    top:15%;
+    left:60%;
 }
 @media only screen and (max-width:600px){
     .pc-desc-container{
