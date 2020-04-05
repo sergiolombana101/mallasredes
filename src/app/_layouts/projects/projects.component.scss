@@ -7,6 +7,12 @@ body, section{
     position:relative;
     top:20%;    
 }
+.capstone-title{
+    color:white;
+    font-size:4.5vw;
+    position: relative;
+    top:20%;
+}
 .title_contain{
     display:flex;
 }
@@ -101,6 +107,13 @@ body, section{
     position: absolute;
     top:15%;
     left:60%;
+}
+.capstone-img{
+    position: absolute;
+    top: 25%;
+    left: 52%;
+    height: 25vw;
+    width:45vw;
 }
 @media only screen and (max-width:600px){
     .pc-desc-container{

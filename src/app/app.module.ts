@@ -21,6 +21,7 @@ import { AboutMeInfoComponent } from './_layouts/about-me-info/about-me-info.com
 import { ChartsModule } from 'ng2-charts';
 import { ProjectsComponent } from './_layouts/projects/projects.component';
 import { HomeRoutingComponent } from './_layouts/home-routing/home-routing.component';
+import { DocumentsComponent } from './_layouts/documents/documents.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HomeRoutingComponent } from './_layouts/home-routing/home-routing.compo
     AboutMeScrollComponent,
     AboutMeInfoComponent,
     ProjectsComponent,
-    HomeRoutingComponent
+    HomeRoutingComponent,
+    DocumentsComponent
   ],
   imports: [
     BrowserModule,
