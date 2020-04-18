@@ -11,52 +11,9 @@
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script> <!--JSAP link--> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.7/lottie.min.js"></script>
 </head>
-<script>
-  // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
-  (function(){
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect != location.href) {
-      history.replaceState(null, null, redirect);
-    }
-  })();
-</script>
-<script>
-  function redirect(){
-      window.location.href = "http://"+window.location.host+"/projects";
-    }
-  function redirectHome(){
-    window.location.href = "http://"+window.location.host+"/";
-  }
 
-</script>
 <body>
   <app-root></app-root>
 </body>
-<script>
-  $(".main").onepage_scroll({
-    sectionContainer: "section",
-    easing: "ease",
 
-    animationTime: 1000, //It lets you define how long each section takes to animate
-    pagination: true,
-    updateURL: false,
-    beforeMove: function(index){
-      
-    }, //This option accepts a callback function. It will be called before the page moves
-    afterMove: function(index){
-      let w = window.innerWidth;
-      
-      if(w>400){
-        gsap.to('.header',{opacity:1,duration:3})
-      }
-    }, //It will be called after the page moves.
-    loop: false,  //You can have the page loop back to the top/bottom when the use navigates
-    keyboard: true, //To activate keyboard controls
-    responsiveFallback: false,
-
-    direction: "vertical"
-  })
-</script>
-<script src="./assets/js/jsap-animation.js"></script>
 </html>

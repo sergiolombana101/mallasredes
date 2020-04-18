@@ -1,31 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeLandingComponent } from './components/home-landing/home-landing.component';
+import { CommonModule } from '@angular/common';
 
-import { HomeComponent } from './components/home/home.component';
-import { DemoComponent } from './components/demo/demo.component';
-import { ProjectsComponent } from './_layouts/projects/projects.component';
-import { HomeRoutingComponent } from './_layouts/home-routing/home-routing.component';
-import { HomeLandingComponent } from './_layouts/home-landing/home-landing.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeRoutingComponent
-  },
-  {
-    path: 'home',
-    component: HomeRoutingComponent
-  },
-  {
-    path: 'projects',
-    component: ProjectsComponent
-  },
+    loadChildren: () => import('./components/home-landing/home-landing.module').then(m=>m.HomeLandingModule),
+    data: {kind:'update'}
+  }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),CommonModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
