@@ -1,0 +1,44 @@
+body{
+    background-color: #C5B5A5;
+    height: 100vh;
+}
+.product-title span{
+    color: #F57506;
+    font-size: 2.5vw;
+    font-family: "Bell MT";
+    font-weight: bold;
+}
+.product-title{
+    margin-top: 4%;
+    margin-left: 9%;
+}
+.img-container{
+    margin-top: 5%;
+}
+.img-container img{
+    height: 70vh;
+    width: 100%;
+}
+.product-desc{
+    position: absolute;
+    top: 30%;
+    right: 10%;
+}
+.product-desc span{
+    font-size: 1.5vw;
+    font-family: "Bell MT"
+}
+.button-mas{
+    position: absolute;
+    top: 70%;
+    right: 10%;
+    width: 20%;
+}
+.button-mas button{
+    width: 40%;
+    height: 7vh;
+    background-color: #F57506;
+    font-size: 1.2vw;
+    color: white;
+    font-family: "Bell MT";
+}

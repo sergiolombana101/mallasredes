@@ -1,0 +1,153 @@
+body{
+    background-color: #C5B5A5;
+}
+.contact-container{
+    margin-top: 5%;
+    margin-left: 0%;
+}
+.outer-div{
+    height: 60vh;
+    width: 55%;
+    background-color: white;
+}
+.inner-div{
+    margin-top: 2%;
+    margin-left: 2%;
+    height: 60vh;
+    width: 103%;
+    background-color: #67563F;
+}
+.title{
+    color: white;
+    position: relative;
+    top: 20%;
+    margin-top: 10%;
+    margin-left: 40%;
+    font-size: 2vw;
+    font-family: "Bell MT"
+}
+.info-container{
+    margin-top: 5%;
+}
+.info-container span:nth-child(1){
+    font-family: "Bell MT";
+    font-size: 1.5vw;
+    color: #67563F;
+    position: absolute;
+    bottom: 4%;
+}
+.name-container{
+    margin-left: 20%;
+}
+.fb-logo{
+    position: absolute;
+    left: 15%;
+    display: inline-block;
+}
+.fb-logo img:nth-child(2){
+    margin-left:5%;
+}
+.fb-logo span{
+    font-size: 1vw;
+    color: black;
+}
+.phone-n{
+    font-size: 1vw;
+    color: black;
+    position: absolute;
+    left: 13%;
+}
+.separator span{
+    position: absolute;
+    left:50%;
+    top: 88%;
+    width: 0.1%;
+    height: 5vh;
+    background-color: rgb(99, 99, 99);
+}
+.diseñado{
+    position: absolute;
+    bottom: 9%;
+}
+.diseñado img{
+    position: absolute;
+    top: 10%;
+}
+.portfolio-link{
+    font-size: 1vw;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+.name-input{
+    position: absolute;
+    left: 39%;
+    top: 30%;
+}
+.correo-input{
+    position: absolute;
+    left: 39%;
+    top: 38%;
+}
+.telefono-input{
+    position: absolute;
+    left: 39%;
+    top: 45%;
+}
+.mensaje-input{
+    position: absolute;
+    left: 39%;
+    top: 55%;
+}
+.submit-input{
+    position: absolute;
+    left: 60%;
+    top:70%;
+}
+.name-input input, .correo-input input, 
+.telefono-input input, .mensaje-input input{
+    width: 270%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    height: 5vh;
+    font-size: 1vw;
+    padding:0px;
+}
+
+.name-input label{
+    color: grey;
+    position: relative;
+    font-size: 1vw;
+    top:45%;
+} 
+.correo-input label{
+    width: 10em;
+    color: grey;
+    position: relative;
+    font-size: 1vw;
+    top:45%;
+}
+.telefono-input label{
+    width: 10em;
+    color: grey;
+    position: relative;
+    font-size: 1vw;
+    top:45%;
+}
+.mensaje-input label{
+    width: 10em;
+    color: grey;
+    position: relative;
+    font-size: 1vw;
+    top:45%;
+}
+.submit-input input{
+    width: 5em;
+    height: 5vh;
+    background-color: #F57506;
+    border: none;
+    color: white;
+    font-size: 3em;
+    padding: 0;
+}

@@ -1,0 +1,29 @@
+body{
+    background-color: #C5B5A5;
+}
+.title-container{
+    margin-top: 6%;
+}
+.title-container span{
+    font-size: 3vw;
+    font-family: "Bell MT";
+    color: #F57506;
+    font-weight: bold;
+}
+.text-container{
+    margin-top: 3%;
+}
+.text-container{
+    color:black;
+    font-family:"Bell MT";
+    font-size: 1.5vw;
+}
+.svg-container{
+    position: absolute;
+    top: 22%;
+    left: 5%;
+}
+.svg-container img{
+    width: 70%;
+    height: 70vh;
+}

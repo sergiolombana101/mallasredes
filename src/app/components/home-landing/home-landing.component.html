@@ -1,5 +1,49 @@
 <body>
-    <div class="nav-bar">
-
+    <div class="grid-x grid-padding-x nav-bar">
+        <div class="cell medium-4 nav-logo">
+            <img src="../../../assets/img/landing-logo.png">
+        </div>
+        <div class="nav-elements">
+        <div id="nav-bar" class="cell medium-1 nav-child">
+            <span (click)="inicioClick()">Inicio</span>
+            <span (click)="productClick()">Productos</span>
+            <span (click)="clientesClick()">Clientes</span>
+            <span (click)="contactClick()">Contáctanos</span>
+        </div>
+        </div>
+    
     </div>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-1 medium-offset-7 nav-line">
+            <span></span>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-6 medium-offset-3 img-container">
+            <img src="../../../assets/img/landing-net.png">
+        </div>
+        <div class="cell medium-4 medium-offset-1 title-container">
+            <span>SU ALIADO EN TODO MOMENTO</span>
+        </div> 
+    </div>
+
+    <div class="grid-x grid-padding-x">
+       <div class="cell medium-5 medium-offset-1 products-btn">
+           <button (click)="verProductos()"><span>VER PRODUCTOS</span></button>
+       </div>
+    </div>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-5 medium-offset-9 list-container">
+            <ul>
+                <li>Mallas de Seguridad</li>
+                <li>Mallas Deportivas</li>
+                <li>Soportes y Estructuras</li>
+                <li>Mantenimientos</li>
+            </ul>
+        </div>
+    </div>
+
 </body>

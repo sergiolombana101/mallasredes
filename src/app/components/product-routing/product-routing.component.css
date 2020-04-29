@@ -1,0 +1,99 @@
+.buscar{
+    position: relative;
+    top: -10%;
+}
+.buscar div{
+    width: 15%;
+    height: 6vh;
+    background-color: white;
+    border-radius: 20px;
+}
+.buscar img{
+    margin-top:3%;
+    width: 9%;
+    height: 4vh;
+}
+.buscar span{
+    margin-left: 4%;
+    position:relative;
+    top: 16%;
+    font-size: 1vw;
+}
+
+.nav-bar-container div{
+    background-color: #67563F;
+    height: 30em;
+    border-bottom-left-radius: 100em;
+    border-bottom-right-radius: 100em;
+}
+
+
+.first-section{
+    margin-top: 5%;
+}
+.first-section span{
+    color: #585858;
+    font-size: 1.2vw;
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 50px solid #F57506;
+    border-bottom: 25px solid transparent;
+    margin-top: 0.3%;
+  }
+
+.first-section-products{
+    margin-top: 2%;
+}
+.master-container{
+    background-color: white;
+    width: 20%;
+    height: 60em;
+    border-top-left-radius: 10em;
+    border-bottom-right-radius: 10em;
+}
+.background-card{
+    margin:2%;
+}
+.background-card:nth-child(1){
+    height: 25em;
+    width: 75%;
+    background-color:#67563F;
+    margin-left: 8%;
+    margin-top: 8%;
+}
+.background-card img{
+    margin-top: 5%;
+    margin-left:5%;
+    width: 165%;
+    height: 30em;
+}
+.name-container{
+    margin-top: 20%;
+    margin-left: 8%;
+}
+.name-container span{
+    font-size: 1.5vw;
+    font-family: "Bell MT";
+    font-weight: 590;
+}
+.card-footer{
+    margin-top: 10.7%;
+}
+.card-footer div{
+    height: 10em;
+    width: 100%;
+    background-color: #67563F;
+    border-bottom-right-radius: 10em;
+}
+.card-footer span{
+    font-size: 1.5vw;
+    color: white;
+    font-family: "Bell MT";
+    position: relative;
+    top: 0.5em;
+    left: 4.5em;
+}

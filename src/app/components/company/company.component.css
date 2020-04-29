@@ -1,0 +1,88 @@
+body{
+    background-color: #C5B5A5;
+}
+.cards-container{
+    margin-top: 5%;
+}
+.nosotros-card-outer{
+    width:60%;
+    height: 80vh;
+    background-color: white;
+}
+.nosotros-card-inner,.mision-card-inner, .vision-card-inner{
+    width:105%;
+    height:82vh;
+    background-color:#67563F;
+    position: relative;
+    top: 1.5%;
+    left: 3%;
+}
+.nosotros-card-inner img{
+    margin-top:5%;
+    margin-left: 15%;
+    height: 50vh;
+}
+.nosotros-text{
+    margin-top: 30%;
+    margin-left: 15%;
+    font-size:2.5vw;
+    color: white;
+    font-family: 'Bell MT';
+    font-weight: bold;
+    cursor: pointer;
+}
+.mision-card-outer{
+    width:20%;
+    height: 80vh;
+    background-color: white;
+    position: absolute;
+    top: 10.5%;
+    margin-left: 5%;
+}
+.mision-card-inner img{
+    margin-top:5%;
+    margin-left: 8%;
+    height: 50vh;
+}
+.mision-text{
+    margin-top: 30%;
+    margin-left: 25%;
+    font-size:2.5vw;
+    color: white;
+    font-family: 'Bell MT';
+    font-weight: bold;  
+    cursor: pointer; 
+}
+.vision-card-outer{
+    width:20%;
+    height: 80vh;
+    background-color: white;
+    position: absolute;
+    top: 10.5%;
+    margin-left: 10%;
+}
+.vision-card-inner img{
+    margin-top:5%;
+    margin-left: 12%;
+    height: 50vh;
+}
+.vision-text{
+    margin-top: 30%;
+    margin-left: 25%;
+    font-size:2.5vw;
+    color: white;
+    font-family: 'Bell MT';
+    font-weight: bold;
+    cursor: pointer;
+}
+.nosotros-text:hover, .mision-text:hover, .vision-text:hover {
+    color: #C5B5A5;
+    font-size: 2.6vw;
+    transition: 1s;
+}
+.contact-container{
+    height: 40vh;
+    width:100%;
+    background-color: black;
+    margin-top: 10%;
+}

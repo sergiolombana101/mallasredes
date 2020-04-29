@@ -1,0 +1,71 @@
+<div *ngIf="loaded" class="main">
+    <section class="product">
+        <app-product-landing></app-product-landing>
+    </section>
+
+    <section class="products-1">
+        <app-products (activate)="onActivate($event)"></app-products>
+    </section>
+
+
+    <section>
+        <div class="grid-x grid-padding-x first-section">
+            <div class="cell medium-2 medium-offset-1 triangle">
+    
+            </div>
+            <div class="cell medium-5">
+                <span>Redes de Proteccion</span>
+            </div>
+        </div>
+        
+        <div class="grid-x grid-padding-x first-section-products">
+            <div class="cell medium-3 medium-offset-1 master-container">
+                <div class="grid-x grid-padding-x background-card">
+                    <div class="cell medium-14">
+                        <img src="../../../assets//img//redes-de-proteccion-1.jpg">
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x name-container">
+                    <span>Redes de Proteccion</span>
+                </div>
+                <div class="grid-x grid-padding-x card-footer">
+                    <div class="cell medium-12">
+                        <span>Ver más</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section>
+
+        <div class="grid-x grid-padding-x first-section">
+            <div class="cell medium-2 medium-offset-1 triangle">
+    
+            </div>
+            <div class="cell medium-5">
+                <span>Sistema de protección anticaidas</span>
+            </div>
+        </div>
+        
+        <div class="grid-x grid-padding-x first-section-products">
+            <div class="cell medium-3 medium-offset-1 master-container">
+                <div class="grid-x grid-padding-x background-card">
+                    <div class="cell medium-14">
+                        <img src="../../../assets//img//redes-de-proteccion-1.jpg">
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x name-container">
+                    <span>Redes de protección</span>
+                </div>
+                <div class="grid-x grid-padding-x card-footer">
+                    <div class="cell medium-12">
+                        <span>Ver más</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

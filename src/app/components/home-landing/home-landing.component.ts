@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-landing',
@@ -8,7 +9,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class HomeLandingComponent implements OnInit {
 
-    constructor(){}
+    constructor(private router:Router){}
+    contactClick(){
+      this.router.navigateByUrl("/contactanos");
+    }
+    productClick(){
+      this.router.navigateByUrl("/productos");
+    }
+    clientesClick(){
+      this.router.navigateByUrl("/clientes");
+    }
+    inicioClick(){
+      this.router.navigateByUrl("/");
+    }
+    verProductos(){
+      this.productClick();
+    }
 
     ngOnInit(){}
 

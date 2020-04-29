@@ -1,8 +1,102 @@
 .nav-bar{
     width:100%;
     height: 7vh;
-    background-color: #707070;
+    position: relative;
+    background-color: rgba(103, 86, 63, 0.59);
+}
+.nav-elements{
+    position: relative;
+    margin-top: .5%;
+    cursor: pointer;
+}
+.nav-elements span{
+    font-size: 1.4vw;
+    color: white;
+    margin-left: 15%;
+    font-family: 'Bell MT';
+    border-bottom: 2px solid orange;
+    border-width: 0px;
+}
+.nav-child{
+    position: relative;
+    margin-left: 130%;
+}
+
+.nav-logo{
+    position: relative;
+    left: 2%;
+    margin-top: 1%;
 }
 body{
-    background-image: url('/src/assets/img/landing-net.jpg');
+    background-color: rgba(88, 88, 88, 0.72);
+}
+.img-container{
+    margin-top: 5%;
+}
+.img-container img{
+    height: 75vh;
+    width: 100%;
+    position: relative;
+}
+.title-container{
+    position: absolute;
+    top: 30%;
+    width: 60%;
+}
+.title-container span{
+    color: white;
+    font-size: 4vw;
+    font-family: 'Bell MT';
+    font-weight: bold;
+}
+.products-btn{
+    position: absolute;
+    bottom: 35%;
+    background-color: #C5B5A5;
+    width: 12%;
+    height: 6vh;
+    padding-top: .9%;
+    padding-left: .8%;
+    cursor: pointer;
+
+}
+.products-btn:hover{
+    background-color: rgba(103, 86, 63, 0.59);
+    transition: 1s;
+}
+
+.products-btn span{
+    padding-top: 10%;
+    font-size: 1.2vw;
+    color: #67563F;
+    font-family: 'Bell MT';
+    font-weight: bold;
+}
+.products-btn span:hover{
+    color: white;
+    font-size: 1.25vw;
+    transition: 1s;
+    cursor: pointer;
+}
+.list-container{
+    color: white;
+    position: absolute;
+    bottom: 20%;
+}
+.list-container ul{
+    list-style-type: none;
+    font-size: 1.5vw;
+    font-family: 'Bell MT';
+}
+.nav-line{
+    position: absolute;
+    top: 4%;
+    left: 4.8%;
+}
+
+.nav-line span{
+    height: .6vh;
+    width: 45%;
+    background-color: #F57506;
+    display: inline-block;
 }

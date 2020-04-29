@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeLandingComponent } from './home-landing.component';
 
-describe('AddAssetComponent', () => {
+describe('HomeLandingComponent', () => {
   let component: HomeLandingComponent;
   let fixture: ComponentFixture<HomeLandingComponent>;
 

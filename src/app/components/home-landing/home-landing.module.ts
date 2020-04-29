@@ -6,7 +6,7 @@ import { HomeLandingComponent } from './home-landing.component';
 
 
 @NgModule({
-  declarations: [HomeLandingComponent],
+  declarations: [],
   imports: [
     CommonModule,
     HomeLandingRoutingModule
