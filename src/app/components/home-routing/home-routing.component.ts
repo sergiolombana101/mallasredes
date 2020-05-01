@@ -11,27 +11,29 @@ declare var jQuery: any;
 export class HomeRoutingComponent implements OnInit {
 
     url = "assets/js/jquery.onepage-scroll.min.js";
-    loaded = false;
+    loaded =true;
     constructor(){
-      this.loadScript("assets/js/jquery.onepage-scroll.min.js").then(()=>{
-        this.loadScript("assets/js/onepage-details.js",true)
-        this.loadScript("assets/js/nav-bar.js")
-        this.loaded = true;
-      });
+      //this.loadScript("assets/js/jquery.onepage-scroll.min.js").then(()=>{
+        //this.loadScript("assets/js/onepage-details.js",true)
+        //this.loadScript("assets/js/nav-bar.js")
+        //this.loaded = true;
+      //});
     }
 
     ngOnInit(){
     }
 
-    loadScript(url, details=false){
-      return new Promise((resolve,reject)=>{
-        const script = document.createElement("script");
-        script.src = url;
-        script.onload = ()=>{
-          resolve();
-        };
-        (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script) 
-         
-      })
-    }
+    /*loadScript(url, details=false){
+        console.log("Reloading script");
+        return new Promise((resolve,reject)=>{
+          const script = document.createElement("script");
+          script.src = url;
+          script.onload = ()=>{
+            resolve();
+          };
+          (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script) 
+          
+        })
+    }*/
+  
 }

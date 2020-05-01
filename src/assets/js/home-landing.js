@@ -1,5 +1,5 @@
 
-window.onload = () => {
+/*window.onload = () => {
     console.log("loaded");
     let nav_container = document.getElementById("nav-bar");
     let nav_elements = nav_container.children;
@@ -7,7 +7,6 @@ window.onload = () => {
 
     for(let x = 0; x<nav_elements.length;x++){
         nav_elements[x].onmouseover = ()=>{
-            console.log("Mouse over")
             switch(nav_elements[x].innerHTML){
                 case "Inicio":
                     nav_lines[0].style.left = "5.5%";
@@ -38,6 +37,6 @@ window.onload = () => {
         }
     }
 
-}
+}*/
 
 

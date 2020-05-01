@@ -41,4 +41,10 @@ body{
     font-size: 1.2vw;
     color: white;
     font-family: "Bell MT";
+    cursor: pointer;
+}
+.button-mas button:hover{
+    transition: 1s;
+    background-color: rgba(88, 88, 88, 0.72);
+    font-size: 1.4vw;
 }

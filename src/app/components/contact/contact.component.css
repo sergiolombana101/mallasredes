@@ -44,6 +44,10 @@ body{
     left: 15%;
     display: inline-block;
 }
+.fb-logo img{
+    height: 1.2em;
+    width: 1.2em;
+}
 .fb-logo img:nth-child(2){
     margin-left:5%;
 }
@@ -55,7 +59,7 @@ body{
     font-size: 1vw;
     color: black;
     position: absolute;
-    left: 13%;
+    left: 15%;
 }
 .separator span{
     position: absolute;
@@ -72,12 +76,14 @@ body{
 .diseñado img{
     position: absolute;
     top: 10%;
+    height:1.5em;
+    width: 1.5em;
 }
 .portfolio-link{
     font-size: 1vw;
     position: absolute;
     top: 10%;
-    left: 5%;
+    left: 8%;
 }
 .name-input{
     position: absolute;
@@ -143,11 +149,11 @@ body{
     top:45%;
 }
 .submit-input input{
-    width: 5em;
+    width: 4em;
     height: 5vh;
     background-color: #F57506;
     border: none;
     color: white;
-    font-size: 3em;
+    font-size: 1em;
     padding: 0;
 }

@@ -1,4 +1,3 @@
-
 $(".main").onepage_scroll({
     sectionContainer:"section",
     easing:"ease",
@@ -132,7 +131,11 @@ $(".main").onepage_scroll({
                     sessionStorage.setItem("activeSection",section);
                     const prev_session = parseInt(sessionStorage.getItem("activeSection"))+1;
                     sessionStorage.setItem("prevSection",prev_session)
-                    resolve("up");
+                    if(sections[x].classList.contains("products-1")){
+                      resolve("upOnProducts");
+                    }else{
+                      resolve("up");
+                    }
                   }
                 }
               }
@@ -144,10 +147,17 @@ $(".main").onepage_scroll({
           let direction = '';
           getScrollDirection().then(res=>{
             direction=res;
+            //console.log("DIRECTION is: "+direction)
+            setTimeout(()=>{
+              if(localStorage.getItem("scrolling") == "false"){
+              // console.log("DIRECTION  2 is: "+direction)
+              }
+            },300)
+            localStorage.setItem("direction",direction);
 
-            let check = (direction == "up" && localStorage.getItem("productsSection") == "1");
-
-            if((localStorage.getItem("onProducts") == "true" && !check &&localStorage.getItem("scrolling") != "true")){
+            if((sections[1].classList.contains("active"))&&(direction != "downOnProducts")
+                ||
+              (!(sections[0].classList.contains("active"))&&(direction == "down"))){  
 
               let section_container = document.getElementsByClassName("section_container")[0];
               let products_section = localStorage.getItem("productsSection");
@@ -164,11 +174,12 @@ $(".main").onepage_scroll({
                     section_container.style.opacity = 1;
                     localStorage.setItem("productsSection","2");
                     this.localStorage.setItem("scrolling","true");
+                    localStorage.setItem("case","");
                     setTimeout(()=>{this.localStorage.setItem("scrolling","false")},400);
 
                     // This is for the scroll bar in the products page
                   
-                    scroll_span.style.transform = "translateY(12em)";
+                    scroll_span.style.transform = "translateY(4em)";
                     scroll_span.style.transition = "0.5s";
                     break;
                 }
@@ -185,8 +196,9 @@ $(".main").onepage_scroll({
                     section_container.style.opacity = 0;
                     section_container.innerHTML = sections[active_section+2].innerHTML;
                     section_container.style.opacity = 1;
+                    localStorage.setItem("case","upFromProducts");
                     localStorage.setItem("productsSection","1");
-                    this.localStorage.setItem("scrolling","true");
+                    localStorage.setItem("scrolling","true");
                     setTimeout(()=>{this.localStorage.setItem("scrolling","false")},400);
 
                     scroll_span.style.transform = "translateY(0em)";
@@ -197,6 +209,7 @@ $(".main").onepage_scroll({
 
               }
             }else{
+
             if(localStorage.getItem("scrolling") == undefined || localStorage.getItem("scrolling") == "false"){
             if(direction == "down"){
               this.localStorage.setItem("scrolling","true");
@@ -206,9 +219,10 @@ $(".main").onepage_scroll({
                  so I am going to default it to the section below which is 200% below*/
               if(transform > 0){transform -= 200;}
               main.style.transform = 'translate3d(0px,'+transform+'%,0px)';
+              direction = '';
 
             }
-            else if(direction == "downOnProducts"){
+            else if(direction == "downOnProducts" && localStorage.getItem("scrolling") == "false"){
               this.localStorage.setItem("scrolling","true");
               setTimeout(()=>{this.localStorage.setItem("scrolling","false")},200);//Sets a timeout so the code will skip the double call
               let transform = getTransformValue(main.style.transform,'down');
@@ -218,22 +232,23 @@ $(".main").onepage_scroll({
               main.style.transform = 'translate3d(0px,'+transform+'%,0px)';
               localStorage.setItem("onProducts","true");
               localStorage.setItem("productsSection","1");
+              direction = '';
             }
-            else{ 
-              if(localStorage.getItem("onProducts") == "true" && localStorage.getItem("productsSection") == "1"){
-                this.localStorage.setItem("scrolling",true);
-                setTimeout(()=>{this.localStorage.setItem("scrolling","false")},200);//Sets a timeout so the code will skip the double call
-                let transform = getTransformValue(main.style.transform,'up');
-                if(transform > 0){transform -= 200;}
-                main.style.transform = 'translate3d(0px,'+transform+'%,0px)';
-              }
-              if(localStorage.getItem("onProducts") != "true" && localStorage.getItem("productsSection") != "2"){
-                this.localStorage.setItem("scrolling",true);
-                setTimeout(()=>{this.localStorage.setItem("scrolling","false")},200);//Sets a timeout so the code will skip the double call
-                let transform = getTransformValue(main.style.transform,'up');
-                if(transform > 0){transform -= 200;}
-                main.style.transform = 'translate3d(0px,'+transform+'%,0px)';          
-              }
+            else if(direction == "up"){
+              setTimeout(()=>{
+                if(localStorage.getItem("scrolling") == "false"){
+                  if(localStorage.getItem("direction") != "upOnProducts" &&
+                     localStorage.getItem("onProducts") == "true" && localStorage.getItem("productsSection") == "1" &&
+                     localStorage.getItem("scrolling") == "false"){
+                        this.localStorage.setItem("scrolling","true");
+                        setTimeout(()=>{this.localStorage.setItem("scrolling","false")},200);//Sets a timeout so the code will skip the double call
+                        let transform = getTransformValue(main.style.transform,'up');
+                        if(transform > 0){transform -= 200;}
+                        main.style.transform = 'translate3d(0px,'+transform+'%,0px)';   
+                        this.localStorage.setItem("onProducts","false");       
+               }
+                }
+              },200)  
             }
           }
         }

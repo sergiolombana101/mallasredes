@@ -17,17 +17,24 @@ body{
     margin-top:3%;
     width: 9%;
     height: 4vh;
+    margin-left: -2%;
 }
-.buscar span{
+.buscar input{
     margin-left: 4%;
-    position:relative;
-    top: 16%;
+    position:absolute;
+    top: 2%;
+    height: 5.7vh;
+    left: 40%;
+    width: 12.5%;
     font-size: 1vw;
+    border: none;
+    outline: none;
+    border-radius: 20px;
 }
 
 .nav-bar-container div{
     background-color: #67563F;
-    height: 30em;
+    height: 8em;
     border-bottom-left-radius: 100em;
     border-bottom-right-radius: 100em;
 }
@@ -37,14 +44,17 @@ body{
 .first-section span{
     color: #585858;
     font-size: 1.2vw;
+    position: absolute;
+    left: 10%;
+    top: 38%;
 }
 
 .triangle{
     width: 0;
     height: 0;
-    border-top: 25px solid transparent;
-    border-left: 50px solid #F57506;
-    border-bottom: 25px solid transparent;
+    border-top: 12.5px solid transparent;
+    border-left: 15px solid #F57506;
+    border-bottom: 12.5px solid transparent;
     margin-top: 0.3%;
   }
 
@@ -54,15 +64,15 @@ body{
 .master-container{
     background-color: white;
     width: 20%;
-    height: 60em;
-    border-top-left-radius: 10em;
-    border-bottom-right-radius: 10em;
+    height: 18em;
+    border-top-left-radius: 3em;
+    border-bottom-right-radius: 3em;
 }
 .background-card{
     margin:2%;
 }
 .background-card:nth-child(1){
-    height: 25em;
+    height: 8em;
     width: 75%;
     background-color:#67563F;
     margin-left: 8%;
@@ -70,12 +80,12 @@ body{
 }
 .background-card img{
     margin-top: 5%;
-    margin-left:5%;
-    width: 165%;
-    height: 30em;
+    margin-left:0%;
+    width: 30em;
+    height: 8em;
 }
 .name-container{
-    margin-top: 20%;
+    margin-top: 10%;
     margin-left: 8%;
 }
 .name-container span{
@@ -84,10 +94,10 @@ body{
     font-weight: 590;
 }
 .card-footer{
-    margin-top: 10.7%;
+    margin-top: 19%;
 }
 .card-footer div{
-    height: 10em;
+    height: 3em;
     width: 100%;
     background-color: #67563F;
     border-bottom-right-radius: 10em;
@@ -103,26 +113,54 @@ body{
 .scroll-bar-container{
     position: absolute;
     top: 55%;
-    right: 10%;
+    right: 11%;
 }
 .scroll-bar{
     height: 30vh;
-    width: 2%;
+    width: 15%;
     background-color: grey;
     border-radius: 10em;
+    padding: 0;
+    /*position: absolute;
+    right: 3%;*/
 }
 .scroll-bar span{
-    height: 10em;
-    width: 1.5em;
+    height: 3em;
+    width: .3em;
     background-color: white;
     display: inline-block;
     border-radius: 10em;
     position: absolute;
-    left:8%;
+    left:53.5%;
+    top:1%;
 
     transition: 2s;
 }
 .section_container{
     opacity:1;
 }
+.arrow-up span{
+    position: absolute;
+    top: -15%;
+    width: 0;
+    height: 0;
+    left:45%;
+    border-top: 8.2px solid transparent;
+    border-left: 14.5px solid #F57506;
+    border-bottom: 8.2px solid transparent;
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
 
+.arrow-down span{
+    position: absolute;
+    top: 105%;
+    width: 0;
+    height: 0;
+    left:45%;
+    border-top: 8.2px solid transparent;
+    border-left: 14.5px solid #F57506;
+    border-bottom: 8.2px solid transparent;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
