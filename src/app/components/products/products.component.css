@@ -31,7 +31,13 @@ body{
     outline: none;
     border-radius: 20px;
 }
-
+.nav-bar-container img{
+    height: 15vh;
+    width: 35vh;
+    position: absolute;
+    left: 5%;
+    top: 3%;
+}
 .nav-bar-container div{
     background-color: #67563F;
     height: 8em;
@@ -163,4 +169,8 @@ body{
     border-bottom: 8.2px solid transparent;
     transform: rotate(90deg);
     cursor: pointer;
+}
+
+.products_container{
+    opacity:0;
 }

@@ -142,6 +142,20 @@ $(".main").onepage_scroll({
             },100)
           })
         }
+
+        const loadScript = (url,details=false)=>{
+          return new Promise((resolve,reject)=>{
+            const script = document.createElement("script");
+            script.src = url;
+            script.onload = ()=>{
+              resolve();
+            };
+            (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script);
+            resolve();
+             
+          })
+        }
+    
   
   
           let direction = '';
@@ -233,6 +247,9 @@ $(".main").onepage_scroll({
               localStorage.setItem("onProducts","true");
               localStorage.setItem("productsSection","1");
               direction = '';
+              let products_container = document.getElementsByClassName("products_container")[0];
+              products_container.style.transition = "4s";
+              products_container.style.opacity = "1";
             }
             else if(direction == "up"){
               setTimeout(()=>{
@@ -245,7 +262,10 @@ $(".main").onepage_scroll({
                         let transform = getTransformValue(main.style.transform,'up');
                         if(transform > 0){transform -= 200;}
                         main.style.transform = 'translate3d(0px,'+transform+'%,0px)';   
-                        this.localStorage.setItem("onProducts","false");       
+                        this.localStorage.setItem("onProducts","false");    
+                        let products_container = document.getElementsByClassName("products_container")[0];
+                        products_container.style.transition = "4s";
+                        products_container.style.opacity = "0";   
                }
                 }
               },200)  
