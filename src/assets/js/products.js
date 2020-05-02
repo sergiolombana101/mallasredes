@@ -3,6 +3,21 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
     let arrow_up = document.getElementsByClassName('arrow-up')[0].children[0];
     let arrow_down = document.getElementsByClassName('arrow-down')[0].children[0];
     let sections = document.getElementsByTagName("section");
+    let ver_mas = document.getElementsByClassName("ver-mas");
+
+    for(let x = 0; x<ver_mas.length;x++){
+        ver_mas[x].onmouseover = () => {
+            ver_mas[x].style.transition = "1s";
+            ver_mas[x].style.color = "#67563F";
+            let card_footer = ver_mas[x].parentElement;
+            card_footer.style.backgroundColor = "rgba(103, 86, 63, 0.59)";
+        }
+        ver_mas[x].onmouseout = () => {
+            ver_mas[x].style.color = "white";
+            let card_footer = ver_mas[x].parentElement;
+            card_footer.style.backgroundColor = "#67563F";
+        }
+    }
     
     button.onclick = () => {
         let main = document.getElementsByClassName("main")[0];

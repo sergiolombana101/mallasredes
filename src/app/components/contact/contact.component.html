@@ -10,34 +10,39 @@
                         <span class="title">CONTÁCTANOS</span>
                     </div>
                 </div>
-                <form>
+                <form [formGroup]="enviarForm" (ngSubmit)="enviar()">
+                    <div class="grid-x grid-padding-x error-span">
+                        <div class="cell medium-7 medium-offset-2">
+                            <span *ngIf="empty">Por favor complete la información requerida</span>
+                        </div>
+                    </div>
                     <div class="grid-x grid-padding-x name-input">
                         <div class="cell medium-6">
-                            <label for="nombre">Nombre</label>
-                            <input class="input" type="text" name="nombre">
+                            <label for="nombre" id="nombre-label">Nombre</label>
+                            <input formControlName="nombre" class="input" type="text" name="nombre">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x correo-input">
                         <div class="cell medium-6">
-                            <label for="correo">Correo Electronico</label>
-                            <input class="input" type="text" name="correo">
+                            <label for="correo" id="correo-label">Correo Electronico</label>
+                            <input class="input" type="text" formControlName="correo" name="correo">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x telefono-input">
                         <div class="cell medium-6">
-                            <label for="telefono">Telefono</label>
-                            <input class="input" type="text" name="telefono">
+                            <label for="telefono" id="telefono-label">Telefono</label>
+                            <input class="input" type="text" formControlName="telefono" name="telefono">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x mensaje-input">
                         <div class="cell medium-6">
-                            <label for="mensaje">Mensaje</label>
-                            <input type="text" name="mensaje">
+                            <label for="mensaje" id="mensaje-label">Mensaje</label>
+                            <textarea class="input" name="mensaje"></textarea>
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x submit-input">
                         <div class="cell medium-6">
-                            <input type="submit" name="submit" value="Enviar">
+                            <input id="enviar_btn" type="submit" name="submit" value="Enviar">
                         </div>
                     </div>
                 </form>

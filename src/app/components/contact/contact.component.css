@@ -87,31 +87,31 @@ body{
 }
 .name-input{
     position: absolute;
-    left: 39%;
+    left: 25%;
     top: 30%;
 }
 .correo-input{
     position: absolute;
-    left: 39%;
+    left: 25%;
     top: 38%;
 }
 .telefono-input{
     position: absolute;
-    left: 39%;
+    left: 25%;
     top: 45%;
 }
 .mensaje-input{
     position: absolute;
-    left: 39%;
+    left: 25%;
     top: 55%;
 }
 .submit-input{
     position: absolute;
     left: 60%;
-    top:70%;
+    top:62%;
 }
 .name-input input, .correo-input input, 
-.telefono-input input, .mensaje-input input{
+.telefono-input input{
     width: 270%;
     background-color: transparent;
     border: none;
@@ -119,8 +119,25 @@ body{
     height: 5vh;
     font-size: 1vw;
     padding:0px;
+    color: white;
 }
-
+.mensaje-input input{
+    width: 270%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    height: 15vh;
+    font-size: 1vw;
+    padding:0px;
+}
+.mensaje-input textarea{
+    height: 6em;
+    width: 60em;
+    background-color: transparent;
+    font-size: 1vw;
+    color: white;
+    resize: none;
+}
 .name-input label{
     color: grey;
     position: relative;
@@ -146,7 +163,8 @@ body{
     color: grey;
     position: relative;
     font-size: 1vw;
-    top:45%;
+    top:25%;
+    left: 1%;
 }
 .submit-input input{
     width: 4em;
@@ -156,4 +174,17 @@ body{
     color: white;
     font-size: 1em;
     padding: 0;
+}
+#enviar_btn:hover{
+    cursor: pointer;
+
+}
+.error-span{
+    position: absolute;
+    right:26%;
+    width: 20%;
+    top: 35%;
+    color: #F57506;
+    font-family: "Bell MT";
+    font-size: 1.5vw;
 }

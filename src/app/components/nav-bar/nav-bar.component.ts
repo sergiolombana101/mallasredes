@@ -9,11 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
+    showCart = false;
+
     constructor(private router:Router){
       this.loadScript("assets/js/nav-bar.js").then(()=>{})
     }
 
-    ngOnInit(){}
+    ngOnInit(){
+      (sessionStorage.getItem("numOfItems") != "0") ? this.showCart = true : this.showCart = false;
+    }
 
     inicioClick(){
       this.router.navigateByUrl("/");

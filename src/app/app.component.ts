@@ -62,7 +62,10 @@ export class AppComponent{
         break;
       case "ContactComponent":
         localStorage.setItem("component","contact");
+        this.loadScript("assets/js/contact.js").then(()=>{})
+        break;
     }
+    sessionStorage.setItem("numOfItems","0");
     sessionStorage.setItem("activeSection","0");
     sessionStorage.setItem("prevSection","0");
     localStorage.setItem("onProducts","false");

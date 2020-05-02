@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ContactRoutingModule } from './contact-routing.module';
 import { ContactComponent } from './contact.component';
 import { NavBarModule } from '../../nav-bar.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { NavBarModule } from '../../nav-bar.module';
   imports: [
     CommonModule,
     ContactRoutingModule,
-    NavBarModule
+    NavBarModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ContactModule { }

@@ -15,4 +15,6 @@ export class ProductsComponent implements OnInit {
 
     ngOnInit(){}
 
+    verMas(nombre){}
+
 }

@@ -8,6 +8,9 @@
         <span (click)="productosClick()">Productos</span>
         <span (click)="clientesClick()">Clientes</span>
         <span (click)="contactClick()">Contáctanos</span>
+        <div *ngIf="showCart">
+        <img src="../../../assets//img//cart.png">
+        </div>
     </div>
     </div>
 

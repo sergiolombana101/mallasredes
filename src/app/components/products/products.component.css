@@ -101,6 +101,7 @@ body{
 }
 .card-footer{
     margin-top: 19%;
+    cursor: pointer;
 }
 .card-footer div{
     height: 3em;

@@ -41,6 +41,11 @@ const routes: Routes = [
     path: 'clientes',
     loadChildren: () => import('./components/clientes/clientes.module').then(m=>m.ClientesModule),
     data : {kind:'update'}
+  },
+  {
+    path: 'product-details',
+    loadChildren: () => import('./components/product-details/product-details.module').then(m=>m.ProductDetailsModule),
+    data : {kind:'update'}
   }
 ];
 
