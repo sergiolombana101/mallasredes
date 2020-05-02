@@ -28,6 +28,7 @@ export class AppComponent{
     private activatedRoute:ActivatedRoute,
     private location:Location
   ) {
+    console.log("App Component called");
     localStorage.setItem("loaded","false");
     this.loadScript("assets/js/nav-bar.js").then(()=>{
       this.loadScript("assets/js/jquery.onepage-scroll.min.js",true).then(()=>{
@@ -47,20 +48,19 @@ export class AppComponent{
 
   // Scroll To Top When Route Changes
   onActivate(event: any) {
-
-    this.componentName = event.constructor.name;
-    console.log(this.componentName);
+    console.log("onActivate called");
+    this.componentName = event.constructor.__annotations__[0].selector;
     switch(this.componentName){
-      case "HomeRoutingComponent":
+      case "app-home-routing":
         localStorage.setItem("component","home");
         break;
-      case "ProductRoutingComponent":
+      case "app-product-routing":
         localStorage.setItem("component","products");
         break;
-      case "ClientesComponent":
+      case "app-clientes":
         localStorage.setItem("component","clientes");
         break;
-      case "ContactComponent":
+      case "app-contact":
         localStorage.setItem("component","contact");
         this.loadScript("assets/js/contact.js").then(()=>{})
         break;

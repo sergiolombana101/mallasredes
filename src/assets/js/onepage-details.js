@@ -1,3 +1,4 @@
+if(localStorage.getItem("loaded") == "true"){
 $(".main").onepage_scroll({
     sectionContainer:"section",
     easing:"ease",
@@ -143,19 +144,6 @@ $(".main").onepage_scroll({
           })
         }
 
-        const loadScript = (url,details=false)=>{
-          return new Promise((resolve,reject)=>{
-            const script = document.createElement("script");
-            script.src = url;
-            script.onload = ()=>{
-              resolve();
-            };
-            (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script);
-            resolve();
-             
-          })
-        }
-    
   
   
           let direction = '';
@@ -286,3 +274,4 @@ $(".main").onepage_scroll({
     responsiveFallback:false,
     direction:"vertical"
   })
+}
