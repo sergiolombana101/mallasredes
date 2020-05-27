@@ -48,5 +48,14 @@
     height: 1.5em;
     width: 1.5em;
     position: absolute;
-    margin-left: 4%;
+    top: 5%;
+    left: 170%;
+}
+
+.numOfItems{
+    position: absolute;
+    top:-36%;
+    left:175%;
+    color: #F57506;
+    font-weight: bold;
 }

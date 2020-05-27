@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
+    numOfItems = 0;
+
     constructor(private router:Router){
     }
 

@@ -1,4 +1,234 @@
-.nav-bar{
+body{
+    background-image: url('../../../assets/img/wallpapers/background1.png');
+    background-size: 1550px 800px;
+    background-repeat: no-repeat;
+}
+.first-splash{
+    height: 3em;
+    width: 5em;
+    position: relative;
+    left: -2%;
+}
+.first-splash div{
+    background-image: url('../../../assets/img/wallpapers/soportes.png');
+    background-size: 1550px 800px;
+    height: 100%;
+    width: 100%;
+    border-radius: 5em;
+    border: 3px solid #d5d5d7;
+}
+.nav-logo img{
+    height: 6em;
+    width: 15em;
+}
+.nav-logo{
+    margin-top: 2%;
+    position: absolute;
+}
+.menu-container{
+    position: absolute;
+    top: 2%;
+    right: -24%;
+}
+.menu{
+    background-color: rgba(88, 88, 88, 0.2);
+    height:38vh;
+    width: 45%;
+}
+.product-title-container div{
+    position: absolute;
+    top: 5%;
+    left: 3%;
+}
+.product-title{
+    color: white;
+    font-weight: bold;
+    font-family: 'Bell MT' ;
+    font-size: 4vw;
+}
+.comprar-btn-container{
+    position: absolute;
+    top: 14%;
+    left: 34%;
+    width: 30%;
+    height: 2vh;
+}
+.comprar-btn-container div{
+    background-color: #C5B5A5;
+    width: 9em;
+    height: 4em;
+    cursor: pointer;
+}
+.comprar-btn{
+    color: white;
+    margin-top: 1em;
+    font-family: 'Bell MT';
+    font-size: 1.5vw;
+    cursor: pointer;
+}
+.slide-btn-container{
+    position: absolute;
+    top: 27%;
+    height: 10em;
+    width: 10em;
+    left: 29%;
+}
+.left-slide-btn{
+    background-color: #C5B5A5;
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    left: 50%;
+}
+.right-slide-btn{
+    background-color: #C5B5A5;
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    left: 190%;
+}
+.flecha-izquierda, .flecha-derecha{
+    margin-top: .8em;
+}
+.flecha-derecha{
+    transform: rotate(180deg);
+}
+li{
+    list-style-type: none;
+}
+.logo-img{
+    height: 1.5em;
+    width: 1.5em;
+    position: absolute;
+    left: 50%;
+    margin-top:0%;
+}
+.inicio-option{
+    display: flex;
+    margin-top: 2em;
+}
+.inicio-option span{
+    color: white;
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+
+.fade-out {
+    animation: fadeOut ease 1s;
+    -webkit-animation: fadeOut ease 1s;
+    -moz-animation: fadeOut ease 1s;
+    -o-animation: fadeOut ease 1s;
+    -ms-animation: fadeOut ease 1s;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-ms-keyframes fadeOut {
+    0% {
+      opacity:1;
+    }
+    100% {
+      opacity:0;
+  }
+}
+
+.blobCont{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.blob{
+  display:none;
+}
+
+
+
+.fade-in {
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+
+}
+/*.nav-bar{
     width:100%;
     height: 7vh;
     position: relative;
@@ -108,4 +338,4 @@ body{
     width: 54%;
     background-color: #F57506;
     display: inline-block;
-}
+}*/

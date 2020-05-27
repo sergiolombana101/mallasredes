@@ -9,11 +9,13 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
         ver_mas[x].onmouseover = () => {
             ver_mas[x].style.transition = "1s";
             ver_mas[x].style.color = "#67563F";
+            ver_mas[x].style.fontWeight = "bold";
             let card_footer = ver_mas[x].parentElement;
-            card_footer.style.backgroundColor = "rgba(103, 86, 63, 0.59)";
+            card_footer.style.backgroundColor = "grey";
         }
         ver_mas[x].onmouseout = () => {
             ver_mas[x].style.color = "white";
+            ver_mas[x].style.fontWeight = "300";
             let card_footer = ver_mas[x].parentElement;
             card_footer.style.backgroundColor = "#67563F";
         }
@@ -32,6 +34,9 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
         pagination.children[1].children[0].classList.add('active');
         sessionStorage.setItem("activeSection","1");
         localStorage.setItem("onProducts","true");
+        let products_container = document.getElementsByClassName("products_container")[0];
+        products_container.style.transition = "4s";
+        products_container.style.opacity = "1";
     }
 
     arrow_up.onclick = () => {

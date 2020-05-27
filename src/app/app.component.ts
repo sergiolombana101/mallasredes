@@ -53,6 +53,7 @@ export class AppComponent{
     switch(this.componentName){
       case "app-home-routing":
         localStorage.setItem("component","home");
+        this.loadScript("assets/js/home-landing.js");
         break;
       case "app-product-routing":
         localStorage.setItem("component","products");
@@ -83,9 +84,9 @@ export class AppComponent{
     }
 
     localStorage.setItem("loaded","false");
-    this.loadScript("assets/js/nav-bar.js").then(()=>{
+    this.loadScript("assets/js/home-landing.js").then(()=>{
       this.loadScript("assets/js/jquery.onepage-scroll.min.js",true).then(()=>{
-        this.loadScript("assets/js/home-landing.js").then(()=>{
+        this.loadScript("assets/js/nav-bar.js").then(()=>{
           this.loadScript("assets/js/onepage-details.js").then(()=>{
             this.loadScript("assets/js/products.js").then(()=>{
               this.loaded = true;

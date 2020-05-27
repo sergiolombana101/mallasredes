@@ -31,18 +31,36 @@ body{
     outline: none;
     border-radius: 20px;
 }
-.nav-bar-container img{
-    height: 15vh;
+.logo-img{
+    height: 12vh;
     width: 35vh;
     position: absolute;
     left: 5%;
-    top: 3%;
+    top: 7%;
 }
-.nav-bar-container div{
+.nav-bar-box{
     background-color: #67563F;
     height: 8em;
     border-bottom-left-radius: 100em;
     border-bottom-right-radius: 100em;
+}
+.cart-container{
+    position: absolute;
+    right: 10%;
+    width: 5em;
+    height: 2em;
+    top: 9%;
+}
+.numOfItems{
+    position:absolute;
+    bottom: 2%;
+    left: 30%;
+    color: rgb(255, 126, 5);
+    font-weight: bold;
+}
+.cart-img{
+    height: 2em;
+    width: 2em;
 }
 .first-section{
     margin-top: 5%;
@@ -114,8 +132,8 @@ body{
     color: white;
     font-family: "Bell MT";
     position: relative;
-    top: 0.5em;
-    left: 4.5em;
+    top: 0.3em;
+    left: 4.2em;
 }
 .scroll-bar-container{
     position: absolute;

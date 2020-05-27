@@ -1,4 +1,147 @@
-<body>
+<body class="landing-body">
+    <div class="grid-x grid-padding-x nav-bar">
+
+
+        <svg class="blobCont">
+            <image class="blob-image" href="../../../assets/img/wallpapers/background1.png" 
+                   mask="url(#mask)" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+          <defs>
+          <filter id="gooey" height="130%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+            </filter>
+        </defs>
+                <mask id="mask" x="0" y="0">
+                    <g class="g" style="filter: url(#gooey)">
+                        
+                       <circle class="blob derecha" cx="0%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="cx"
+                                begin="flechabtn.click"
+                                from="0"
+                                to="500"
+                                dur="2s"
+                                repeatCount="1"
+                            ></animate>
+                        </circle>
+                        <circle class="blob derecha" cx="100%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="cx"
+                                begin="flechabtn.click"
+                                from="1500"
+                                to="1000"
+                                dur="2s"
+                                repeatCount="1"
+                            ></animate>
+                        </circle>
+                        <circle class="blob derecha" cx="50%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="r"
+                                begin="flechabtn.click"
+                                calcMode="spline"
+                                keySplines="0.3 0 0.7 1;0.3 0 0.7 1"
+                                values="0;900;1000"
+                                keyTimes="0;0.5;1"
+                                dur="5s"
+                                repeatCount="1"></animate>
+                        </circle>    
+
+
+                        <circle class="blob izquierda" cx="0%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="cx"
+                                begin="flechaizbtn.click"
+                                from="0"
+                                to="500"
+                                dur="2s"
+                                repeatCount="1"
+                            ></animate>
+                        </circle>
+                        <circle class="blob izquierda" cx="100%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="cx"
+                                begin="flechaizbtn.click"
+                                from="1500"
+                                to="1000"
+                                dur="2s"
+                                repeatCount="1"
+                            ></animate>
+                        </circle>
+                        <circle class="blob izquierda" cx="50%" cy="45%" r="40" fill="white" stroke="white">
+                            <animate
+                                attributeName="r"
+                                begin="flechaizbtn.click"
+                                calcMode="spline"
+                                keySplines="0.3 0 0.7 1;0.3 0 0.7 1"
+                                values="0;900;1000"
+                                keyTimes="0;0.5;1"
+                                dur="5s"
+                                repeatCount="1"></animate>
+                        </circle>    
+                    </g>
+                </mask>
+        </svg>
+    
+
+
+        <div class="cell medium-3 nav-logo">
+            <img src="../../../assets/img/landing-logo.png">
+        </div>
+        <div class="cell medium-5 medium-offset-11 menu-container">
+            <div class="menu">
+                <ul>
+                    <li>
+                        <div class="inicio-option">
+                        <img class="logo-img" src="../../../assets//img//iconos//inicio.png">
+                        <span (click)="inicioClick()">Inicio</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inicio-option">
+                        <img class="logo-img" src="../../../assets//img//iconos//productos.png">
+                        <span (click)="productClick()">Productos</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inicio-option">
+                        <img class="logo-img" src="../../../assets//img//iconos//clientes.png">
+                        <span (click)="clientesClick()">Clientes</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inicio-option">
+                        <img class="logo-img" src="../../../assets//img//iconos//mail.png">
+                        <span (click)="contactClick()">Contactanos</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x product-title-container">
+        <div class="cell medium-5 medium-offset-4">
+            <span class="product-title">MALLAS DE SEGURIDAD</span>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x comprar-btn-container">
+        <div class="cell medium-5 medium-offset-4 comprar-btn-div">
+            <button class="comprar-btn"><span>COMPRAR</span></button>
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x slide-btn-container">
+        <div class="cell medium-3 medium-offset-10 left-slide-btn">
+            <button id="flechaizbtn" class="flecha-izquierda-btn">
+                <img src="../../../assets//img//wallpapers//flecha.png" class="flecha-izquierda">
+            </button>
+        </div>
+        <div class="cell medium-3 right-slide-btn">
+            <button id="flechabtn" class="flecha-derecha-btn">
+                <img src="../../../assets//img//wallpapers//flecha.png" class="flecha-derecha">
+            </button>
+        </div>
+    </div>
+</body>
+<!--<body>
     <div class="grid-x grid-padding-x nav-bar">
         <div class="cell medium-4 nav-logo">
             <img src="../../../assets/img/landing-logo.png">
@@ -46,4 +189,4 @@
         </div>
     </div>
 
-</body>
+</body> -->
