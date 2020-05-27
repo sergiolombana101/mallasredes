@@ -36,7 +36,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
         switch(section){
             case "seguridad":
                 blob_imageBackground.setAttribute("href","../../../assets/img/wallpapers/soportes.png")
-                replace_img = "url('soportes.png')";
+                replace_img = "url('../../../assets/img/wallpapers/soportes.png')";
                 localStorage.setItem("landing-section","soportes");
                 break;
             case "soportes":
@@ -133,7 +133,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
                 break;
             case "deportes":
                 blob_imageBackground.setAttribute("href","../../../assets/img/wallpapers/soportes.png")
-                replace_img = "url('soportes.png')";
+                replace_img = "url('../../../assets/img/wallpapers/soportes.png')";
                 localStorage.setItem("landing-section","soportes");
                 break;
         }
