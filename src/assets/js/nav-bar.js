@@ -30,6 +30,12 @@ if(localStorage.getItem("loaded") == "true"){
             nav_lines[0].children[0].style.width = "118%";
             nav_lines[0].children[0].style.transition = "2s";
             break;
+        default:
+            nav_lines[0].style.transition = "1s";
+            nav_lines[0].style.left = "19%"
+            nav_lines[0].children[0].style.width = "118%";
+            nav_lines[0].children[0].style.transition = "2s";
+            break;
     }
     
 
@@ -76,6 +82,16 @@ if(localStorage.getItem("loaded") == "true"){
                     nav_lines[0].children[0].style.width = "118%";
                     nav_lines[0].children[0].style.transition = "2s";
                     break;
+                default:
+                    nav_lines[0].style.transition = "1s";
+                    if(component == "home"){
+                        nav_lines[0].style.left = "27.2%"
+                    }else{
+                        nav_lines[0].style.left = "19%"
+                    }
+                    nav_lines[0].children[0].style.width = "118%";
+                    nav_lines[0].children[0].style.transition = "2s";
+                    break;
             
 
             }
@@ -102,6 +118,12 @@ if(localStorage.getItem("loaded") == "true"){
                     nav_lines[0].children[0].style.transition = "2s";
                     break;
                 case "contact":
+                    nav_lines[0].style.transition = "1s";
+                    nav_lines[0].style.left = "19%"
+                    nav_lines[0].children[0].style.width = "118%";
+                    nav_lines[0].children[0].style.transition = "2s";
+                    break;
+                default:
                     nav_lines[0].style.transition = "1s";
                     nav_lines[0].style.left = "19%"
                     nav_lines[0].children[0].style.width = "118%";

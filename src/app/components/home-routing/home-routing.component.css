@@ -1,4 +1,64 @@
+.main{
+    opacity:0;
+    transition: 2s;
+    top:100%;
+}
 .home-landing{
     height:150em;
     width: 100%;
+}
+.main-loading{
+    transition: 2s;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height:100vh;
+    width: 100%;
+    background-color: #67563F;
+}
+.video{
+    position: absolute;
+    top: -10%;
+    left: 25%;
+    width: 50%;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none;
+    background-color: transparent;
+    box-sizing: unset;
+}
+.videp-wrapper{
+    overflow: hidden;
+    width: 20em;
+}
+.border-left,.border-right,.border-top{
+    background-color: #67563F;
+    height: 45em;
+    width: 2em;
+}
+.border-left{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+.border-right{
+    position: absolute;
+    top: 10%;
+    left: 74%;
+}
+.border-top{
+    transform: rotate(90deg);
+    position: absolute;
+    left: 48%;
+    top: -35%;
+    height: 50em;
+}
+
+
+@-webkit-keyframes slide {
+    100% { left: -100; }
+}
+
+@keyframes slide {
+    100% { left: -100; }
 }

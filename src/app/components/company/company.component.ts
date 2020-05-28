@@ -15,12 +15,15 @@ export class CompanyComponent implements OnInit {
     ngOnInit(){}
 
     visionClick(){
+      localStorage.setItem('isFirstVisit','false');
       this.router.navigate(['vision']);
     }
     misionClick(){
+      localStorage.setItem('isFirstVisit','false');
       this.router.navigate(['mision']);
     }
     nosotrosClick(){
+      localStorage.setItem('isFirstVisit','false');
       this.router.navigate(['nosotros']);
     }
 

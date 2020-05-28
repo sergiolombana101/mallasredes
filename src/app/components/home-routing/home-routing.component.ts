@@ -11,29 +11,28 @@ declare var jQuery: any;
 export class HomeRoutingComponent implements OnInit {
 
     url = "assets/js/jquery.onepage-scroll.min.js";
-    loaded =true;
+    loaded = false;
+    opacity = false;
+    visitCount:String
+
     constructor(){
-      //this.loadScript("assets/js/jquery.onepage-scroll.min.js").then(()=>{
-        //this.loadScript("assets/js/onepage-details.js",true)
-        //this.loadScript("assets/js/nav-bar.js")
-        //this.loaded = true;
-      //});
+  
     }
 
     ngOnInit(){
+    console.log(localStorage.getItem('visitCount'))
+     this.visitCount = localStorage.getItem('visitCount');
+     if(this.visitCount == '1'){
+      setTimeout(()=>{
+        this.opacity = true;
+       },9000)
+       setTimeout(()=>{
+         this.loaded = true;
+       },9800)
+     }else{
+      this.loaded = true;
     }
+  }
 
-    /*loadScript(url, details=false){
-        console.log("Reloading script");
-        return new Promise((resolve,reject)=>{
-          const script = document.createElement("script");
-          script.src = url;
-          script.onload = ()=>{
-            resolve();
-          };
-          (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script) 
-          
-        })
-    }*/
   
 }
