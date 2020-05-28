@@ -8,7 +8,7 @@ app.listen(process.env.PORT || 8080);
 app.get('/*', function(req,res){
     res.sendFile(path.join(__dirname+'/dist/index.html'));
 })
-var nodemailer = require('nodemailer');
+/*var nodemailer = require('nodemailer');
 
 function sendEmail(values){
     var transporter = nodemailer.createTransport({
@@ -45,4 +45,4 @@ function sendEmail(values){
             res.status(200)
         }
     });
-}
+}*/
