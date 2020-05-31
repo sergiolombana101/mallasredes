@@ -1,6 +1,6 @@
 if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component') == "home"){
 
-    if(localStorage.getItem('visitCount') == "1"){
+    if(sessionStorage.getItem('visitCount') == "1"){
         let animContainer = document.getElementsByClassName('video')[0];
         animContainer.removeChild(animContainer.childNodes[0]);
         let img = document.createElement('img');
