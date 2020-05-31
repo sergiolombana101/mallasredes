@@ -20,15 +20,14 @@ export class HomeRoutingComponent implements OnInit {
     }
 
     ngOnInit(){
-    console.log(localStorage.getItem('visitCount'))
      this.visitCount = localStorage.getItem('visitCount');
      if(this.visitCount == '1'){
       setTimeout(()=>{
         this.opacity = true;
-       },9000)
+       },8000)
        setTimeout(()=>{
          this.loaded = true;
-       },9800)
+       },8800)
      }else{
       this.loaded = true;
     }

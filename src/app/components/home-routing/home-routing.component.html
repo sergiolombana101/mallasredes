@@ -1,13 +1,14 @@
 <div *ngIf="loaded == false && visitCount == '1'" class="main-loading" [ngStyle]="opacity?{'transform':'translateX(-2000px)'}:null">
     <div class="video-wrapper">
-    <video width="1000" height="1000" class="video" autoplay>
-        <source src="../../../assets/videos//animation.mp4">
-    </video>
+    <div class="video">
+        <img src="../../../assets//img/animation1.svg">
     </div>
-    <div class="borders">
-        <div class="border-left"></div>
-        <div class="border-right"></div>
-        <div class="border-top"></div>
+    <div class="progress-bar">
+        <div class="bar-outer">
+            <div class="bar"></div>
+        </div>
+        <span id="percentage"></span><span class="percentage">%</span>
+    </div>
     </div>
 </div>
 

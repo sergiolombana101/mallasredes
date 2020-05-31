@@ -1,5 +1,25 @@
 if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component') == "home"){
 
+    if(localStorage.getItem('visitCount') == "1"){
+        let animContainer = document.getElementsByClassName('video')[0];
+        animContainer.removeChild(animContainer.childNodes[0]);
+        let img = document.createElement('img');
+        img.src = "../../../assets//img/animation1.svg";
+        animContainer.appendChild(img);
+        let bar = document.getElementsByClassName('bar')[0];
+        let percentage = document.getElementById('percentage');
+        bar.style.width = '7em';
+        let count = 0;
+        let percentageCount = setInterval(()=>{
+            if(count == 99){
+                clearInterval(percentageCount);
+            }
+            count++;
+            percentage.innerHTML = count;
+        },50)
+    }
+    
+
     localStorage.setItem("landing-section","seguridad"); //This is the variable that I am going to use to reference which image is being shown
 
     let product_title_container = document.getElementsByClassName("product-title-container");

@@ -17,16 +17,13 @@
     background-color: #67563F;
 }
 .video{
+    width: 30%;
+    height: 50vh;
     position: absolute;
-    top: -10%;
-    left: 25%;
-    width: 50%;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none;
-    background-color: transparent;
-    box-sizing: unset;
+    left: 35%;
+    top: 15%;
 }
+
 .videp-wrapper{
     overflow: hidden;
     width: 20em;
@@ -52,6 +49,41 @@
     left: 48%;
     top: -35%;
     height: 50em;
+}
+
+.progress-bar{
+    position: absolute;
+    top:55%;
+    left:44%;
+    display: flex;
+}
+.bar-outer{
+    width:7em;
+    height:.4em;
+    background-color: #F5EBE1;
+    border-radius: 2em;
+}
+.bar{
+    height: .4em;
+    width:1em;
+    background-color: #A3917E;
+    border-radius: 2em;
+    transition: 7s;
+}
+#percentage{
+    color: white;
+    margin-right: 1em;
+    position: absolute;
+    top: -120%;
+    left: 110%;
+}
+
+.percentage{
+    position: absolute;
+    top:-120%;
+    left: 120%;
+    margin-left: 1em;
+    color: white
 }
 
 
