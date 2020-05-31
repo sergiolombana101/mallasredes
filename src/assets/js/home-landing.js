@@ -71,15 +71,28 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
                 break;
         }
         /*----------------------------------------------
-            THE CIRCLES HAVE A DEFAULT DISPLAY OF NONE
-            SO I AM CHANGING THE DISPLAY TO INITIAL
+            IM SETTING THE CORRDINATES FOR THE CIRCLES
+            FOR THE ANIMATION
         ------------------------------------------------ */
         let g = document.getElementsByClassName('g')[0];
         for(let i = 0; i<g.childNodes.length;i++){
             if(g.childNodes[i].classList[1] == "derecha"){
-                g.childNodes[i].style.display = 'initial';
+                g.childNodes[i].style.opacity = '1';
             }
         }
+        let left_circle = document.getElementById('left-circle');
+        left_circle.style.transition = '4s';
+        left_circle.style.position = 'absolute';
+        left_circle.style.transform = 'translateX(45em)';
+
+        let right_circle = document.getElementById('right-circle');
+        right_circle.style.transition = '4s';
+        right_circle.style.position = 'absolute';
+        right_circle.style.transform = 'translateX(-45em)';
+
+        let middle_circle = document.getElementById('middle-circle');
+        middle_circle.style.transition = '4s';
+        middle_circle.setAttribute('r','1000');
         /*----------------------------------------------
             AFTER THE CIRCLES ANIMATION IS COMPLETE, IT IS
             GOING TO FADE AWAY. SO I NEED TO CHANGE THE BODY
@@ -87,9 +100,23 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
         ------------------------------------------------ */
         setTimeout(()=>{
             document.getElementsByClassName('landing-body')[0].style.backgroundImage = replace_img;
+            /*-------------------------------------
+                IM SETTING THE DEFAULT ATTRIBUTES BACK AGAIN SO
+                I CAN MAKE THE ANIMATION ON THE NEXT SLIDE
+            --------------------------------------- */
             for(let i = 0; i<g.childNodes.length;i++){
                 if(g.childNodes[i].classList[1] == "derecha"){
-                    g.childNodes[i].style.display = 'none';
+                    switch(g.childNodes[i].id){
+                        case "left-circle":
+                            g.childNodes[i].style.transform = 'translateX(-45em)';
+                            break;
+                        case "right-circle":
+                            g.childNodes[i].style.transform = 'translateX(45em)';
+                            break;
+                        case "middle-circle":
+                            g.childNodes[i].setAttribute('r','40');
+                            break;
+                    }
                 }
             }
         },2000)
@@ -164,9 +191,22 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
         let g = document.getElementsByClassName('g')[0];
         for(let i = 0; i<g.childNodes.length;i++){
             if(g.childNodes[i].classList[1] == "izquierda"){
-                g.childNodes[i].style.display = 'initial';
+                g.childNodes[i].style.opacity = '1';
             }
         }
+        let left_circle = document.getElementById('left-circle2');
+        left_circle.style.transition = '4s';
+        left_circle.style.position = 'absolute';
+        left_circle.style.transform = 'translateX(45em)';
+
+        let right_circle = document.getElementById('right-circle2');
+        right_circle.style.transition = '4s';
+        right_circle.style.position = 'absolute';
+        right_circle.style.transform = 'translateX(-45em)';
+
+        let middle_circle = document.getElementById('middle-circle2');
+        middle_circle.style.transition = '4s';
+        middle_circle.setAttribute('r','1000');
         /*----------------------------------------------
             AFTER THE CIRCLES ANIMATION IS COMPLETE, IT IS
             GOING TO FADE AWAY. SO I NEED TO CHANGE THE BODY
@@ -174,9 +214,23 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
         ------------------------------------------------ */
         setTimeout(()=>{
             document.getElementsByClassName('landing-body')[0].style.backgroundImage = replace_img;
+            /*-------------------------------------
+                IM SETTING THE DEFAULT ATTRIBUTES BACK AGAIN SO
+                I CAN MAKE THE ANIMATION ON THE NEXT SLIDE
+            --------------------------------------- */
             for(let i = 0; i<g.childNodes.length;i++){
                 if(g.childNodes[i].classList[1] == "izquierda"){
-                    g.childNodes[i].style.display = 'none';
+                    switch(g.childNodes[i].id){
+                        case "left-circle2":
+                            g.childNodes[i].style.transform = 'translateX(-45em)';
+                            break;
+                        case "right-circle2":
+                            g.childNodes[i].style.transform = 'translateX(45em)';
+                            break;
+                        case "middle-circle2":
+                            g.childNodes[i].setAttribute('r','40');
+                            break;
+                    }
                 }
             }
         },2000)
