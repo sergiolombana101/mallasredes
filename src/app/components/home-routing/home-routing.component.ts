@@ -20,7 +20,7 @@ export class HomeRoutingComponent implements OnInit {
     }
 
     ngOnInit(){
-     this.visitCount = localStorage.getItem('visitCount');
+     this.visitCount = sessionStorage.getItem('visitCount');
      if(this.visitCount == '1'){
       setTimeout(()=>{
         this.opacity = true;

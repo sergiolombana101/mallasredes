@@ -52,12 +52,12 @@ export class AppComponent{
     this.componentName = event.constructor.__annotations__[0].selector;
     switch(this.componentName){
       case "app-home-routing":
-        if(localStorage.getItem('visitCount') == null){
-          localStorage.setItem('visitCount','1');
+        if(sessionStorage.getItem('visitCount') == null){
+          sessionStorage.setItem('visitCount','1');
         }else{
           let count = parseInt(localStorage.getItem('visitCount'));
           count++;
-          localStorage.setItem('visitCount',count+"");
+          sessionStorage.setItem('visitCount',count+"");
         }
         localStorage.setItem("component","home");
         this.loadScript("assets/js/home-landing.js");
