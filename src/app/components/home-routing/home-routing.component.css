@@ -28,28 +28,7 @@
     overflow: hidden;
     width: 20em;
 }
-.border-left,.border-right,.border-top{
-    background-color: #67563F;
-    height: 45em;
-    width: 2em;
-}
-.border-left{
-    position: absolute;
-    top: 10%;
-    left: 25%;
-}
-.border-right{
-    position: absolute;
-    top: 10%;
-    left: 74%;
-}
-.border-top{
-    transform: rotate(90deg);
-    position: absolute;
-    left: 48%;
-    top: -35%;
-    height: 50em;
-}
+
 
 .progress-bar{
     position: absolute;

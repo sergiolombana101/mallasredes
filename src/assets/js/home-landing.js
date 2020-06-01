@@ -81,17 +81,17 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
             }
         }
         let left_circle = document.getElementById('left-circle');
-        left_circle.style.transition = '4s';
+        left_circle.style.transition = '2s';
         left_circle.style.position = 'absolute';
         left_circle.style.transform = 'translateX(45em)';
 
         let right_circle = document.getElementById('right-circle');
-        right_circle.style.transition = '4s';
+        right_circle.style.transition = '2s';
         right_circle.style.position = 'absolute';
         right_circle.style.transform = 'translateX(-45em)';
 
         let middle_circle = document.getElementById('middle-circle');
-        middle_circle.style.transition = '4s';
+        middle_circle.style.transition = '2s';
         middle_circle.setAttribute('r','1000');
         /*----------------------------------------------
             AFTER THE CIRCLES ANIMATION IS COMPLETE, IT IS
@@ -119,7 +119,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
                     }
                 }
             }
-        },2000)
+        },1700)
         /*----------------------------------------------\
             THIS SEGMENT IS JUST CHANGING THE PRODUCT TITLE
             TEXT TO WHATEVER THE NEXT SECTION IS
@@ -195,17 +195,17 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
             }
         }
         let left_circle = document.getElementById('left-circle2');
-        left_circle.style.transition = '4s';
+        left_circle.style.transition = '2s';
         left_circle.style.position = 'absolute';
         left_circle.style.transform = 'translateX(45em)';
 
         let right_circle = document.getElementById('right-circle2');
-        right_circle.style.transition = '4s';
+        right_circle.style.transition = '2s';
         right_circle.style.position = 'absolute';
         right_circle.style.transform = 'translateX(-45em)';
 
         let middle_circle = document.getElementById('middle-circle2');
-        middle_circle.style.transition = '4s';
+        middle_circle.style.transition = '2s';
         middle_circle.setAttribute('r','1000');
         /*----------------------------------------------
             AFTER THE CIRCLES ANIMATION IS COMPLETE, IT IS
@@ -233,7 +233,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
                     }
                 }
             }
-        },2000)
+        },1700)
         /*----------------------------------------------\
             THIS SEGMENT IS JUST CHANGING THE PRODUCT TITLE
             TEXT TO WHATEVER THE NEXT SECTION IS

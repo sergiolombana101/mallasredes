@@ -173,6 +173,12 @@ li{
 .blob{
   opacity: 1;
 }
+.arrow_container{
+  height: 2em;
+  width: 7em;
+  position: absolute;
+  left:-200%;
+}
 
 
 
