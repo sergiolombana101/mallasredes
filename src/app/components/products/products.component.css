@@ -2,8 +2,19 @@ body{
     background-color: #C5B5A5;
     height: 200vh;
 }
+.ver-mas-section{
+    /*TEMPORARY*/
+    transform: translateX(100em); 
+}
 .products_container{
     opacity:0;
+}
+.products_container_vermas{
+    opacity: 1;
+}
+.ver-mas-section{
+    position: relative;
+    bottom: 43.1em;
 }
 .buscar{
     position: relative;
@@ -85,6 +96,7 @@ body{
     width: 9em;
     background-color: #F5EBE1;
     border-radius: 2em;
+    cursor: pointer;
 }
 .first-box{
     margin-left: 6%;
@@ -92,6 +104,7 @@ body{
     width: 9em;
     background-color:  #A76F23;
     border-radius: 2em;
+    cursor: pointer;
 }
 .category-box span, .first-box span{
     color: #F5EBE1;
@@ -181,7 +194,120 @@ body{
     background-color: #67563F;
 }
 
-
+.card-master{
+    margin-top:5em;
+}
+.arrow-container{
+    margin-left:3%;
+    cursor: pointer;
+}
+.arrow-container img{
+    width:3em;
+    margin-top: 2%;
+}
+.card-container{
+    background-color: white;
+    width: 65em;
+    height: 70vh;
+    position: absolute;
+    left: 20%;
+    border-radius: 3em;
+}
+.product-img-container{
+    margin-top:2%;
+    margin-left: .5%;
+}
+.product-img-container img{
+    border-radius: 3em;
+    height: 20em;
+    width: 23em;
+}
+.agregar-button{
+    position: relative;
+    left: 40%;
+    top:1em;
+}
+.agregar-button button{
+    width: 40%;
+    height: 7vh;
+    background-color: #F57506;
+    font-size: 1.2vw;
+    color: white;
+    font-family: "Bell MT";
+    cursor: pointer;
+}
+.agregar-button button:hover{
+    transition: 1s;
+    background-color: rgba(88, 88, 88, 0.72);
+    font-size: 1.4vw;
+}
+.product-title-vermas{
+    position: absolute;
+    left:42%;
+    top:15%;
+}
+.product-title-vermas span{
+    font-size: 1.8vw;
+    font-family: 'Bell MT';
+    color: #67563F;
+}
+.product-description-vermas{
+    position:absolute;
+    left:42%;
+    top:35%;
+}
+.product-description-vermas span{
+    font-size: 1.1vw;
+    font-family: 'Bell MT';
+}
+.more-images{
+    margin-top:5%;
+    margin-left:.1em;
+}
+.image{
+    margin: 0;
+}
+.image img{
+    width: 5em;
+    height: 5em;
+}
+.extra-img{
+    position: relative;
+    left: -10%;
+}
+.extra-img:nth-child(3){
+    left: -20%;
+}
+.extra-img:nth-child(4){
+    left:-29%;
+}
+select{
+    width:6em;
+    height:1.5em;
+    margin-top:9%;
+}
+.opciones-container{
+    position: absolute;
+    left: 42%;
+    top:60%;
+}
+.second-option-span{
+    position: absolute;
+}
+.second-option-select{
+    position: relative;
+    margin-top: 28%;
+}
+.precio-container{
+    position:absolute;
+    right:10%;
+    bottom:5%;
+}
+.precio-container span{
+    font-size:1.6vw;
+    font-family: 'Bell MT';
+    color: #67563F;
+}
 /*body{
     background-color: #C5B5A5;
     height: 200vh;
