@@ -46,6 +46,11 @@ const routes: Routes = [
     path: 'product-details',
     loadChildren: () => import('./components/product-details/product-details.module').then(m=>m.ProductDetailsModule),
     data : {kind:'update'}
+  },
+  {
+    path: 'productos/:section',
+    loadChildren: () => import('./components/product-routing/product-routing.module').then(m=>m.ProductRoutingModule),
+    data: {kind:'update'}
   }
 ];
 

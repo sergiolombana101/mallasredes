@@ -90,6 +90,57 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
         products_container.style.opacity = "1";
     }
 
+    function navigateTo(section){
+        setTimeout(()=>{
+        let main = document.getElementsByClassName('main')[0];
+        let sections = main.children;
+        main.style.transition = "all 1000ms ease 0s";
+        main.style.transform = "translate3d(0px, -100%, 0px)";
+        sections[0].classList.remove('active');
+        sections[1].classList.add('active');
+        localStorage.setItem("direction","downOnProducts");
+        let pagination = document.getElementsByClassName('onepage-pagination')[0];
+        pagination.children[0].children[0].classList.remove('active');
+        pagination.children[1].children[0].classList.add('active');
+        sessionStorage.setItem("activeSection","1");
+        localStorage.setItem("onProducts","true");
+        let products_container = document.getElementsByClassName("products_container")[0];
+        products_container.style.transition = "4s";
+        products_container.style.opacity = "1";
+
+        switch(section){
+            case "seguridad":
+                categ_boxes[1].style.transition = "1s";
+                categ_boxes[1].style.backgroundColor = "#A76F23";
+                categ_boxes[1].children[0].style.transition = "1s";
+                categ_boxes[1].children[0].style.color = "#F5EBE1";
+                categ_boxes[1].classList.add('active');
+                break;
+            case "soportes":
+                categ_boxes[2].style.transition = "1s";
+                categ_boxes[2].style.backgroundColor = "#A76F23";
+                categ_boxes[2].children[0].style.transition = "1s";
+                categ_boxes[2].children[0].style.color = "#F5EBE1";
+                categ_boxes[2].classList.add('active');
+                break;
+            case "deportes":
+                categ_boxes[3].style.transition = "1s";
+                categ_boxes[3].style.backgroundColor = "#A76F23";
+                categ_boxes[3].children[0].style.transition = "1s";
+                categ_boxes[3].children[0].style.color = "#F5EBE1";
+                categ_boxes[3].classList.add('active');
+                break;
+        }
+
+        categ_boxes[0].style.transition = "1s";
+        categ_boxes[0].style.backgroundColor = "#F5EBE1";
+        categ_boxes[0].children[0].style.color = "#A76F23";
+        categ_boxes[0].classList.remove('active');
+
+
+        },200)
+    }
+
    /* arrow_up.onclick = () => {
         console.log("Arrow up clicked");
         let section_container = document.getElementsByClassName("section_container")[0];

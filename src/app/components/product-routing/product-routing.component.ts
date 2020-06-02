@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import "../../../assets/js/products.js"
 declare var jQuery: any;
+declare function navigateTo(section):any;
 
 @Component({
   selector: 'app-product-routing',
@@ -11,7 +14,7 @@ export class ProductRoutingComponent implements OnInit {
 
     loaded = false;
 
-    constructor(){
+    constructor(private router:Router){
       this.loadScript("assets/js/jquery.onepage-scroll.min.js").then(()=>{
         this.loadScript("assets/js/onepage-details.js",true)
         this.loaded = true;
@@ -19,6 +22,15 @@ export class ProductRoutingComponent implements OnInit {
     }
 
     ngOnInit(){
+      let href = this.router.url;
+      let path = href.split('/');
+      if(path.length == 3){
+        let section = path[2];
+        setTimeout(()=>{
+          navigateTo(section);
+        },200)
+      }
+      console.log(path);
     }
 
     onActivate(event:any){

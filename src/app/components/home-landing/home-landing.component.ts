@@ -27,7 +27,23 @@ export class HomeLandingComponent implements OnInit {
     verProductos(){
       this.productClick();
     }
-
+    comprarClick(){
+      let section = localStorage.getItem('landing-section');
+      this.loadScript("assets/js/products.js").then(()=>{
+        this.router.navigateByUrl('/productos/'+section);
+      })
+    }
+    loadScript(url, details=false){
+      return new Promise((resolve,reject)=>{
+        const script = document.createElement("script");
+        script.src = url;
+        script.onload = ()=>{
+          resolve();
+        };
+        (details) ? document.getElementsByTagName("body")[0].appendChild(script) : document.getElementsByTagName("head")[0].appendChild(script) 
+         
+      })
+    }
     ngOnInit(){}
 
 }
