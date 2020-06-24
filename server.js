@@ -1,8 +1,35 @@
-const bodyParser = require('body-parser');
-const express = require('express');
-const app = express();
+var express = require("express");
+var bodyParser = require("body-parser");
+
+
+var CONTACTS_COLLECTION = "contacts";
+
+var app = express();
+app.use(bodyParser.json());
+
+var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
+
+// CONTACTS API ROUTES BELOW
+
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}
+
+
+
+
+
+
+//const bodyParser = require('body-parser');
+//const express = require('express');
+//const app = express();
 const process = require('process');
-const http = require("http").createServer(app);
+//const http = require("http").createServer(app);
 const path = require("path");
 const cors = require("cors");
 const mysql = require('mysql');
@@ -33,6 +60,8 @@ let response = {
     token:null
 }
 
+
+/*
 // Add headers
 app.use(function (req, res, next) {
 
@@ -52,6 +81,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+*/
 
 setInterval(()=>{
     connection.query('SELECT * FROM usuarios',(err,results)=>{
@@ -72,10 +102,10 @@ app.get('/*', function(req,res) {
     });
 
 
-const port = process.env.PORT || 8080;
-http.listen(port, () => {
-  console.log("App listening on port " + port);
-});
+//const port = process.env.PORT || 8080;
+//http.listen(port, () => {
+  //console.log("App listening on port " + port);
+//});
 
 app.use(function(err, req, res, next) {
   console.error(err.message);
