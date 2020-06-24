@@ -12,15 +12,17 @@ var nodemailer = require('nodemailer');
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(cors());
 app.use(bodyParser.json());
-app.get('/',(req,res)=>{
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
+app.use(express.static(__dirname + '/dist/'));
+app.get('/', function(req,res) {    
     res.sendFile(path.join(__dirname+'/dist/index.html'));
-})
-
+});
 app.listen(port,()=>{
     console.log('Server started on port: '+port);
 })
+
 
 const connection = mysql.createConnection({
     host:'mallas-redes.net',
@@ -48,7 +50,7 @@ setInterval(()=>{
         if(err){
             console.log(err);
         }else{
-            console.log(results);
+        
         }
     })
 },200)
