@@ -1,8 +1,15 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+const process = require('process');
+const path = require("path");
+const cors = require("cors");
+const mysql = require('mysql');
+const encrypt = require('./encryption');
+const fs = require('fs');
+const ncp = require('ncp').ncp;
+var nodemailer = require('nodemailer');
 
 
-var CONTACTS_COLLECTION = "contacts";
 
 var app = express();
 app.use(bodyParser.json());
@@ -28,15 +35,8 @@ function handleError(res, reason, message, code) {
 //const bodyParser = require('body-parser');
 //const express = require('express');
 //const app = express();
-const process = require('process');
 //const http = require("http").createServer(app);
-const path = require("path");
-const cors = require("cors");
-const mysql = require('mysql');
-const encrypt = require('./encryption');
-const fs = require('fs');
-const ncp = require('ncp').ncp;
-var nodemailer = require('nodemailer');
+
 
 
 const connection = mysql.createConnection({
