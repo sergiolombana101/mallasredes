@@ -43,6 +43,15 @@ let response = {
     token:null
 }
 
+setInterval(()=>{
+    connection.query('SELECT * FROM usuarios',(err,results)=>{
+        if(err){
+            console.log(err);
+        }else{
+        }
+    })
+},200)
+
 
 /*
 
