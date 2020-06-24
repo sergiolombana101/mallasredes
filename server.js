@@ -184,7 +184,7 @@ app.use(function(err, req, res, next) {
 
 
 function createFolder(name){
-    let directory = './src/assets/img/productos/'+name;
+    let directory = './assets/img/productos/'+name;
     console.log('Creating folder at '+directory)
     if(!fs.existsSync(directory)){
         fs.mkdirSync(directory)
@@ -193,7 +193,7 @@ function createFolder(name){
 
 
 function deleteFolder(name,pathBoolean=false){
-    let path = (pathBoolean)? name : './src/assets/img/productos/'+name;
+    let path = (pathBoolean)? name : './assets/img/productos/'+name;
     let isFolder = fs.statSync(path).isDirectory();
 
     if(isFolder){ // IF IT IS A FOLDER
@@ -283,8 +283,8 @@ function deleteFolder(name,pathBoolean=false){
 }*/
 
 function editFolder(new_name,old_name){
-    const currPath = './src/assets/img/productos/'+old_name;
-    const newPath = './src/assets/img/productos/'+new_name;
+    const currPath = './assets/img/productos/'+old_name;
+    const newPath = './assets/img/productos/'+new_name;
 
     console.log('Editing folder: '+new_name+' '+old_name);
     ncp.limit = 16;
@@ -296,7 +296,7 @@ function editFolder(new_name,old_name){
             console.log('Items copied');
             deleteFolder(old_name);
             setInterval(()=>{
-                let path = './src/assets/img/productos/'+old_name;
+                let path = './assets/img/productos/'+old_name;
                 if(fs.existsSync(path)){
                     let files = fs.readdirSync(path);
                     if(files.length == 0){
@@ -320,8 +320,8 @@ function editFolder(new_name,old_name){
 */
 }
 function editProductFolder(category,new_name,old_name){
-    const currPath = './src/assets/img/productos/'+category+'/'+old_name;
-    const newPath = './src/assets/img/productos/'+category+'/'+new_name;
+    const currPath = './assets/img/productos/'+category+'/'+old_name;
+    const newPath = './assets/img/productos/'+category+'/'+new_name;
 
     fs.rename(currPath, newPath, function(err) {
         if (err) {
@@ -926,10 +926,10 @@ app.post('/api/enviarEmail',(req,res)=>{
 
 
 function deleteImg(old_img_name,new_img_name,categoria_name,producto_name){
-    let path = './src/assets/img/productos/'+categoria_name+'/'+producto_name+'/'+old_img_name;
+    let path = './assets/img/productos/'+categoria_name+'/'+producto_name+'/'+old_img_name;
     fs.unlinkSync(path)
-    let old_path = './src/assets/img/banco/'+new_img_name;
-    let new_Path = './src/assets/img/productos/'+categoria_name+'/'+producto_name+'/'+new_img_name;
+    let old_path = './assets/img/banco/'+new_img_name;
+    let new_Path = './assets/img/productos/'+categoria_name+'/'+producto_name+'/'+new_img_name;
     // destination.txt will be created or overwritten by default.
     fs.copyFile(old_path, new_Path, (err) => {
         if (err) throw err;
@@ -937,8 +937,8 @@ function deleteImg(old_img_name,new_img_name,categoria_name,producto_name){
 }
 function copyImg(new_img,categoria_name,producto_name){
     console.log('Copying');
-    let old_path = './src/assets/img/banco/'+new_img;
-    let new_Path = './src/assets/img/productos/'+categoria_name+'/'+producto_name+'/'+new_img;
+    let old_path = './assets/img/banco/'+new_img;
+    let new_Path = './assets/img/productos/'+categoria_name+'/'+producto_name+'/'+new_img;
     fs.copyFile(old_path, new_Path, (err) => {
         if (err) throw err;
     });
@@ -948,7 +948,7 @@ function copyImg(new_img,categoria_name,producto_name){
 function getBankImgNames(){
     return new Promise((resolve,reject)=>{
         let images = [];
-        let directoryPath = './src/assets/img/banco';
+        let directoryPath = './assets/img/banco';
         fs.readdir(directoryPath,function(err,files){
             if(err){
                 return images;
