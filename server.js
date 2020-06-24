@@ -1,3 +1,52 @@
+const express = require('express');
+const path = require('path');
+const process = require('process');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+const encrypt = require('./encryption');
+const fs = require('fs');
+const ncp = require('ncp').ncp;
+var nodemailer = require('nodemailer');
+
+const app = express();
+const port = process.env.PORT || 8080;
+
+app.use(cors());
+app.use(bodyParser.json());
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname+'/dist/index.html'));
+})
+
+app.listen(port,()=>{
+    console.log('Server started on port: '+port);
+})
+
+const connection = mysql.createConnection({
+    host:'mallas-redes.net',
+    user : 'mallasr_admin',
+    password: '3XEN=drNO3P1',
+    database: 'mallasr_store',
+    port:'3306'
+});
+
+
+connection.connect(function(err){
+    if(err) throw err;
+    console.log("Connected!");
+})
+
+let response = {
+    status : 200,
+    data:[],
+    message:null,
+    token:null
+}
+
+
+/*
+
+
 var express = require("express");
 var bodyParser = require("body-parser");
 const process = require('process');
@@ -61,12 +110,12 @@ let response = {
 }
 
 
-/*
+
 // Add headers
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://mallas-redes.store/');
+    res.setHeader('Access-Control-Allow-Origin', 'http://mallas-redes.herokuapp.com/');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -81,7 +130,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-*/
+
 
 setInterval(()=>{
     connection.query('SELECT * FROM usuarios',(err,results)=>{
@@ -112,6 +161,15 @@ app.use(function(err, req, res, next) {
   if (!err.statusCode) err.statusCode = 500;
   res.status(err.statusCode).send(err.message);
 });
+
+
+
+*/
+
+
+
+
+
 
 function createFolder(name){
     let directory = './src/assets/img/productos/'+name;
