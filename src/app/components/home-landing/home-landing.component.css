@@ -68,10 +68,10 @@ body{
 }
 .slide-btn-container{
     position: absolute;
-    top: 27%;
+    top: 22%;
     height: 10em;
     width: 10em;
-    left: 29%;
+    left: 27%;
 }
 .left-slide-btn{
     background-color: #C5B5A5;

@@ -1,5 +1,5 @@
 
-if(localStorage.getItem("loaded") == "true"){
+if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component') != "home" && localStorage.getItem('component') != "login"){
     let nav_container = document.getElementById("nav-bar");
     let nav_elements = nav_container.children;
     let nav_lines = document.getElementsByClassName("nav-line");

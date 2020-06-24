@@ -6,6 +6,7 @@ $(".main").onepage_scroll({
     pagination:true,
     updateURL:false,
     beforeMove: async()=>{
+      
       /*----------------------------------------------------
         This script is getting called 2 times in a row for some reason. So that is why I set a boolean
         that checks if the section is moving so the following code would not be ran twice.
@@ -163,7 +164,7 @@ $(".main").onepage_scroll({
 
               let section_container = document.getElementsByClassName("section_container")[0];
               let products_section = localStorage.getItem("productsSection");
-              let scroll_span = document.getElementsByClassName("scroll-bar")[0].childNodes[0];
+              //let scroll_span = document.getElementsByClassName("scroll-bar")[0].childNodes[0];
 
               if(direction == "down"){
           
@@ -181,8 +182,8 @@ $(".main").onepage_scroll({
 
                     // This is for the scroll bar in the products page
                   
-                    scroll_span.style.transform = "translateY(4em)";
-                    scroll_span.style.transition = "0.5s";
+                    //scroll_span.style.transform = "translateY(4em)";
+                    //scroll_span.style.transition = "0.5s";
                     break;
                 }
           
@@ -203,8 +204,8 @@ $(".main").onepage_scroll({
                     localStorage.setItem("scrolling","true");
                     setTimeout(()=>{this.localStorage.setItem("scrolling","false")},400);
 
-                    scroll_span.style.transform = "translateY(0em)";
-                    scroll_span.style.transition = "0.5s";
+                    //scroll_span.style.transform = "translateY(0em)";
+                    //scroll_span.style.transition = "0.5s";
                     break;
                 }
 

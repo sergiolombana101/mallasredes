@@ -7,6 +7,7 @@ import { filter } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
 declare var $:any
+declare function cancelInterval() : any;
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent{
     private activatedRoute:ActivatedRoute,
     private location:Location
   ) {
-    console.log("App Component called");
+    localStorage.setItem('shouldTransition','true');
+    localStorage.setItem('countForTransition','1');
     localStorage.setItem("loaded","false");
     this.loadScript("assets/js/nav-bar.js").then(()=>{
       this.loadScript("assets/js/jquery.onepage-scroll.min.js",true).then(()=>{
@@ -63,15 +65,25 @@ export class AppComponent{
         this.loadScript("assets/js/home-landing.js");
         break;
       case "app-product-routing":
+        cancelInterval();
         localStorage.setItem("component","products");
+        this.loadScript("assets/js/products.js");
         break;
       case "app-clientes":
+        cancelInterval();
         localStorage.setItem("component","clientes");
         break;
       case "app-contact":
+        cancelInterval();
         localStorage.setItem("component","contact");
         this.loadScript("assets/js/contact.js").then(()=>{})
         break;
+      case "app-login":
+        cancelInterval();
+        localStorage.setItem("component","login");
+        this.loadScript("assets/js/login.js").then(()=>{})
+        break;
+
     }
     sessionStorage.setItem("numOfItems","0");
     sessionStorage.setItem("activeSection","0");

@@ -18,9 +18,122 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
             percentage.innerHTML = count;
         },50)
     }
-    
+    let transitionInterval = null;
 
     localStorage.setItem("landing-section","seguridad"); //This is the variable that I am going to use to reference which image is being shown
+
+    /*-----------------------------------------------
+        Code to replace landing image every 5 seconds
+    -------------------------------------------------*/
+    if(localStorage.getItem('countForTransition') == '1' && localStorage.getItem('shouldTransition') == 'true'){
+        transitionInterval = setInterval(()=>{
+            let blob_imageBackground = document.getElementsByClassName('blob-image')[0];
+            let section = localStorage.getItem("landing-section");
+
+            if(blob_imageBackground == undefined){clearInterval(transitionInterval)}
+            else{
+
+        /* ---------------------------------------------
+            DEPENDING ON WHICH SECTION IS BEING DISPLAYED I WANT TO CHANGE THE
+            BACKGROUND IMAGE
+        ------------------------------------------------ */
+        switch(section){
+            case "seguridad":
+                blob_imageBackground.setAttribute("href","../../../assets/img/wallpapers/soportes.png")
+                replace_img = "url('../../../assets/img/wallpapers/soportes.png')";
+                localStorage.setItem("landing-section","soportes");
+                break;
+            case "soportes":
+                blob_imageBackground.setAttribute("href","../../../assets/img/deportes.png")
+                replace_img = "url('../../../assets/img/deportes.png')";
+                localStorage.setItem("landing-section","deportes");
+                break;
+            case "deportes":
+                blob_imageBackground.setAttribute("href","../../../assets/img/wallpapers/background1.png")
+                replace_img = "url('../../../assets/img/wallpapers/background1.png')";
+                localStorage.setItem("landing-section","seguridad");
+                break;
+        }
+        /*----------------------------------------------
+            IM SETTING THE CORRDINATES FOR THE CIRCLES
+            FOR THE ANIMATION
+        ------------------------------------------------ */
+        let g = document.getElementsByClassName('g')[0];
+        for(let i = 0; i<g.childNodes.length;i++){
+            if(g.childNodes[i].classList[1] == "derecha"){
+                g.childNodes[i].style.opacity = '1';
+            }
+        }
+        let left_circle = document.getElementById('left-circle');
+        left_circle.style.transition = '2s';
+        left_circle.style.position = 'absolute';
+        left_circle.style.transform = 'translateX(45em)';
+
+        let right_circle = document.getElementById('right-circle');
+        right_circle.style.transition = '2s';
+        right_circle.style.position = 'absolute';
+        right_circle.style.transform = 'translateX(-45em)';
+
+        let middle_circle = document.getElementById('middle-circle');
+        middle_circle.style.transition = '2s';
+        middle_circle.setAttribute('r','1000');
+        /*----------------------------------------------
+            AFTER THE CIRCLES ANIMATION IS COMPLETE, IT IS
+            GOING TO FADE AWAY. SO I NEED TO CHANGE THE BODY
+            BACKGROUND TO THE IMAGE FROM THE TRANSITION.
+        ------------------------------------------------ */
+        setTimeout(()=>{
+            document.getElementsByClassName('landing-body')[0].style.backgroundImage = replace_img;
+            /*-------------------------------------
+                IM SETTING THE DEFAULT ATTRIBUTES BACK AGAIN SO
+                I CAN MAKE THE ANIMATION ON THE NEXT SLIDE
+            --------------------------------------- */
+            for(let i = 0; i<g.childNodes.length;i++){
+                if(g.childNodes[i].classList[1] == "derecha"){
+                    switch(g.childNodes[i].id){
+                        case "left-circle":
+                            g.childNodes[i].style.transform = 'translateX(-45em)';
+                            break;
+                        case "right-circle":
+                            g.childNodes[i].style.transform = 'translateX(45em)';
+                            break;
+                        case "middle-circle":
+                            g.childNodes[i].setAttribute('r','40');
+                            break;
+                    }
+                }
+            }
+        },1700)
+        /*----------------------------------------------\
+            THIS SEGMENT IS JUST CHANGING THE PRODUCT TITLE
+            TEXT TO WHATEVER THE NEXT SECTION IS
+        ------------------------------------------------ */
+        setTimeout(()=>{
+            product_title_container[0].style.transition = "1s opacity";
+            product_title_container[0].style.opacity = '0';
+            setTimeout(()=>{
+                switch(section){
+                    case "seguridad":
+                        product_title[0].innerHTML = "SOPORTES Y ESTRUCTURAS";
+                        break;
+                    case "soportes":
+                        product_title[0].innerHTML = "MALLAS DEPORTIVAS";
+                        break;
+                    case "deportes":
+                        product_title[0].innerHTML = "MALLAS DE SEGURIDAD";
+                        break;
+                }
+                product_title_container[0].style.opacity = '1';
+            },1200)
+        },200)
+        }
+        },5000)
+        
+    }
+
+    function cancelInterval(){
+        clearInterval(transitionInterval);
+    }
 
     let product_title_container = document.getElementsByClassName("product-title-container");
     let product_title = document.getElementsByClassName("product-title")
@@ -46,6 +159,8 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
     }
 
     flecha_de_container[0].onclick = () => {
+        localStorage.setItem('shouldTransition','false');
+        cancelInterval();
         let blob_imageBackground = document.getElementsByClassName('blob-image')[0];
         let section = localStorage.getItem("landing-section");
 
@@ -160,6 +275,8 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
     }
 
     flecha_iz_container[0].onclick = () => {
+        localStorage.setItem('shouldTransition','false');
+        cancelInterval();
         let blob_imageBackground = document.getElementsByClassName('blob-image')[0];
         let section = localStorage.getItem("landing-section");
 
@@ -308,5 +425,11 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem('component')
         }
     }
 
+
+    let count = localStorage.getItem('countForTransition');
+    let count_int = parseInt(count);
+    count_int++;
+    count = count_int+'';
+    localStorage.setItem('countForTransition',count)
 
 }

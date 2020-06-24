@@ -1,0 +1,71 @@
+.outer-left-panel{
+    height:100vh;
+    width:11em;
+}
+.left-panel-container{
+    width:100%;
+    height:100vh;
+    background-color:#5D737E;
+}
+.logo-container{
+    height: 24vh;
+    background-color: #3F4045;
+}
+.logo-container img{
+    height:5em;
+    position: absolute;
+    top:5%;
+    left:3.5%;
+}
+.options-container{
+    margin-top:30%;
+}
+.option-img{
+    margin-left:5%;
+}
+.option-img img{
+    height:2em;
+}
+.option-text{
+    margin-top:3%;
+}
+.option-text span{
+    color:white;
+    font-family: 'Britannic';
+    font-size:1.2vw;
+}
+.secondary-option{
+    margin-top:23%;
+}
+.text-productos span{
+    margin-left:-10%;
+}
+.productos-logo{
+    height:3em;
+    left:-4%;
+    position:relative;
+}
+.active-bar-container{
+    position:absolute;
+    top:31.5%;
+    left:0%;
+    transition: 2s;
+}
+.active-bar-vertical span{
+    background-color: white;
+    height: 2.8em;
+    width:.2em;
+    display:inline-block;
+}
+.active-bar-horizontal{
+    background-color: rgba(255, 255, 255, 0.36);
+    width:10.7em;
+    height:2.8em;
+    position:absolute;
+    left:56%;
+}
+.option{
+    height: 2.8em;
+    cursor: pointer;
+}
+

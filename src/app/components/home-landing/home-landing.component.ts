@@ -33,6 +33,9 @@ export class HomeLandingComponent implements OnInit {
         this.router.navigateByUrl('/productos/'+section);
       })
     }
+    adminLogin(){
+      this.router.navigateByUrl("/admin/ingresar");
+    }
     loadScript(url, details=false){
       return new Promise((resolve,reject)=>{
         const script = document.createElement("script");

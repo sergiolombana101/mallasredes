@@ -16,7 +16,7 @@ export class NavBarComponent implements OnInit {
     }
 
     ngOnInit(){
-
+      this.numOfItems = parseInt(sessionStorage.getItem('numOfItems'));
     }
 
     inicioClick(){

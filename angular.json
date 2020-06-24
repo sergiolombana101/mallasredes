@@ -28,13 +28,13 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/what-input/dist/what-input.min.js",
-              "src/assets/js/home-landing.js",
               "src/assets/js/nav-bar.js",
               "src/assets/js/jquery.onepage-scroll.min.js",
               "src/assets/js/jsap-animation.js",
               "src/assets/js/onepage-details.js",
               "src/assets/js/contact.js",
-              "src/assets/js/products.js"
+              "src/assets/js/products.js",
+              "src/assets/js/login.js"
               
             ]
           },

@@ -1,0 +1,47 @@
+<body>
+    <div class="svg-container">
+        <img src="../../../../assets//img//admin//login//svg-background.png">
+    </div>
+    <div class="grid-x grid-padding-x login-container">
+        <div class="cell medium-10 login-div">
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-5 login-info">
+                    <div class="grid-x grid-padding-x login-company-name-container">
+                        <div class="cell medium-6 login-company-name">
+                            <span>REDES Y MALLAS</span>
+                        </div>
+                    </div>
+                    <form [formGroup]="loginForm">
+                        <div class="grid-x grid-padding-x correo-container-div">
+                            <div class="cell medium-12 correo-container">
+                                <label for="correo-input">Correo Electronico</label>
+                                <input formControlName="correo" type="email" name="correo-input">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x contrasena-container-div">
+                            <div class="cell medium-12 contrasena-container">
+                                <label for="contrasena-input">Contrasena</label>
+                                <input formControlName="contrasena" type="password" name="contrasena">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x error-container-div">
+                            <div class="cell medium-12 error-container">
+                                <span *ngIf="error != ''">{{error}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x acceder-button-div">
+                            <div class="cell medium-3 acceder-button" (click)="accederPresionado()">
+                                <button>Acceder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="cell medium-6 svg-login">
+                    <img src="../../../../assets//img//admin//login//svg-login.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>

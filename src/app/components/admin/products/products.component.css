@@ -1,0 +1,876 @@
+body{
+    background-color: white;
+    height: 100vh;
+    width: 107%;
+}
+.cover{
+    position: absolute;
+    background-color: rgba(218, 218, 218, 0.75);
+    height: 100vh;
+    width: 100%;
+    top: 0;
+}
+.categorias-container{
+    margin-top:5%;
+    margin-left:5%;
+}
+.categorias-title{
+    font-family: 'Cambria Math';
+    font-size: 1.7vw;
+    color: white;
+    position: absolute;
+    top:2%;
+    left:16%;
+}
+.especificaciones-title{
+    font-family: 'Cambria Math';
+    font-size: 1.7vw;
+    color: white;
+    position: absolute;
+    top:2%;
+    left:62%;
+}
+.productos-title{
+    font-family: 'Cambria Math';
+    font-size: 1.7vw;
+    color: white;
+    position: relative;
+    top:21%;
+    left:3%;
+}
+.arrows-cell{
+    position:absolute;
+    top: 2.5%;
+    left:27%;
+}
+.productos{
+    height:4em;
+    margin-top:1%;
+}
+.categorias,.productos{
+    background-color: #000;
+    margin-left:2%;
+}
+.arrows-container{
+    height:4vh;
+    width:15%;
+    background-color: #5D737E;
+    border-radius:0.2em;
+}
+.arrow {
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.arrow-left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    position: relative;
+    left:22%;
+    top:8%;
+}
+.arrow-right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    position: relative;
+    left:44%;
+    top:8%;
+}
+.agregar-button-especs{
+    position: relative;
+    left: 136%;
+    bottom: 31%;
+}
+.editar-button-especs{
+    position: relative;
+    left: 91%;
+    bottom: 31%;
+}
+.agregar-button-productos{
+    position: relative;
+    left:-51%;
+    bottom:-32%;
+}
+.agregar-button{
+    position: relative;
+    left: 143%;
+    bottom:45%;
+}
+.editar-button-productos{
+    position: relative;
+    left: -130%;
+    bottom:-32%
+}
+.editar-button{
+    position: relative;
+    left: 91%;
+    bottom:45%
+}
+.agregar-button button, .editar-button button, .agregar-button-productos button, .editar-button-productos button,
+.agregar-button-especs button, .editar-button-especs button{
+    width: 40%;
+    height: 4.5vh;
+    background-color: #EFB684;
+    font-size: 1.2vw;
+    color: white;
+    font-family: "Bell MT";
+    cursor: pointer;
+}
+.agregar-button{
+    cursor: pointer;
+}
+.agregar-button-especs button{
+    width:47%;
+}
+.agregar-button-especs button:hover, .agregar-button-productos button:hover, .agregar-button button:hover{
+    transition:1s;
+    background-color:#67563F;
+}
+.editar-button-especs button{
+    width:47%;
+    background-color: #364958;
+}
+.editar-button-productos button{
+    background-color: #364958;
+    width:18%;
+}
+.editar-button button{
+    background-color: #364958;
+}
+.agregar-button-productos button{
+    width:18%;
+}
+
+.buttons-container{
+    display:flex;
+}
+
+.categorias-content{
+    margin-top:1%;
+    margin-left:1%;
+    background-color:#EEE;
+    width:51%;
+    height:25vh;
+    overflow: auto;
+    display:flex;
+    flex-wrap: nowrap;
+}
+.categoria{
+    background-color: #585858;
+    height:75%;
+    margin-top:3%;
+    margin-left:3%;
+    border-radius:.8em;
+    text-align:center;
+    display: inline-block;
+    cursor: pointer;
+}
+.categoria span{
+    color:white;
+    font-family:Britannic;
+    padding-top:2em;
+    position:relative;
+    top:20%;
+}
+.productos-container{
+    margin-top:1%;
+    margin-left:1%;
+}
+.product-content{
+    background-color:#EEE;
+    height:25vh;
+    width:51%;
+}
+.category-title{
+    margin-top:2%;
+    margin-bottom:3%;
+}
+.category-title span{
+    color: #585858;
+    font-size:1.1vw;
+    border-bottom:1px solid black;
+    padding-right:57%;
+    padding-bottom:3%;
+    font-family: 'Britannic';
+}
+.product-grid{
+    margin-left:5%;
+}
+.product{
+    margin-top:3%;
+    display: flex;
+}
+.product-identifier{
+    width:1em;
+    height:1em;
+    display: inline-block;
+    background-color: #4D424B;
+    border-radius: 0.3em;
+    margin-top:1%;
+}
+.product-name{
+    margin-left:2%;
+}
+.product-name span{
+    color: #585858;
+    font-family: 'Cambria Math';
+}
+.option-menu{
+    position:absolute;
+    left:53.5%;
+    width:3em;
+    cursor: pointer;
+}
+.option-menu span{
+    height: .5em;
+    width: .5em;
+    display: inline-block;
+    background-color: black;
+    border-radius: 2em;
+    margin-right:4%;
+}
+.precio{
+    margin-left:1%;
+    margin-top:1%;
+}
+.precio-container{
+    background-color: #EEE;
+    height: 12vh;
+    width: 51%;
+}
+.precio-container span{
+    color: #585858;
+    font-family: Cambria Math;
+    font-size: 2vw;
+    position: relative;
+    left: 38%;
+    top: 29%;
+}
+.editar-precio{
+    left:-32%;
+}
+.especificaciones{
+    background-color: #000;
+    margin-left:2%;
+    width:31em;
+}
+.especificaciones-cell{
+    height: 20em;
+    width: 31em;
+    background-color: #EEE;
+    margin-left: 2%;
+    overflow:auto;
+}
+.especificaciones-content{
+    position: absolute;
+    left: 60.7%;
+    top: 10%;
+}
+.dropdown-container{
+    margin-top: 3%;
+    margin-left: -3%;
+}
+.line{
+    background-color:black;
+    height:0.1vh;
+    width:90%;
+    margin-left:3%;
+    margin-bottom:5%;
+}
+.especs{
+    width: 19em;
+    height: 12vh;
+    background-color: white;
+    border-radius: 0.5em;
+    position:relative;
+    left:-14.5%;
+}
+.especs-cards-container{
+    margin-left:3%;
+    margin-bottom:5%;
+}
+.left-bar-especs span{
+    height: 11vh;
+    width: 8%;
+    background-color: #4D424B;
+    display: inline-block;
+    position:relative;
+    top:5.5%
+}
+.especs-name{
+    margin-top:1%;
+    margin-left:3%
+}
+.especs-name span{
+    font-family:'Britannic';
+}
+.especs-types span{
+    font-family: 'Cambria Math';
+    font-size:1vw;
+    color: #5D737E;
+}
+.espec-tipo{
+    margin-left:8%;
+}
+.espec-precio{
+    margin-left:11%;
+}
+.espec-obligatorio{
+    position:relative;
+    left:-1%;
+}
+.especs-values span{
+    font-family: 'Cambria Math';
+    font-size:1vw;
+    color: black;
+}
+.value-tipo{
+    margin-left:4%;
+}
+.value-precio{
+    margin-left:21%;
+}
+.value-obligatorio{
+    margin-left:2%;
+}
+.options-menu{
+    position: relative;
+    width:3em;
+    cursor:pointer;
+    top:31%;
+}
+.options-menu span{
+    height: .5em;
+    width: .5em;
+    display: inline-block;
+    background-color: black;
+    border-radius: 2em;
+    margin-right:4%;
+}
+.imagenes-grid{
+    position:absolute;
+    left:60%;
+    top:60%;
+    width:77.5%;
+}
+.imagenes-content{
+    position: absolute;
+    left: 61.5%;
+    top: 73%;
+}
+.imagenes-cell{
+    width: 31em;
+    height: 10.5em;
+    background-color: #EEE;
+}
+.principal-cell{
+    margin-top:3%;
+}
+.principal-img-container{
+    background-color: orange;
+    width: 6em;
+    height: 6em;
+    cursor: pointer;
+}
+.principal-img-container img{
+    height: 5.5em;
+    position: relative;
+    top: 4%;
+    left: 4%;
+}
+.imagenes-extra-cell{
+    margin-top:4%;
+}
+.img-container img{
+    height:4em;
+    width:4em;
+}
+.imagenes-extra-grid{
+    max-width:22em;
+}
+.img-container{
+    margin-bottom:5%;
+    cursor: pointer;
+}
+.principal-grid{
+    position: absolute;
+    top: 70%;
+    left: 6%;
+}
+.principal-grid span{
+    font-family: Cambria Math;
+    font-weight: bold;
+}
+.editar-imagen{
+    left:-130%;
+}
+
+.form-container{
+    background-color:white;
+    height:43em;
+    margin-left:14%;
+    margin-top:3%;
+}
+.form-title{
+    margin-top:3%;
+    margin-left:3%;
+}
+.form-title span{
+    font-family: 'Britannic';
+    font-size: 2vw;
+}
+.line-form{
+    height: 0.1em;
+    width: 49%;
+    background-color: black;
+    position: absolute;
+    left: 17%;
+    top: 17%;
+}
+.form-grid{
+    margin-top:8%;
+}
+.form-grid-editar-cat{
+    height: 17em;
+overflow: auto;
+width: 51em;
+margin-top:8%;
+}
+.nombre-grid{
+    margin-left:1%;
+}
+.precio-grid{
+    margin-left:5%;
+    margin-top:5%;
+}
+.label-nombre span, .label-precio span{
+    font-family: Cambria Math;
+    font-size: 1.3vw;
+}
+.input-nombre{
+    position: absolute;
+    left: 23%;
+    width: 27em;
+    top:23%;
+}
+.input-precio{
+    margin-left:2.5%;
+}
+.input-precio input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+    width:25em;
+}
+.input-nombre input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+}
+.error-grid{
+    margin-top: 10%;
+    margin-left: 6%;
+}
+.error-grid-espec{
+    margin-top: 0%;
+    margin-left: 6%;
+}
+.error-grid-editar{
+    margin-top: 5%;
+    margin-left: 6%;
+}
+.err-message span{
+    color: orange;
+    font-family: Cambria Math;
+    font-size: 1.3vw;
+}
+.buttons-grid{
+    margin-top:28%;
+    margin-left:33%;
+}
+.buttons-grid-producto{
+    margin-top: 22%;
+    margin-left: 33%;
+}
+.buttons-grid-editar{
+    margin-top:10%;
+    margin-left:33%;
+}
+.agregar-form-btn{
+    background-color: #A3917E;
+    width: 7em;
+    height: 3em;
+    cursor: pointer;
+}
+.agregar-form-btn:hover{
+    background-color: #67563F;
+}
+.agregar-form-btn button{
+    color: white;
+    position: relative;
+    top: 22%;
+}
+.cancelar-form-btn{
+    background-color: black;
+    margin-left: 3%;
+    width: 7em;
+    height: 3em;
+    cursor: pointer;
+}
+.cancelar-form-btn:hover{
+    background-color: #364958;
+}
+.cancelar-form-btn button{
+    color: white;
+    position: relative;
+    top: 22%;
+    left: -3%;
+}
+.delete-cat-cell{
+    width: 7em;
+    height: 2.5em;
+    cursor: pointer;
+    background-color: red;
+    margin-left: 0%;
+}
+.delete-cat-cell button{
+    color: white;
+    font-family: Cambria Math;
+    margin-top: 4%;
+    position: relative;
+    top: 13%;
+    left: 5%;
+    cursor: pointer;
+}
+.delete-cat-cell:hover{
+    background-color: #4D424B;
+}
+.product-for-container{
+    overflow:auto;
+    height:6em;
+}
+.espec-nombre-grid{
+    margin-left:4%;
+}
+.espec-nombre-span span, .espec-tipo-span span, .espec-opciones-span span{
+    font-size:1.3vw;
+    font-family:'Cambria Math';
+}
+.espec-nombre-input{
+    margin-left:25%;
+}
+.espec-tipo-grid{
+    margin-top:3%;
+    margin-left:4%;
+}
+.espec-opciones-grid{
+    margin-top:3%;
+    margin-left:4%;
+}
+.espec-opciones-del-btn{
+    background-color: #B60303;
+    height: 2.4em;
+    width: 6.8em;
+    cursor: pointer;
+}
+.espec-opciones-del-btn button{
+    color: white;
+    font-size: 1vw;
+    margin-top: .7em;
+}
+.option-agregar{
+    background-color: green;
+    font-size: 1vw;
+    color: white;
+}
+.option-agregar:hover{
+    background-color:green;
+}
+.agregar-opcion-button-cell{
+    margin-left: 68.5%;
+    background-color: green;
+    height: 2.4em;
+    width: 6.8em;
+    cursor: pointer;
+}
+.agregar-opcion-button-cell button{
+    color: white;
+    margin-top: 0.7em;
+    font-size: 1vw;
+}
+.buttons-grid-especs{
+    position:absolute;
+    bottom:10%;
+    width:30em;
+    left:35%;
+}
+.espec-obligatorio-grid{
+    margin-top:3%;
+    margin-left:4%;
+}
+.espec-obligatorio-span span{
+    font-size:1.3vw;
+    font-family: 'Cambria Math';
+}
+.formEspecContainer{
+    height: 21em;
+    overflow: auto;
+    width: 51em;
+    overflow-x: hidden;
+}
+.agregar-opcion-nombre-grid{
+    position: absolute;
+    top: 6%;
+    background-color: rgba(218, 218, 218, 0.75);
+    width: 56em;
+    left: 15%;
+    height: 43em;
+}
+.agregar-opcion-nombre-cell{
+    margin-top: 22%;
+    height: 12em;
+    background-color: white;
+    margin-left: 23%;
+}
+.grid-opcion-nombre{
+    margin-top: 10%;
+    margin-left: 3%;
+}
+.grid-opcion-nombre span{
+    font-size:1.3vw;
+    font-family: 'Cambria Math';
+}
+.opcion-input{
+    position: absolute;
+top: 34%;
+left: 37%;
+}
+.grid-opcion-btns{
+    margin-top: 11%;
+    margin-left: 27%;
+}
+.agregar-opcion-btn{
+    background-color: #A3917E;
+width: 6em;
+height: 2em;
+cursor: pointer;
+}
+.agregar-opcion-btn button{
+    color: white;
+position: relative;
+top: 8%;
+}
+.cancelar-opcion-btn{
+    background-color: black;
+width: 6em;
+height: 2em;
+cursor: pointer;
+margin-left: 4%;
+}
+.cancelar-opcion-btn button{
+    color: white;
+    position: relative;
+    top: 8%;
+}
+.change-img-container{
+    margin-left:25%;
+    margin-top:2%;
+}
+.img-bank-container{
+    margin-left:25%;
+    margin-top:2%;
+}
+.change-img-cell{
+    height: 30em;
+    width: 30em;
+}
+.img-bank-cell{
+    height:30em;
+    width:30em;
+    background-color:white;
+}
+.action-btns-grid{
+    margin-top:10%;
+}
+.action-btn-cell{
+    margin-left:17%;
+    height:3em;
+    background-color: #A3917E;
+    cursor: pointer;
+}
+.action-btn-cell button{
+    color: white;
+    font-family: Cambria Math;
+    position: relative;
+    top: 20%;
+    left: 9%;
+    font-size: 1.3vw;
+    cursor: pointer;
+}
+.action-btn-cell:hover{
+    background-color: black;
+}
+.img-bank-title-grid{
+    margin-top:4%;
+}
+.img-bank-title-cell{
+    margin-left:23%;
+}
+.img-bank-title-cell span{
+    font-size: 1.7vw;
+    font-family: Cambria Math; 
+}
+.img-bank-line{
+    background-color: grey;
+    height: .1vh;
+    margin-top: 5%;
+    width: 25em;
+    margin-left: 4%;
+}
+.img-bank-imgs-grid{
+    overflow: auto;
+    width: 27em;
+    height: 20em;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+.img-bank-imgs-grid img{
+    height:4em;
+    width:4em;
+}
+.bank-img{
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.cancelar-btn-grid{
+    position: relative;
+    top: 105%;
+    right: 52%;
+}
+.cancelar-btn-grid .cell, .seleccionar-btn-cell{
+    height: 3em;
+    width: 7em;
+    background-color: #A3917E;
+}
+.cancelar-btn-grid button{
+    color: white;
+    font-family: Cambria Math;
+    font-size: 1.3vw;
+    position: relative;
+    top: 21%;
+}
+.cancelar-btn-grid .cell:hover, .seleccionar-btn-cell:hover{
+    background-color: black;
+}
+.cancelar-btn-cell:hover{
+    background-color: #364958;;
+}
+.seleccionar-btns-grid{
+    margin-top: 45%;
+    width:25em;
+}
+.seleccionar-btn-cell{
+    width: 35%;
+    margin-left: 4%;
+    cursor: pointer;
+}
+.cancelar-btn-cell{
+    margin-left:2%;
+    height: 3em;
+    width: 9em;
+    background-color: black;
+    cursor: pointer;
+}
+
+.seleccionar-btn-cell button, .cancelar-btn-cell button{
+    color: white;
+    font-family: Cambria Math;
+    font-size: 1.3vw;
+    position: relative;
+    top: 21%;
+}
+.cancelar-btn-cell button{
+    left:11%;
+}
+.expand-img-container{
+    margin-top: 5%;
+    margin-left: 26%;
+}
+
+.img-grid .cell{
+    height: 20em;
+    width: 20em;
+}
+.img-grid img{
+    height: 20em;
+}
+.select-img-type-container{
+    margin-top:15%;
+    margin-left:26%;
+}
+.select-img-type-cell{
+    background-color: white;
+    height: 10em;
+    width: 28em;
+}
+.radio-container{
+    margin-top: 7%;
+    margin-left: 3%;
+}
+.radio-container label{
+    font-family: Cambria Math;
+    font-size: 1.3vw;
+}
+.img-type-cancelar-grid{
+    margin-top: 20%;
+    margin-left: 61%;
+}
+.img-type-cancelar-cell{
+    width: 8em;
+    height: 3em;
+    background-color: black;
+}
+.img-type-cancelar-grid button{
+    color: white;
+    position: relative;
+    top: 22%;
+}
+.span-container{
+    margin-top:14%;
+    margin-left:17%;
+}
+.span-container span{
+    font-family: Cambria Math;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.descripcion-btn-cell{
+    margin-left: 75%;
+    /* float: left; */
+    width: 7em;
+    height: 2.5em;
+    cursor: pointer;
+    background-color: #364958;
+}
+.descripcion-btn-cell button{
+    color: white;
+    font-family: Cambria Math;
+    margin-top: 4%;
+    position: relative;
+    top: 3%;
+    left: -8%;
+    cursor: pointer;
+}
+.form-cell-editar-desc{
+    margin-top: 7%;
+    margin-left: 6%;
+}
+.editar-desc-input{
+    margin-top: 6%;
+}
+.editar-desc-input textarea{
+    max-width: 100%;
+    height: 10em;
+    resize: none;
+}

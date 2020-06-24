@@ -1,0 +1,786 @@
+<body>
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-6 categorias">
+            <div class="grid-x grid-padding-x categorias-container">
+                <div class="cell medium-3">
+                    <span class="categorias-title">CATEGORIAS</span>
+                </div>
+
+                <div class="cell medium-4 buttons-container">
+                    <div class="cell medium-3 agregar-button" (click)="addCategoria()">
+                        <button>Añadir</button>
+                    </div>
+                    <div class="cell medium-3 editar-button" (click)="editarCategoria()">
+                        <button>Editar</button>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+
+
+        <!--ESPECIFICACIONES-->
+
+        <div class="cell medium-5 especificaciones">
+            <div class="grid-x grid-padding-x categorias-container">
+                <div class="cell medium-3">
+                    <span class="especificaciones-title">ESPECIFICACIONES</span>
+                </div>
+                <div class="cell medium-4 buttons-container">
+                    <div class="cell medium-3 agregar-button-especs" (click)="addEspec()">
+                        <button>Añadir</button>
+                    </div>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x categorias-content">
+        <div *ngFor="let categoria of categorias;let i = index;" class="cell medium-3 categoria" (click)="categoriaSelected(categoria,i)">
+            <span id="{{i}}">{{categoria}}</span>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x especificaciones-content">
+        <div class="cell medium-6 especificaciones-cell">
+            <div class="grid-x grid-padding-x dropdown-container">
+                <div class="cell medium-6">
+                    <label for="categorias-select">Categoria:</label>
+                    <select name="categorias-select">
+                        <option *ngFor="let categoria of categoria_especificaciones" value="{categoria}" 
+                                [selected]="especs_categoria_selected == categoria" (click)="categoriaDropdownChange(categoria)">{{categoria}}</option>
+                    </select>
+                </div>
+
+                <div class="cell medium-6">
+                    <label for="productos-select">Producto:</label>
+                    <select name="productos-select">
+                        <option *ngFor="let producto of productos_especificaciones" value="{producto}"
+                                [selected]="product_selected == producto" (click)="productoDropdownChange(producto)">{{producto}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-x grid-padding-x line"></div>
+            
+            <div *ngFor="let espec of especificaciones;let i = index" class="grid-x grid-padding especs-cards-container">
+                <div class="cell medium-2 left-bar-especs">
+                    <span></span>
+                </div>
+                <div class="cell medium-12 especs">
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell medium-10 specs-info">
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell medium-12 especs-name">
+                                    <span>{{espec.nombre}}</span>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x especs-types">
+                                <div class="cell medium-2 espec-tipo">
+                                    <span>Tipo</span>
+                                </div>
+                                <div class="cell medium-5 espec-precio">
+                                    <span>$ Adicional</span>
+                                </div>
+                                <div class="cell medium-1 espec-obligatorio">
+                                    <span>Obligatorio</span>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x especs-values">
+                                <div class="cell medium-2 value-tipo">
+                                    <span>{{espec.tipo}}</span>
+                                </div>
+                                <div class="cell medium-5 value-precio">
+                                    <span>{{espec.precio}}</span>
+                                </div>
+                                <div class="cell medium-1 value-obligatorio">
+                                    <span>{{espec.obligatorio}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell medium-1 options">
+                    <div class="options-menu" (click)="editarEspec(i)">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-6 productos">
+            <span class="productos-title">PRODUCTOS</span>
+        </div>
+        <div class="cell medium-4 buttons-container">
+            <div class="cell medium-3 agregar-button-productos" (click)="addProducto()">
+                <button>Añadir</button>
+            </div>
+            <div class="cell medium-3 editar-button-productos" (click)="editProducto()">
+                <button>Editar</button>
+            </div>                   
+        </div>
+    </div>
+    <div class="grid-x grid-padding-x productos-container">
+        <div class="cell medium-6 product-content">
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-12 category-title">
+                    <span>{{category_selected}}</span>
+                </div>
+            </div>
+
+            <div class="product-for-container">
+            <div *ngFor="let producto of productos;let i = index;" class="grid-x grid-padding-x product-grid">
+                <div class="cell medium-12 product">
+                    <input id="{{i}}" class="product-identifier" type="radio" name="product-radio" value="{{producto}}" (change)="changeRadio($event)">
+                    <div class="product-name">
+                        <span>{{producto}}</span>
+                    </div> 
+    
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-6 productos">
+            <span class="productos-title">PRECIO</span>
+        </div>
+        <div class="cell medium-4 buttons-container">
+            <div class="cell medium-3 editar-button-productos editar-precio" (click)="editarPrecio()">
+                <button>Editar</button>
+            </div>                   
+        </div>
+    </div>
+    
+    <div class="grid-x grid-padding-x precio">
+        <div class="cell medium-6 precio-container">
+            <span>{{precioProduct}}</span>
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x imagenes-grid">
+        <div class="cell medium-6 productos">
+            <span class="productos-title">IMAGENES</span>
+        </div>
+        <div class="cell medium-4 buttons-container">
+            <div class="cell medium-3 agregar-button-productos" (click)="agregarImagen()">
+                <button>Añadir</button>
+            </div>
+            <div class="cell medium-3 editar-button-productos editar-imagen">
+                <button>Editar</button>
+            </div>                   
+        </div>
+    </div>
+
+    <div class="grid-x grid-padding-x imagenes-content">
+        <div class="cell medium-6 imagenes-cell">
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-4 principal-cell">
+                    <div class="principal-img-container" (click)="changeImgPrincipal()">
+                        <img src="{{imagen_principal}}">
+                    </div>
+                </div>
+                <div class="cell medium-8 imagenes-extra-cell">
+                    <div class="grid-x grid-padding-x imagenes-extra-grid">
+                        <div *ngFor="let imagen of imagenes" class="cell medium-4 img-container" (click)="changeSecondaryImg(imagen)">
+                            <img src={{imagen}}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x principal-grid">
+                <div class="cell medium-2">
+                    <span>Imágen principal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="displayCover" class="cover">
+        <div class="grid-x grid-padding-x">
+            <!--AGREGAR CATEGORIA-->
+            <div *ngIf="cover_mode == 'agregar_categoria'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>AGREGAR CATEGORIA</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid">
+                    <div class="cell medium-12">
+                        <form [formGroup]="categoriaForm">
+                        <div class="grid-x grid-padding-x nombre-grid">
+                            <div class="cell medium-5 label-nombre">
+                                <span>Nombre:</span>
+                            </div>
+                            <div class="cell medium-7 input-nombre">
+                                <input formControlName="nombre" name="category-name" type="text" maxlength="32">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x error-grid">
+                            <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                <span>{{form_error}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x buttons-grid">
+                            <div class="cell medium-3 agregar-form-btn" (click)="agregarCategoria()">
+                                <button>AGREGAR</button>
+                            </div>
+                            <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                <button>CANCELAR</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+            <!--EDITAR CATEGORIA-->
+            <div *ngIf="cover_mode == 'editar_categoria'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>EDITAR CATEGORIAS</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid-editar-cat">
+                    <div class="cell medium-12">
+                        <form>
+                            <div *ngFor="let categoria of categorias;let i = index" class="grid-x grid-padding-x nombre-grid" >
+                                <div class="cell medium-6 nombre-cell">
+                                    <input value="{{categoria}}" name="{{i}}" type="text" maxlength="32" (change)="changeCategory($event)">
+                                </div>
+                                <div class="cell medium-6 delete-cat-cell" (click)="eliminarCategoria(categoria)">
+                                    <button id="{{i}}">ELIMINAR</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div> 
+                <div class="grid-x grid-padding-x error-grid-editar">
+                    <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                        <span>{{form_error}}</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x buttons-grid-editar">
+                    <div class="cell medium-3 agregar-form-btn" (click)="guardarCategorias()">
+                        <button>GUARDAR</button>
+                    </div>
+                    <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                        <button>CANCELAR</button>
+                    </div>
+                </div>
+            </div>
+            <!--AGREGAR PRODUCTOS-->
+            <div *ngIf="cover_mode == 'agregar_producto'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>AGREGAR PRODUCTO</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid">
+                    <div class="cell medium-12">
+                        <form [formGroup]="productoForm">
+                        <div class="grid-x grid-padding-x nombre-grid">
+                            <div class="cell medium-5 label-nombre">
+                                <span>Nombre:</span>
+                            </div>
+                            <div class="cell medium-7 input-nombre">
+                                <input formControlName="nombre" name="producto-name" type="text" maxlength="32">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x precio-grid">
+                            <div class="cell medium-1 label-precio">
+                                <span>Precio:</span>
+                            </div>
+                            <div class="cell medium-7 input-precio">
+                                <input formControlName="precio" name="producto-precio" type="text" maxlength="32">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x error-grid">
+                            <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                <span>{{form_error}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x buttons-grid-producto">
+                            <div class="cell medium-3 agregar-form-btn" (click)="agregarProducto()">
+                                <button>AGREGAR</button>
+                            </div>
+                            <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                <button>CANCELAR</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+            <!-- EDITAR DESCRIPCION-->
+            <div *ngIf="cover_mode == 'descripcion'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>EDITAR DESCRIPCION</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid-editar-desc">
+                    <div class="cell medium-8 form-cell-editar-desc">
+                        <form [formGroup]="descForm">
+                            <div class="grid grid-padding-x">
+                                <div class="cell medium-12">
+                                    <span>{{edit_desc_product}}</span>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x">
+                                <div class="cell medium-12 editar-desc-input">
+                                    <textarea formControlName="desc"></textarea>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x error-grid">
+                                <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                    <span>{{form_error}}</span>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x buttons-grid">
+                                <div class="cell medium-3 agregar-form-btn" (click)="addDesc()">
+                                    <button>AGREGAR</button>
+                                </div>
+                                <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                    <button>CANCELAR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--EDITAR PRODUCTO-->
+            <div *ngIf="cover_mode == 'editar_producto'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>EDITAR PRODUCTO</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid-editar-cat">
+                    <div class="cell medium-12">
+                        <form>
+                            <div *ngFor="let producto of productos;let i = index" class="grid-x grid-padding-x nombre-grid" >
+                                <div class="cell medium-6 nombre-cell">
+                                    <input value="{{producto}}" name="{{i}}" type="text" maxlength="32" (change)="changeProductName($event)">
+                                </div>
+                                <div class="cell medium-3 precio-cell">
+                                    <input value="{{precios_productos[i]}}" name="{{i}}" type="text" maxlength="32" (change)="changeProductPrice($event)">
+                                </div>
+                                <div class="cell medium-3 delete-cat-cell" (click)="eliminarProducto(producto)">
+                                    <button id="{{i}}">ELIMINAR</button>
+                                </div>
+                                <div class="cell medium-3 descripcion-btn-cell" (click)="editarDescripcion(producto)">
+                                    <button>EDITAR DESCRIPCION</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div> 
+                <div class="grid-x grid-padding-x error-grid-editar">
+                    <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                        <span>{{form_error}}</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x buttons-grid-editar">
+                    <div class="cell medium-3 agregar-form-btn" (click)="guardarProductos()">
+                        <button>GUARDAR</button>
+                    </div>
+                    <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                        <button>CANCELAR</button>
+                    </div>
+                </div>
+            </div>
+            <!--EDITAR PRECIO-->
+            <div *ngIf="cover_mode == 'editar_precio'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>EDITAR PRECIO</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid">
+                    <div class="cell medium-12">
+                        <form [formGroup]="precioForm">
+                        <div class="grid-x grid-padding-x nombre-grid">
+                            <div class="cell medium-4 label-nombre">
+                                <span>{{product_selected}}</span>
+                            </div>
+                            <div class="cell medium-2 input_precio">
+                                <input value="{{precioProduct}}" formControlName="valor" name="category-name" type="text" maxlength="32">
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x error-grid">
+                            <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                <span>{{form_error}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x buttons-grid">
+                            <div class="cell medium-3 agregar-form-btn" (click)="editPrecio()">
+                                <button>AGREGAR</button>
+                            </div>
+                            <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                <button>CANCELAR</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- AGREGAR ESPEC-->
+            <div *ngIf="cover_mode == 'agregar_espec'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-7 form-title">
+                        <span>AGREGAR ESPECIFICACIONES</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid">
+                    <div class="cell medium-12">
+                        <div class="formEspecContainer">
+                        <form [formGroup]="especForm">
+                            <div class="grid-x grid-padding-x espec-nombre-grid">
+                                <div class="cell medium-2 espec-nombre-span">
+                                    <span>Nombre</span>
+                                </div>
+                                <div class="cell medium-5 espec-nombre-input">
+                                    <input formControlName="nombre" type="text" maxlength="32">
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-tipo-grid">
+                                <div class="cell medium-5 espec-tipo-span">
+                                    <span>Tipo de Información requerida</span>
+                                </div>
+                                <div class="cell medium-5 espec-tipo-select">
+                                    <select name="espec-tipo-select" formControlName="tipo" (change)="selectChange($event.target.value)">
+                                        <option value="Desplegable" (click)="desplegableClicked()">Desplegable</option>
+                                        <option value="Numero" (click)="hideDesplegable()">Numero</option>
+                                        <option value="vLibre" (click)="hideDesplegable()">Valor Libre</option>
+                                        <option value="fov" (click)="hideDesplegable()">Si o No</option>
+                                        <option value="Dimensiones" (click)="hideDesplegable()">Dimensiones</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div *ngIf="agregaroption" class="grid-x grid-padding-x agregar-opcion-nombre-grid">
+                                <div class="cell medium-6 agregar-opcion-nombre-cell">
+                                    <form [formGroup]="opcionForm">
+                                    <div class="grid-x grid-padding-x grid-opcion-nombre">
+                                        <div class="cell medium-2 opcion-nombre">
+                                            <span>Nombre:</span>
+                                        </div>
+                                        <div class="cell medium-4 opcion-input">
+                                            <input type="text" formControlName="nombre">
+                                        </div>
+                                    </div>
+                                    <div class="grid-x grid-padding-x grid-opcion-btns">
+                                        <div class='cell medium-4 agregar-opcion-btn' (click)="addOpcionAgregar()">
+                                            <button>Agregar</button>
+                                        </div>
+                                        <div class='cell medium-4 cancelar-opcion-btn' (click)="cancelarOpcion()">
+                                            <button>Cancelar</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div *ngIf="showDesplegable" class="grid-x grid-padding-x espec-opciones-grid">
+                                <div class="cell medium-5 espec-opciones-span">
+                                    <span>Opciones</span>
+                                </div>
+                                <div class="cell medium-3 espec-opciones-select">
+                                    <select name="espec-opciones-select">
+                                        <option *ngFor="let opcion of opciones_espec" value="{{opcion}}" (click)="opcionChangeAgregar(opcion)">{{opcion}}</option>
+                                    </select>
+                                </div>
+                                <div class="cell medium-3 espec-opciones-del-btn" (click)="eliminarOpcionAgregar()">
+                                    <button>ELIMINAR</button>
+                                </div>
+                            </div>
+                            <div *ngIf="showDesplegable" class="grid-x grid-padding-x agregar-opcion-button-grid">
+                                <div class="cell medium-3 agregar-opcion-button-cell" (click)="agregarOpcion()">
+                                    <button>AGREGAR</button>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-obligatorio-grid">
+                                <div class="cell medium-5 espec-obligatorio-span">
+                                    <span>Obligatorio</span>
+                                </div>
+                                <div class="cell medium-5 espec-obligatorio-select">
+                                    <select name="espec-tipo-select" formControlName="obligatorio">
+                                        <option value="Si">Si</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-nombre-grid">
+                                <div class="cell medium-2 espec-nombre-span">
+                                    <span>Precio Adicional</span>
+                                </div>
+                                <div class="cell medium-5 espec-nombre-input">
+                                    <input formControlName="precio" type="text" value={{espec_editar.precio}} maxlength="15">
+                                </div>
+                            </div>
+                        <div class="grid-x grid-padding-x error-grid">
+                            <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                <span>{{form_error}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-x grid-padding-x buttons-grid-especs">
+                            <div class="cell medium-3 agregar-form-btn" (click)="agregarEspec()">
+                                <button>AGREGAR</button>
+                            </div>
+                            <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                <button>CANCELAR</button>
+                            </div>
+                        </div>
+                        </form>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- EDITAR ESPEC-->
+            <div *ngIf="cover_mode == 'editar_espec'" class="cell medium-7 medium-offset-1 form-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-6 form-title">
+                        <span>EDITAR ESPECIFICACIÓN</span>
+                    </div>
+                </div>
+                <div class="grid-x grid-padding-x line-form"></div>
+                <div class="grid-x grid-padding-x form-grid">
+                    <div class="cell medium-12">
+                        <div class="formEspecContainer">
+                        <form [formGroup]="especForm">
+                            <div class="grid-x grid-padding-x espec-nombre-grid">
+                                <div class="cell medium-2 espec-nombre-span">
+                                    <span>Nombre</span>
+                                </div>
+                                <div class="cell medium-5 espec-nombre-input">
+                                    <input formControlName="nombre" type="text" value={{espec_editar.nombre}} maxlength="32">
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-tipo-grid">
+                                <div class="cell medium-5 espec-tipo-span">
+                                    <span>Tipo de Información requerida</span>
+                                </div>
+                                <div class="cell medium-5 espec-tipo-select">
+                                    <select name="espec-tipo-select" formControlName="tipo" (change)="selectChange($event.target.value)">
+                                        <option value="Desplegable" [selected]="espec_editar.tipo == 'Desplegable'" (click)="desplegableClicked()">Desplegable</option>
+                                        <option value="Numero" [selected]="espec_editar.tipo == 'Numero'" (click)="changeDesplegable('Numero')">Numero</option>
+                                        <option value="vLibre" [selected]="espec_editar.tipo == 'vLibre'" (click)="changeDesplegable('Numero')">Valor Libre</option>
+                                        <option value="fov" [selected]="espec_editar.tipo == 'fov'" (click)="changeDesplegable('Numero')">Si o No</option>
+                                        <option value="Dimensiones" [selected]="espec_editar.tipo == 'Dimensiones'" (click)="changeDesplegable('Numero')">Dimensiones</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div *ngIf="espec_editar.tipo == 'Desplegable' || showDesplegable == true" class="grid-x grid-padding-x espec-opciones-grid">
+                                <div class="cell medium-5 espec-opciones-span">
+                                    <span>Opciones</span>
+                                </div>
+                                <div class="cell medium-3 espec-opciones-select">
+                                    <select name="espec-opciones-select">
+                                        <option *ngFor="let opcion of opciones_espec" value="{{opcion.nombre}}" [selected]="opcion.nombre == opcionselected" (click)="opcionSelected(opcion.nombre)">{{opcion.nombre}}</option>
+                                    </select>
+                                </div>
+                                <div class="cell medium-3 espec-opciones-del-btn" (click)="eliminarOpcion()">
+                                    <button>ELIMINAR</button>
+                                </div>
+                            </div>
+                            <div *ngIf="agregaroption" class="grid-x grid-padding-x agregar-opcion-nombre-grid">
+                                <div class="cell medium-6 agregar-opcion-nombre-cell">
+                                    <form [formGroup]="opcionForm">
+                                    <div class="grid-x grid-padding-x grid-opcion-nombre">
+                                        <div class="cell medium-2 opcion-nombre">
+                                            <span>Nombre:</span>
+                                        </div>
+                                        <div class="cell medium-4 opcion-input">
+                                            <input type="text" formControlName="nombre">
+                                        </div>
+                                    </div>
+                                    <div class="grid-x grid-padding-x grid-opcion-btns">
+                                        <div class='cell medium-4 agregar-opcion-btn' (click)="addOpcion()">
+                                            <button>Agregar</button>
+                                        </div>
+                                        <div class='cell medium-4 cancelar-opcion-btn' (click)="cancelarOpcion()">
+                                            <button>Cancelar</button>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div *ngIf="espec_editar.tipo == 'Desplegable' || showDesplegable == true" class="grid-x grid-padding-x agregar-opcion-button-grid">
+                                <div class="cell medium-3 agregar-opcion-button-cell" (click)="agregarOpcion()">
+                                    <button>AGREGAR</button>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-obligatorio-grid">
+                                <div class="cell medium-5 espec-obligatorio-span">
+                                    <span>Obligatorio</span>
+                                </div>
+                                <div class="cell medium-5 espec-obligatorio-select">
+                                    <select name="espec-tipo-select" formControlName="obligatorio">
+                                        <option value="Si" [selected]="espec_editar.obligatorio == 'Si'">Si</option>
+                                        <option value="No" [selected]="espec_editar.obligatorio == 'No'">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid-x grid-padding-x espec-nombre-grid">
+                                <div class="cell medium-2 espec-nombre-span">
+                                    <span>Precio Adicional</span>
+                                </div>
+                                <div class="cell medium-5 espec-nombre-input">
+                                    <input formControlName="precio" type="text" value={{espec_editar.precio}} maxlength="15">
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                        <div class="grid-x grid-padding-x error-grid-espec">
+                            <div *ngIf="form_error != ''" class="cell medium-8 err-message">
+                                <span>{{form_error}}</span>
+                            </div>
+                        </div>
+                        <div *ngIf="!agregaroption" class="grid-x grid-padding-x buttons-grid-especs">
+                            <div class="cell medium-3 agregar-form-btn" (click)="editEspec()">
+                                <button>AGREGAR</button>
+                            </div>
+                            <div class="cell medium-3 cancelar-form-btn" (click)="cancelarForm()">
+                                <button>CANCELAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- WHEN EDITING AN IMAGE-->
+            <div *ngIf="cover_mode == 'change_img'" class="grid-x grid-padding-x change-img-container">
+                <div class="cell medium-6 change-img-cell">
+                    <div class="grid-x grid-padding-x principal-img-grid">
+                        <div class="cell medium-12">
+                            <img src="{{imagen_principal}}">
+                        </div>
+                    </div>
+
+                    <div class="grid-x grid-padding-x action-btns-grid">
+                        <div class="cell medium-3 action-btn-cell" (click)="openImgMenu('principal')">
+                            <button>CAMBIAR</button>
+                        </div>
+                        <div class="cell medium-3 cancelar-btn-cell" (click)="cancelarForm()">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- IMG BANK-->
+            <div *ngIf="cover_mode == 'img_bank'" class="grid-x grid-padding-x img-bank-container">
+                <div class="cell medium-6  img-bank-cell">
+                    <div class="grid-x grid-padding-x img-bank-title-grid">
+                        <div class="cell medium-6 img-bank-title-cell">
+                            <span>BANCO DE IMAGENES</span>
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x img-bank-line"></div>
+                    <div class="grid-x grid-padding-x img-bank-imgs-grid">
+                        <div *ngFor="let img of bank_images" class="cell medium-3 bank-img" (click)="expandImg(img)">
+                            <img src="{{img}}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="grid-x grid-padding-x cancelar-btn-grid">
+                    <div class="cell medium-3" (click)="cancelarForm()">
+                        <button>CANCELAR</button>
+                    </div>
+                </div>
+            </div>
+            <!--EXPAND IMG-->
+            <div class="grid-x grid-padding-x expand-img-container" *ngIf="cover_mode == 'expand_img'">
+                <div class="cell medium-6 expand-img-cell">
+                    <div class="grid-x grid-padding-x img-grid">
+                        <div class="cell medium-12">
+                            <img src="{{image_expand}}">
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x seleccionar-btns-grid">
+                        <div *ngIf="secondaryImgBoolean == true" class="cell medium-3 seleccionar-btn-cell" (click)="setSecondaryImg()">
+                            <button>SELECCIONAR</button>
+                        </div>
+                        <div *ngIf="secondaryImgBoolean == false" class="cell medium-3 seleccionar-btn-cell" (click)="setImageAsPrincipal()">
+                            <button>SELECCIONAR</button>
+                        </div>
+                        <div class="cell medium-3 cancelar-btn-cell" (click)="openImgMenu('principal')">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--EDITAR SECONDARY IMG-->
+            <div class="grid-x grid-padding-x expand-img-container" *ngIf="cover_mode == 'change_secondary_img'">
+                <div class="cell medium-6 expand-img-cell">
+                    <div class="grid-x grid-padding-x img-grid">
+                        <div class="cell medium-12">
+                            <img src="{{secondary_img}}">
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x seleccionar-btns-grid">
+                        <div class="cell medium-3 seleccionar-btn-cell" (click)="openImgMenu('secondary')">
+                            <button>CAMBIAR</button>
+                        </div>
+                        <div class="cell medium-3 cancelar-btn-cell" (click)="cancelarForm()">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AGREGAR IMAGEN -->
+            <div class="grid-x grid-padding-x select-img-type-container" *ngIf="cover_mode == 'agregar_imagen'">
+                <div class="cell medium-6">
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell medium-12 select-img-type-cell">
+                            <div class="radio-container">
+                                <input *ngIf="allowPrincipalImage" type="radio" id="principal" name="img-type-radio" value="principal" (click)="openImgMenu()">
+                                <label *ngIf="allowPrincipalImage" for="principal">Seleccionar Imagen Principal</label><br>
+                                <input type="radio" id="secondary" name="img-type-radio" value="secondary" (click)="openImgMenu('secondary')">
+                                <label for="secondary">Seleccionar Imagen Extra</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x img-type-cancelar-grid">
+                        <div class="cell medium-6 img-type-cancelar-cell" (click)="cancelarForm()">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--ERROR IMAGE-->
+            <div class="grid-x grid-padding-x select-img-type-container" *ngIf="cover_mode == 'error_img'">
+                <div class="cell medium-6">
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell medium-12 select-img-type-cell">
+                            <div class="span-container">
+                                <span>Limite de imágenes alcanzado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x img-type-cancelar-grid">
+                        <div class="cell medium-6 img-type-cancelar-cell" (click)="cancelarForm()">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

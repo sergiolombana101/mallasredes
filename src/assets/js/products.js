@@ -4,10 +4,17 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
     let sections = document.getElementsByTagName("section");
     let ver_mas = document.getElementsByClassName("ver-mas");
 
-    let footers = document.getElementsByClassName('card-footer');
-    let categ_boxes = document.getElementsByClassName('categories-box-container')[0].children;
-
+    
     let back_arrow = document.getElementsByClassName('back-arrow')[0];
+    console.log(back_arrow);
+    let agregar_btn = document.getElementsByClassName('agregar-button')[0];
+    let extra_imgs = null;
+   // let categ_boxes = document.getElementsByClassName('categories-box-container')[0].children;
+
+
+   setTimeout(()=>{
+    let categ_boxes = document.getElementsByClassName('category-box');
+    categ_boxes[0].classList.add('active');
 
     for(let x = 0; x<categ_boxes.length;x++){
         categ_boxes[x].onmouseover = () => {
@@ -36,6 +43,9 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
             categ_boxes[x].children[0].style.color = "#F5EBE1";
         }
     }
+
+    let footers = document.getElementsByClassName('card-footer');
+
     
     for(let x = 0; x<footers.length;x++){
         footers[x].onmouseover = () => {
@@ -57,37 +67,85 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
             products_section.style.transform = "translateX(-100em)";
             vermas_section.style.transition = "2s";
             vermas_section.style.transform = "translateX(0em)";
+            let name_clicked = ver_mas[x].id;
+            let product_name = document.getElementsByClassName('ver-mas-product-name')[0];
+            product_name.innerHTML = name_clicked;
+            let images = document.getElementsByClassName('img-identifier');
+            back_arrow = document.getElementsByClassName('back-arrow')[0];
+            back_arrow.onclick = () => {
+                console.log('arrow-clicked');
+                let vermas_section = document.getElementsByClassName('ver-mas-section')[0];
+                vermas_section.style.transition = "1s";
+                vermas_section.style.transform = "translateX(100em)";
+                let products_section = document.getElementsByClassName('products-section-div')[0];
+                products_section.style.transition = "2s";
+                products_section.style.transform = "translateX(0em)";
+    
+            }
+            for(let x = 1; x<images.length;x++){
+                images[x].classList.add('extra-img');
+            }
+        }
+
+    }
+   },2000)
+
+
+
+
+    if(back_arrow != undefined){
+
+        back_arrow.onclick = () => {
+            console.log('arrow-clicked');
+            let vermas_section = document.getElementsByClassName('ver-mas-section')[0];
+            vermas_section.style.transition = "1s";
+            vermas_section.style.transform = "translateX(100em)";
+            let products_section = document.getElementsByClassName('products-section-div')[0];
+            products_section.style.transition = "2s";
+            products_section.style.transform = "translateX(0em)";
+
         }
 
     }
 
-    back_arrow.onclick = () => {
-        console.log('arrow-clicked');
-        let vermas_section = document.getElementsByClassName('ver-mas-section')[0];
-        vermas_section.style.transition = "1s";
-        vermas_section.style.transform = "translateX(100em)";
-        let products_section = document.getElementsByClassName('products-section-div')[0];
-        products_section.style.transition = "2s";
-        products_section.style.transform = "translateX(0em)";
+    if(agregar_btn != undefined){
 
+        agregar_btn.children[1].onclick = () => {
+            console.log('agregar clicked');
+            let cart_number = document.getElementsByClassName('cart-number-span')[0];
+            cart_number.style.transition = "3s";
+            cart_number.style.opacity = '1';
+            cart_number.style.fontSize = '2vw';
+            cart_number.style.left = '54%';
+            cart_number.style.top = '-46%';
+            setTimeout(()=>{
+                cart_number.style.transition = "0s";
+                cart_number.style.opacity = '0';
+                cart_number.style.fontSize = '4vw';
+                cart_number.style.left = '-95%';
+                cart_number.style.top = '32%';
+            },2000)
+        }
     }
 
-    button.onclick = () => {
-        let main = document.getElementsByClassName("main")[0];
-        let pagination = document.getElementsByClassName('onepage-pagination')[0];
-        
-        main.style.transform = 'translate3d(0px,-100%,0px)';
-        main.style.transition = "all 1000ms ease 0s";
-        sections[0].classList.remove('active');
-        sections[1].classList.add('active');
-        localStorage.setItem("direction","downOnProducts");
-        pagination.children[0].children[0].classList.remove('active');
-        pagination.children[1].children[0].classList.add('active');
-        sessionStorage.setItem("activeSection","1");
-        localStorage.setItem("onProducts","true");
-        let products_container = document.getElementsByClassName("products_container")[0];
-        products_container.style.transition = "4s";
-        products_container.style.opacity = "1";
+    if(button != undefined){
+        button.onclick = () => {
+            let main = document.getElementsByClassName("main")[0];
+            let pagination = document.getElementsByClassName('onepage-pagination')[0];
+            
+            main.style.transform = 'translate3d(0px,-100%,0px)';
+            main.style.transition = "all 1000ms ease 0s";
+            sections[0].classList.remove('active');
+            sections[1].classList.add('active');
+            localStorage.setItem("direction","downOnProducts");
+            pagination.children[0].children[0].classList.remove('active');
+            pagination.children[1].children[0].classList.add('active');
+            sessionStorage.setItem("activeSection","1");
+            localStorage.setItem("onProducts","true");
+            let products_container = document.getElementsByClassName("products_container")[0];
+            products_container.style.transition = "4s";
+            products_container.style.opacity = "1";
+        }
     }
 
     function navigateTo(section){

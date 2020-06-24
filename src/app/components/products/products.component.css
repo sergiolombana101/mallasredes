@@ -19,6 +19,7 @@ body{
 .buscar{
     position: relative;
     top: -10%;
+    opacity:0;
 }
 .buscar div{
     width: 15%;
@@ -51,9 +52,16 @@ body{
     left: 5%;
     top: 4%;
 }
+.logo-img-mas{
+    height: 12vh;
+    width: 35vh;
+    position: absolute;
+    left: 5%;
+    top: 24%;
+}
 .nav-bar-box{
     background-color: #67563F;
-    height: 4em;
+    height: 6em;
     border-bottom-left-radius: 100em;
     border-bottom-right-radius: 100em;
 }
@@ -63,6 +71,13 @@ body{
     width: 5em;
     height: 2em;
     top: 2.5%;
+}
+.cart-container-mas{
+    position: absolute;
+    right: 10%;
+    width: 5em;
+    height: 2em;
+    top: 33%;
 }
 .numOfItems{
     position:absolute;
@@ -88,6 +103,7 @@ body{
 }
 .categories-box-container{
     margin-top:2%;
+    margin-left:4%;
 }
 
 .category-box{
@@ -97,25 +113,26 @@ body{
     background-color: #F5EBE1;
     border-radius: 2em;
     cursor: pointer;
+    text-align: center;
+    padding: 2em 0;
 }
-.first-box{
-    margin-left: 6%;
+.active{
     height: 7em;
     width: 9em;
     background-color:  #A76F23;
     border-radius: 2em;
     cursor: pointer;
 }
-.category-box span, .first-box span{
+.category-box span, .active span{
     color: #F5EBE1;
     font-family: 'Bell MT';
-    position: relative;
-    left: 9%;
-    top:9%;
     font-size: 1.2vw;
 }
 .category-box span{
     color: #A76F23;
+}
+.active span{
+    color:#F5EBE1;
 }
 .category-box:nth-child(2) span, .category-box:nth-child(4) span{
     left: 12%;
@@ -132,7 +149,7 @@ body{
 .master-container{
     background-color: white;
     width: 17%;
-    height: 15em;
+    height: 13em;
     border-top-left-radius: 3em;
     border-bottom-right-radius: 3em;
     margin-left: 3%;
@@ -207,10 +224,10 @@ body{
 }
 .card-container{
     background-color: white;
-    width: 65em;
+    width: 62em;
     height: 70vh;
     position: absolute;
-    left: 20%;
+    left: 14%;
     border-radius: 3em;
 }
 .product-img-container{
@@ -261,7 +278,7 @@ body{
     font-family: 'Bell MT';
 }
 .more-images{
-    margin-top:5%;
+    margin-top:2%;
     margin-left:.1em;
 }
 .image{
@@ -271,14 +288,21 @@ body{
     width: 5em;
     height: 5em;
 }
+
 .extra-img{
     position: relative;
     left: -10%;
 }
-.extra-img:nth-child(3){
+.image:nth-child(2){
+    position:relative;
+    left:-10%;
+}
+.image:nth-child(3){
+    position: relative;
     left: -20%;
 }
-.extra-img:nth-child(4){
+.image:nth-child(4){
+    position:relative;
     left:-29%;
 }
 select{
@@ -290,6 +314,9 @@ select{
     position: absolute;
     left: 42%;
     top:60%;
+    width:19em;
+    height:8em;
+    overflow:auto;
 }
 .second-option-span{
     position: absolute;
@@ -307,6 +334,46 @@ select{
     font-size:1.6vw;
     font-family: 'Bell MT';
     color: #67563F;
+}
+.cart-number-span{
+    font-size: 4vw;
+    position: absolute;
+    left: -95%;
+    top: 32%;
+    color: orange;
+    opacity: 0;
+}
+.dropdown{
+    margin-top:-2%
+}
+.espec-grid{
+    margin-top:3%;
+}
+.dimensiones{
+    display: flex;
+}
+.dimensiones input{
+    width: 3em;
+    height: 1.5em;
+}
+.input-libre input{
+    height:1.5em;
+}
+.non-agregar-cell{
+    position: absolute;
+    top: 52%;
+    left: 25%;
+    height: 6vh;
+    background-color: rgb(182, 3, 3);
+    width: 39em;
+    opacity:0;
+    transition:2s;
+}
+.non-agregar-cell span{
+    color: white;
+    position: relative;
+    top: 12%;
+    font-family: Cambria Math;
 }
 /*body{
     background-color: #C5B5A5;

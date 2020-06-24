@@ -29,18 +29,10 @@
     </div>
 
     <div class="grid-x grid-padding-x categories-box-container">
-        <div class="cell medium first-box active">
-            <span>Sistema de protección anticaidas</span>
+        <div *ngFor="let categoria of categorias" class="cell medium category-box" (click)="categoriaSelected(categoria)">
+            <span>{{categoria}}</span>
         </div>
-        <div class="cell medium category-box">
-            <span>Redes de protección</span>
-        </div>
-        <div class="cell medium category-box">
-            <span>Encerramientos y Estructuras</span>
-        </div>
-        <div class="cell medium category-box">
-            <span>Mallas Deportivas</span>
-        </div>
+
     </div>
 
     <div class="grid-x grid-padding-x divider-line">
@@ -48,41 +40,26 @@
     </div>
 
     <div class="grid-x grid-padding-x first-section-products">
-        <div class="cell medium-10 master-container">
+
+
+        <div *ngFor="let producto of productos;let i = index" class="cell medium-10 master-container">
             <div class="grid-x grid-padding-x background-card">
                 <div class="cell medium-12">
-                    <img src="../../../assets//img//redes-de-proteccion-1.jpg">
+                    <img src="{{principales[i]}}">
                 </div>
             </div>
             <div class="grid-x grid-padding-x name-container">
-                <div class="cell medium-10">
-                    <span>Mamparas soportes tipo T mordaza</span>
+                <div class="cell medium-12">
+                    <span>{{producto}}</span>
                 </div>
             </div>
             <div class="grid-x grid-padding-x card-footer">
-                <div class="cell medium-12">
-                    <span class="ver-mas" (click)="verMas(Redes)">Ver más</span>
+                <div class="cell medium-12" (click)="verMas(i,producto)">
+                    <span id="{{producto}}" class="ver-mas">Ver más</span>
                 </div>
             </div>
         </div>
 
-        <div class="cell medium-10 master-container">
-            <div class="grid-x grid-padding-x background-card">
-                <div class="cell medium-12">
-                    <img src="../../../assets//img//redes-de-proteccion-1.jpg">
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x name-container">
-                <div class="cell medium-11">
-                    <span>Mampara soporte tipo T de sujeción con parales</span>
-                </div>
-            </div>
-            <div class="grid-x grid-padding-x card-footer">
-                <div class="cell medium-12">
-                    <span class="ver-mas" (click)="verMas(Redes)">Ver más</span>
-                </div>
-            </div>
-        </div>
     </div>
 
     </div>
@@ -92,13 +69,19 @@
             <div class="cell medium-12">
                 <div class="grid-x grid-padding-x nav-bar-container">
                     <div class="cell medium-12 nav-bar-box">
-                        <img class="logo-img" src="../../../assets//img//landing-logo.png">
-                        <div class="cart-container" style="top:10%">
+                        <img class="logo-img-mas" src="../../../assets//img//landing-logo.png">
+                        <div class="cart-container-mas">
                             <img class="cart-img" src="../../../assets//img//cart.png">
                             <p class="numOfItems">{{numOfItems}}</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="grid-x grid-padding-x non-agregar-grid">
+            <div class="cell medium-8 non-agregar-cell">
+                <span>Uh Oh. Este servicio todavia no esta disponible. Estamos trabajando para completarlo! </span>
             </div>
         </div>
         
@@ -109,64 +92,75 @@
             <div class="cell medium-8 card-container">
                 <div class="grid-x grid-padding-x">
                     <div class="cell medium-5 product-img-container">
-                        <img src="../../../assets//img//productos//mamparas_soportes_t/mamparast.jpg">
+                        <img src="{{imagen_principal}}">
                     </div>
                     <div class="cell medium-3 agregar-button">
-                            <button>Añadir</button>
+                        <span class="cart-number-span">{{numOfItems}}</span>
+                        <button (click)="agregarCart()">Añadir</button>
                     </div>
                 </div>
                 <div class="grid-x grid-padding-x more-images">
                     <div class="cell medium-7">
                         <div class="grid-x grid-padding-x images-container">
-                            <div class="cell medium-3 image">
-                                <img src="../../../assets//img//productos//mamparas_soportes_t//mamparast2.jpg">
-                            </div>
-                            <div class="cell medium-3 image extra-img">
-                                <img src="../../../assets//img//productos//mamparas_soportes_t//mamparast2.jpg">
-                            </div>
-                            <div class="cell medium-3 image extra-img">
-                                <img src="../../../assets//img//productos//mamparas_soportes_t//mamparast2.jpg">
-                            </div>
-                            <div class="cell medium-3 image extra-img">
-                                <img src="../../../assets//img//productos//mamparas_soportes_t//mamparast.jpg">
+                            <div *ngFor="let imagen of imagenes;let i = index" class="cell medium-3 image img-identifier" (click)="extraImgClick(imagen,$event)">
+                                <img src="{{imagen}}">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="grid-x grid-padding-x product-title-vermas">
                     <div class="cell medium-9">
-                        <span>Mamparas Soportes tipo T mordaza</span>
+                        <span class="ver-mas-product-name">Mamparas Soportes tipo T mordaza</span>
                     </div>
                 </div>
                 <div class="grid-x grid-padding-x product-description-vermas">
                     <div class="cell medium-10">
                         <span>
-                            De uso especial en construcciones para el cubrimiento de fosos de ascensores, 
-                            vacíos y huecos de forjados etc. Fabricadas en nylon de alta tenacidad con ojo
-                             de 5 x 5 cm, en Nylon 100% con aditivo U.V. en dos referencias:
+                            {{product_desc}}
                         </span>
                     </div>
                 </div>
                 <div class="grid-x grid-padding-x opciones-container">
                     <div class="cell medium-12">
                         <div class="grid-x grid-padding-x opciones-div">
-                            <div class="cell medium-6">
-                                <span>Calibre</span>
-                                <select name="calibre">
-                                </select>
+                            <div class="cell medium-12">
+                                <div *ngFor="let espec of especificaciones" class="grid-x grid-padding-x espec-grid">
+                                    <div class="cell medium-4">
+                                        <span>{{espec.nombre}}</span>
+                                    </div>
+                                    <div *ngIf="espec.tipo == 'Desplegable'" class="cell medium-5 dropdown">
+                                        <select name="{{espec.nombre}}">
+                                            <option *ngFor="let opcion of opciones[espec.nombre]" value="{{opcion}}">
+                                                {{opcion}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="espec.tipo == 'Dimensiones'" class="cell medium-5 dimensiones">
+                                        <input type="text" name="valuex">
+                                        x
+                                        <input type="text" name="valuey">
+                                    </div>
+                                    <div *ngIf="espec.tipo == 'fov'" class="cell medium-5 dropdown">
+                                        <select name="{{espec.nombre}}">
+                                            <option value="si">Si</option>
+                                            <option value="si">No</option>
+                                        </select>
+                                    </div>
+                                    <div *ngIf="espec.tipo == 'Numero'" class="cell medium-5 input-libre">
+                                        <input type="text" name="numero">
+                                    </div>
+                                    <div *ngIf="espec.tipo == 'vLibre'" class="cell medium-5 input-libre">
+                                        <input type="text" name="numero">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cell medium-6">
-                                <span class="second-option-span">Color</span>
-                                <select class="second-option-select" name="color">
-                                </select>
-                            </div>
+    
                         </div>
-                        <div class="grid-x grid-padding-x opciones-div"></div>
                     </div>
                 </div>
                 <div class="grid-x grid-padding-x precio-container">
                     <div class="cell medium-12">
-                        <span>228.000 COP</span>
+                        <span>{{product_precio}} COP</span>
                     </div>
                 </div>
             </div>

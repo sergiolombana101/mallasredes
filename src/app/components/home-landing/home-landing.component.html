@@ -39,7 +39,7 @@
     
 
 
-        <div class="cell medium-3 nav-logo">
+        <div class="cell medium-3 nav-logo" (click)="adminLogin()">
             <img src="../../../assets/img/landing-logo.png">
         </div>
         <div class="cell medium-5 medium-offset-11 menu-container">
@@ -79,8 +79,8 @@
         </div>
     </div>
     <div class="grid-x grid-padding-x comprar-btn-container">
-        <div class="cell medium-5 medium-offset-4 comprar-btn-div">
-            <button class="comprar-btn" (click)="comprarClick()"><span>COMPRAR</span></button>
+        <div class="cell medium-5 medium-offset-4 comprar-btn-div" (click)="comprarClick()">
+            <button class="comprar-btn"><span>COMPRAR</span></button>
         </div>
     </div>
     <div class="grid-x grid-padding-x slide-btn-container">

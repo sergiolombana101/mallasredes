@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeLandingComponent } from './components/home-landing/home-landing.component';
 import { HomeRoutingComponent } from './components/home-routing/home-routing.component';
 import { CommonModule } from '@angular/common';
+import { RouteGuard } from './guards/route.guard';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'productos',
+    canActivate:[RouteGuard],
     loadChildren: () => import('./components/product-routing/product-routing.module').then(m=>m.ProductRoutingModule),
     data : {kind:'update'}
   },
@@ -51,6 +53,18 @@ const routes: Routes = [
     path: 'productos/:section',
     loadChildren: () => import('./components/product-routing/product-routing.module').then(m=>m.ProductRoutingModule),
     data: {kind:'update'}
+  },
+  {
+    path: 'admin/ingresar',
+    canActivate:[RouteGuard],
+    loadChildren: () => import('./components/admin/login/login.module').then(m=>m.LoginModule),
+    data: {kind:'update'}
+  },
+  {
+    path: 'admin/ingresar/inicio',
+    canActivate:[RouteGuard],
+    loadChildren: () => import('./components/admin/panel-inicio/panel-inicio.module').then(m=>m.PanelInicioModule),
+    data:{kind:'update'}
   }
 ];
 

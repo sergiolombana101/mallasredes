@@ -1,0 +1,86 @@
+body{
+    height:100vh;
+    background-color: #3F4045;
+}
+.svg-container{
+    position: absolute;
+    right:0%;
+}
+.login-container{
+    position:absolute;
+    top:20%;
+    left:15%;
+}
+.login-div{
+    width:65em;
+    height:30em;
+    background-color: rgba(48,41,47,0.54);
+    border-radius: 2em;
+}
+.svg-login{
+    margin-top:5%;
+    margin-left: 2%;
+}
+.login-company-name-container{
+    margin-top:11%;
+    margin-left:5%;
+}
+.login-company-name span{
+    color: white;
+    font-family: 'Britannic';
+    font-size: 2.5vw;
+    line-height: .4em;
+}
+.correo-container-div{
+    margin-top:10%;
+}
+.correo-container{
+    margin-left: 10%;
+}
+.correo-container label, .contrasena-container label{
+    color: white;
+    position: relative;
+    top:38%;
+}
+.correo-container input, .contrasena-container input{
+    text-decoration: none;
+    background-color: transparent;
+    border:none;
+    border-bottom: 2px solid white;
+    width: 15em;
+    color: white;
+    height: 4em;
+}
+.contrasena-container-div{
+    margin-top: 5%;
+    margin-left: 8%;
+}
+.acceder-button-div{
+    margin-top:0%;
+    margin-left: 18%;
+}
+.acceder-button{
+    width: 7em;
+    height: 3em;
+    background-color: #02111B;
+    cursor: pointer;
+}
+.acceder-button button{
+    color: white;
+    font-family: 'Britannic';
+    font-size: 1.5vw;
+    position: relative;
+    top: 19%;
+    cursor: pointer;
+}
+.error-container-div{
+    margin-top:5%;
+    margin-left:8%;
+}
+.error-container span{
+    color: orange;
+    font-family: 'Cambria Math';
+    min-height: 2vh;
+    display: inline-block;
+}
+
