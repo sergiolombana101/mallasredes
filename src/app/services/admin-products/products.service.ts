@@ -13,7 +13,7 @@ declare const Buffer:any;
 export class ProductsService {
 
   //endPoint = 'https://mallas-server.herokuapp.com/api';
-  endPoint = 'http://localhost:5000/api';
+  endPoint = '/api';
   response: any;
 
   constructor(private http:Http, private httpClient:HttpClient) {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { map, windowWhen } from 'rxjs/operators';
 //const process = require('process');
 
 declare var require:any;
@@ -15,7 +15,7 @@ const key = 'redesmallas'
 export class LoginService {
   //port = process.env.PORT || 5000;
   //endPoint = 'https://mallas-server.herokuapp.com/api';
-  endPoint = 'http://localhost:5000/api';
+  endPoint = '/api';
   response: any;
 
   constructor(private http:Http) { }
