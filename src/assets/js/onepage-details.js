@@ -150,7 +150,7 @@ $(".main").onepage_scroll({
           let direction = '';
           getScrollDirection().then(res=>{
             direction=res;
-            //console.log("DIRECTION is: "+direction)
+            console.log("DIRECTION is: "+direction)
             setTimeout(()=>{
               if(localStorage.getItem("scrolling") == "false"){
               // console.log("DIRECTION  2 is: "+direction)
