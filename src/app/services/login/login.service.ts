@@ -13,9 +13,9 @@ const key = 'redesmallas'
   providedIn: 'root'
 })
 export class LoginService {
-  //port = process.env.PORT || 5000;
-  //endPoint = 'https://mallas-server.herokuapp.com/api';
+
   endPoint = '/api';
+  //endPoint = 'http://localhost:8080/api' FOR DEVELOPMENT
   response: any;
 
   constructor(private http:Http) { }

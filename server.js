@@ -528,7 +528,7 @@ app.post("/api/addCategory",(req,res)=>{
                 response.status = 200;
                 response.message = "Categoria Insertada";
                 response.data = [];
-                createFolder(req.body)
+               //createFolder(req.body)
             }
             res.status(200).json(response);
         }
@@ -546,7 +546,7 @@ app.post("/api/addProduct",(req,res)=>{
                 response.status = 200;
                 response.message = "Producto Insertada";
                 response.data = [];
-                createFolder(req.body[3]+'/'+req.body[0])
+                //createFolder(req.body[3]+'/'+req.body[0])
             }
             res.status(200).json(response);
         }
@@ -564,7 +564,7 @@ app.post("/api/editCategory",(req,res)=>{
                 response.status = 200;
                 response.message = "Categoria editada";
                 response.data = [];
-                editFolder(req.body[0],req.body[1]);
+               // editFolder(req.body[0],req.body[1]);
             }
             res.status(200).json(response);
         }
@@ -582,7 +582,7 @@ app.post("/api/editProduct",(req,res)=>{
                 response.status = 200;
                 response.message = "Producto editad";
                 response.data = [];
-                editProductFolder(req.body[2],req.body[0]['nombre'],req.body[1]);
+               // editProductFolder(req.body[2],req.body[0]['nombre'],req.body[1]);
             }
             res.status(200).json(response);
         }
@@ -602,7 +602,7 @@ app.post("/api/deleteProduct",(req,res)=>{
                 response.message = "Producto Eliminado";
                 response.data = [];
                 let path = req.body[2]+'/'+req.body[0];
-                deleteFolder(path)
+                //deleteFolder(path)
             }
             res.status(200).json(response);
         }
@@ -620,7 +620,7 @@ app.post("/api/deleteCategory",(req,res)=>{
                 response.status = 200;
                 response.message = "Categoria Eliminada";
                 response.data = [];
-                deleteFolder(req.body)
+               // deleteFolder(req.body)
             }
             res.status(200).json(response);
         }
@@ -726,7 +726,20 @@ app.post('/api/addEspec',(req,res)=>{
 })
 
 app.get('/api/getBank',async (req,res)=>{
-    let names = await getBankImgNames().then(response=>{res.status(200).json(response)});
+    connection.query(
+        'SELECT nombre FROM banco',
+        (err,resultados)=>{
+            if(err){
+                console.log(err);
+            }else{
+                response.message = 'Banco obtenido';
+                response.data = resultados;
+                response.status = 200;
+            }
+            res.status(200).json(response);
+        }
+    )
+    //let names = await getBankImgNames().then(response=>{res.status(200).json(response)});
 })
 
 app.post('/api/setPrincipalImg',(req,res)=>{
@@ -774,7 +787,7 @@ app.post('/api/setPrincipalImg',(req,res)=>{
                 response.status = 200;
                 response.data = [];
                 //console.log(resultados);
-                (!first_time)? deleteImg(old_img_name,req.body[0],req.body[3],req.body[4]) : copyImg(req.body[0],req.body[3],req.body[4]);
+               // (!first_time)? deleteImg(old_img_name,req.body[0],req.body[3],req.body[4]) : copyImg(req.body[0],req.body[3],req.body[4]);
             }
                 res.status(200).json(response);
             }
@@ -829,7 +842,7 @@ app.post('/api/setSecondaryImg',(req,res)=>{
                         response.message = 'Imagen secondaria cambiada';
                         response.status = 200;
                         response.data = [];
-                        (!first_time)? deleteImg(req.body[0],req.body[1],req.bpdy[4],req.body[5]) : copyImg(req.body[1],req.body[4],req.body[5]);
+                        //(!first_time)? deleteImg(req.body[0],req.body[1],req.bpdy[4],req.body[5]) : copyImg(req.body[1],req.body[4],req.body[5]);
                     }
                     res.status(200).json(response);
                 }

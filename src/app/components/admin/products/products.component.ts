@@ -706,12 +706,12 @@ export class ProductsComponent implements OnInit {
         if(res['status'] == 200){
           let imagenesObj = res['data'];
           for(let imagen in imagenesObj){
-            let imagen_base = '../../../../assets/img/productos/';
+            let imagen_base = 'https://raw.githubusercontent.com/sergiolombana101/mallas-redes/master/';
             if(imagenesObj[imagen]['principal'] == 1){
-              imagen_base += this.category_selected+'/'+this.product_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagen_principal =  imagen_base;
             }else{
-              imagen_base += this.category_selected+'/'+this.product_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagenes.push(imagen_base);
             }
           }
@@ -726,12 +726,12 @@ export class ProductsComponent implements OnInit {
         if(res['status'] == 200){
           let imagenesObj = res['data'];
           for(let imagen in imagenesObj){
-            let imagen_base = '../../../../assets/img/productos/';
+            let imagen_base = 'https://raw.githubusercontent.com/sergiolombana101/mallas-redes/master/';
             if(imagenesObj[imagen]['principal'] == 1){
-              imagen_base += this.especs_categoria_selected+'/'+this.especs_producto_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagen_principal =  imagen_base;
             }else{
-              imagen_base += this.especs_categoria_selected+'/'+this.especs_producto_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagenes.push(imagen_base);
             }
           }
@@ -748,9 +748,9 @@ export class ProductsComponent implements OnInit {
     }
     openImgMenu(principal = ''){
       this.productService.getImgBank().subscribe(res=>{
-        let baseLink = '../../../../assets/img/banco/';
-        for(let img in res){
-          let image = baseLink+res[img];
+        let baseLink = 'https://raw.githubusercontent.com/sergiolombana101/mallas-redes/master/';
+        for(let img in res['data']){
+          let image = baseLink+res['data'][img]['nombre'];
           this.bank_images.push(image)
         }
         console.log(this.bank_images);
@@ -774,6 +774,7 @@ export class ProductsComponent implements OnInit {
         let img = this.image_expand.split('/');
         img = img[img.length-1];
         this.productService.setPrincipalImg(img, this.especificaciones_productId, category_id, this.especs_categoria_selected, this.especs_producto_selected).subscribe(res=>{
+          this.getImagenes(category_id,this.especificaciones_productId);
           this.cover_mode = '';
           this.displayCover = false;
         })
@@ -799,7 +800,9 @@ export class ProductsComponent implements OnInit {
       this.productService.getCategoryId(this.especs_categoria_selected).subscribe(res=>{
         let category_id = res['data'][0]['id'];
         this.productService.setSecondaryImg(current_img,new_img,this.especificaciones_productId,category_id,this.especs_categoria_selected,this.especs_producto_selected).subscribe(res=>{
-          console.log(res);
+          this.getImagenes(category_id,this.especificaciones_productId);
+          this.displayCover = false;
+          this.form_error = '';
         })
       })
     }

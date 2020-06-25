@@ -107,9 +107,9 @@ export class ProductsComponent implements OnInit {
             if(res['status'] == 200){
               let imagenesObj = res['data'];
               for(let imagen in imagenesObj){
-                let imagen_base = '../../../assets/img/productos/';
+                let imagen_base = 'https://raw.githubusercontent.com/sergiolombana101/mallas-redes/master/';
                 if(imagenesObj[imagen]['principal'] == 1){
-                  imagen_base += this.category_selected+'/'+this.productos[x]+'/'+imagenesObj[imagen]['nombre'];
+                  imagen_base += imagenesObj[imagen]['nombre'];
                   this.principales.push(imagen_base);
                 }
               }
@@ -147,12 +147,12 @@ export class ProductsComponent implements OnInit {
         if(res['status'] == 200){
           let imagenesObj = res['data'];
           for(let imagen in imagenesObj){
-            let imagen_base = '../../../assets/img/productos/';
+            let imagen_base = 'https://raw.githubusercontent.com/sergiolombana101/mallas-redes/master/';
             if(imagenesObj[imagen]['principal'] == 1){
-              imagen_base += this.category_selected+'/'+this.product_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagen_principal =  imagen_base;
             }else{
-              imagen_base += this.category_selected+'/'+this.product_selected+'/'+imagenesObj[imagen]['nombre'];
+              imagen_base += imagenesObj[imagen]['nombre'];
               this.imagenes.push(imagen_base);
             }
           }
