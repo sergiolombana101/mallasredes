@@ -32,6 +32,7 @@ export class RouteGuard implements CanActivate, CanActivateChild, CanLoad {
                     console.log("PRODUCTOS")
                     this.loadScript("assets/js/onepage-details.js").then(()=>{
                         this.loadScript("assets/js/products.js").then(()=>{});
+                        localStorage.setItem('scrolling','false');
                     })
                     break;
             }

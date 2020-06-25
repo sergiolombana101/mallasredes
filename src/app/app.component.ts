@@ -68,7 +68,8 @@ export class AppComponent{
         cancelInterval();
         localStorage.setItem("component","products");
         this.loadScript("assets/js/products.js");
-        this.loadScript("assets/js/onepage-details.js")
+        this.loadScript("assets/js/onepage-details.js");
+        localStorage.setItem('scrolling','false');
         break;
       case "app-clientes":
         cancelInterval();
