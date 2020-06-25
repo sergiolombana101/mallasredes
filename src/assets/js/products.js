@@ -1,4 +1,5 @@
 if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component") == "products"){
+    document.addEventListener("mousewheel", this.mousewheel.bind(this), { passive: false });
     let button = document.getElementsByClassName('button-mas')[0];
 
     let sections = document.getElementsByTagName("section");
@@ -14,6 +15,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
 
    setTimeout(()=>{
     let categ_boxes = document.getElementsByClassName('category-box');
+    if(categ_boxes.length > 0){
     categ_boxes[0].classList.add('active');
 
     for(let x = 0; x<categ_boxes.length;x++){
@@ -43,6 +45,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
             categ_boxes[x].children[0].style.color = "#F5EBE1";
         }
     }
+
 
     let footers = document.getElementsByClassName('card-footer');
 
@@ -88,6 +91,7 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
         }
 
     }
+}
    },2000)
 
 

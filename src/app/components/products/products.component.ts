@@ -31,14 +31,16 @@ export class ProductsComponent implements OnInit {
 
     ngOnInit(){
       this.getCategorias();
-      this.productService.getCategoryId(this.categorias[0]).subscribe(res=>{
-        let id = res['data'][0]['id'];
-        this.category_selected = this.categorias[0];
-        this.getProductosFromCategorias(id);
-        setTimeout(()=>{
-          this.getPrincipalImages(id);
-        },500)
-      })
+      if(this.categorias.length > 0){
+        this.productService.getCategoryId(this.categorias[0]).subscribe(res=>{
+          let id = res['data'][0]['id'];
+          this.category_selected = this.categorias[0];
+          this.getProductosFromCategorias(id);
+          setTimeout(()=>{
+            this.getPrincipalImages(id);
+          },500)
+        })
+    }
       let numberString = sessionStorage.getItem('numOfItems');
       this.numOfItems = parseInt(numberString);
       let agregar_err = this._elRef.nativeElement.querySelectorAll('.non-agregar-cell');
