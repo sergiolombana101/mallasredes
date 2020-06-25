@@ -13,8 +13,8 @@ declare const Buffer:any;
 export class ProductsService {
 
 
-  endPoint = '/api'; 
-  //endPoint = 'http://localhost:8080/api'// FOR DEVELOPMENT
+  //endPoint = '/api'; 
+  endPoint = 'http://localhost:8080/api'// FOR DEVELOPMENT
   response: any;
 
   constructor(private http:Http, private httpClient:HttpClient) {

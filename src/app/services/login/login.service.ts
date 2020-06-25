@@ -14,8 +14,8 @@ const key = 'redesmallas'
 })
 export class LoginService {
 
-  endPoint = '/api';
-  //endPoint = 'http://localhost:8080/api' //FOR DEVELOPMENT
+  //endPoint = '/api';
+  endPoint = 'http://localhost:8080/api' //FOR DEVELOPMENT
   response: any;
 
   constructor(private http:Http) { }

@@ -1,5 +1,6 @@
 if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component") == "products"){
-    document.addEventListener("mousewheel", this.mousewheel.bind(this), { passive: false });
+
+  
     let button = document.getElementsByClassName('button-mas')[0];
 
     let sections = document.getElementsByTagName("section");
