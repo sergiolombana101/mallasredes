@@ -112,7 +112,6 @@ export class ProductsComponent implements OnInit {
         })
 
         this.radio_html = this._elRef.nativeElement.querySelectorAll('.product-identifier');
-        console.log(this.radio_html);
         for(let radio in this.radio_html){
           if(this.radio_html[radio].value == this.productos[0]){
             this.radio_html[radio].checked = true;
@@ -134,7 +133,6 @@ export class ProductsComponent implements OnInit {
       this.showDesplegable = false;
     }
     desplegableClicked(){
-      console.log('Show Desplegable clicked');
       this.showDesplegable = true;
     }
     hideDesplegable(){
@@ -277,7 +275,6 @@ export class ProductsComponent implements OnInit {
       }
       for(let control in controls){        
         values[control] = controls[control].value;
-        console.log(controls[control].value);
         if(controls[control].value == '' && controls[control].value != 0){
           this.form_error = 'Por favor llene toda la información';
           return;
@@ -287,7 +284,6 @@ export class ProductsComponent implements OnInit {
       delete values['precio'];
       values['precio_adicional'] = precio;
       for(let value in values){
-        console.log(value);
         this.productService.editEspecs(value,values[value],this.espec_editar['nombre'],this.especificaciones_productId).subscribe(res=>{
           if(res['status'] == 200){
             this.productService.getCategoryId(this.especs_categoria_selected).subscribe(res=>{
@@ -340,7 +336,6 @@ export class ProductsComponent implements OnInit {
       this.agregaroption = false;
     }
     eliminarOpcion(){
-      console.log('Eliminar '+this.opcionselected+' where espec_id is = '+this.espec_editar['id']+' and product_id is = '+this.especificaciones_productId);
       this.productService.eliminarOpcion(this.opcionselected,this.espec_editar['id'],this.especificaciones_productId).subscribe(res=>{
         if(res['status'] == 200){
           this.productService.getOpciones(this.especificaciones_productId,this.espec_editar['id']).subscribe(res_opciones=>{
@@ -370,11 +365,8 @@ export class ProductsComponent implements OnInit {
       }
     }
     eliminarOpcionAgregar(){
-      console.log(this.opciones_espec);
       for(let opcion of this.opciones_espec){
-        console.log(opcion+" "+this.opcionselected);
         if(opcion == this.opcionselected){
-          console.log('Deleting '+ this.opcionselected);
           let index = this.opciones_espec.indexOf(opcion);
           this.opciones_espec.splice(index,1);
           if(this.opciones_espec.length>0){
@@ -415,10 +407,8 @@ export class ProductsComponent implements OnInit {
           if(res['status'] == 200){
             if(tipo == 'Desplegable' && this.opciones_espec.length > 0){
               let data = JSON.parse(res['_body'])
-              console.log(data.data)
               for(let opcion in this.opciones_espec){
                 this.productService.addOpcion(this.opciones_espec[opcion],data.data,this.especificaciones_productId).subscribe(res=>{
-                  console.log(res);
                 })
               }
             }
@@ -460,11 +450,19 @@ export class ProductsComponent implements OnInit {
     eliminarProducto(producto){
       this.productService.getCategoryId(this.category_selected).subscribe(res=>{
         let id = res['data'][0]['id'];
-        this.productService.eliminarProducto(producto,id,this.category_selected).subscribe(res_2=>{
-          this.getProductosFromCategorias(id);
-          this.getProductsFromCategorias_Especs(id);
-          this.displayCover = false;
-          this.cover_mode = '';
+        this.productService.getProductId(producto).subscribe(res=>{
+          let product_id = res['data'][0]['id'];
+          this.productService.eliminarImagenes(product_id).subscribe(res_img=>{
+            this.imagen_principal = '';
+            this.imagenes=[];
+            this.displayCover = false;
+            this.cover_mode = '';
+          })
+          this.productService.eliminarProducto(producto,id,this.category_selected).subscribe(res_2=>{
+            this.getProductosFromCategorias(id);
+            this.getProductsFromCategorias_Especs(id);
+    
+            })
         })
       })
     }
@@ -496,8 +494,6 @@ export class ProductsComponent implements OnInit {
           obj['precio'] = this.preciosCopy[producto];
           valuesChanged.push(obj);
           originalValues.push(this.productos[producto])
-          console.log('Producto before: '+this.productos[producto]+', precio: '+this.precios_productos[producto])
-          console.log('Producto after: '+this.productCopy[producto]+', precio: '+this.preciosCopy[producto])
         }
       }
       /*----- STORE IN DATABASE ----*/
@@ -545,7 +541,6 @@ export class ProductsComponent implements OnInit {
       /*---- STORE IN THE DATABASE ----*/
       for(let category in valuesChanged){
         this.productService.editCategorias(valuesChanged[category],originalValues[category]).subscribe(res=>{
-          console.log(res);
         })
       }
 
@@ -562,7 +557,6 @@ export class ProductsComponent implements OnInit {
         this.productService.getCategoryId(this.category_selected).subscribe(res=>{
           if(res['status'] == 200){
             let id = res['data'][0]["id"];
-            console.log('Id:'+JSON.stringify(res['data'][0]["id"]));
             this.productService.addProduct(nombre,id,precio,this.category_selected).subscribe(res=>{
               if(res['status'] == 200){
                 this.getProductosFromCategorias(id);
@@ -753,7 +747,6 @@ export class ProductsComponent implements OnInit {
           let image = baseLink+res['data'][img]['nombre'];
           this.bank_images.push(image)
         }
-        console.log(this.bank_images);
       })
       if(principal == 'secondary'){
         this.secondaryImgBoolean = true;
@@ -787,7 +780,6 @@ export class ProductsComponent implements OnInit {
       this.secondary_img = img;
     }
     setSecondaryImg(){
-      console.log('Changing '+this.secondary_img+' for '+this.image_expand);
       let current_img = '';
       if(this.secondary_img != null){
         current_img = this.secondary_img.split('/');
@@ -814,6 +806,8 @@ export class ProductsComponent implements OnInit {
       }
       if(this.imagenes.length == 4){
         this.cover_mode = 'error_img'
+      }else if(this.especs_producto_selected==''){
+        this.cover_mode="error_select"
       }else{
         this.cover_mode = 'agregar_imagen';
       }

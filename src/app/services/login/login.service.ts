@@ -14,7 +14,7 @@ const key = 'redesmallas'
 })
 export class LoginService {
 
-  endPoint = '/api';
+  endPoint = 'https://mallas-server.herokuapp.com/api'; 
   //endPoint = 'http://localhost:8080/api' //FOR DEVELOPMENT
   response: any;
 

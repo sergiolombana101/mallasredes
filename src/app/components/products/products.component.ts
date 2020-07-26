@@ -28,19 +28,23 @@ export class ProductsComponent implements OnInit {
     constructor(private router:Router,private productService:ProductsService, private _elRef:ElementRef){
     }
 
+    /* this.productService.getCategoryId(categoria).subscribe(res=>{
+        let id = res['data'][0]['id'];
+        this.getProductosFromCategorias(id);
+        setTimeout(()=>{
+          this.getPrincipalImages(id);
+          this.loadScript("assets/js/products.js").then(()=>{});
+        },200)
+      }) */
 
     ngOnInit(){
       this.getCategorias();
-      if(this.categorias.length > 0){
-        this.productService.getCategoryId(this.categorias[0]).subscribe(res=>{
-          let id = res['data'][0]['id'];
+      setTimeout(()=>{
+        if(this.categorias.length > 0){
           this.category_selected = this.categorias[0];
-          this.getProductosFromCategorias(id);
-          setTimeout(()=>{
-            this.getPrincipalImages(id);
-          },500)
-        })
-    }
+          this.categoriaSelected(this.categorias[0]);
+        }
+      },200)
       let numberString = sessionStorage.getItem('numOfItems');
       this.numOfItems = parseInt(numberString);
       let agregar_err = this._elRef.nativeElement.querySelectorAll('.non-agregar-cell');
@@ -48,7 +52,6 @@ export class ProductsComponent implements OnInit {
     }
 
     verMas(nombre,producto){
-      console.log("Ver mas of: "+producto)
       this.product_selected = producto;
       this.productService.getCategoryId(this.category_selected).subscribe(res_cat=>{
         let cat_id = res_cat['data'][0]['id'];
@@ -67,7 +70,6 @@ export class ProductsComponent implements OnInit {
       let imagen = this.imagen_principal;
       this.imagen_principal = img;
       event.target.src = imagen;
-      console.log(event.target)
     }
 
     categoriaSelected(categoria){
@@ -182,7 +184,6 @@ export class ProductsComponent implements OnInit {
               })
             }
           }
-          console.log(this.opciones);
         }
       })
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HomeLandingComponent } from '../home-landing/home-landing.component';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
     enviarForm : FormGroup;
     empty = false;
 
-    constructor(private fb:FormBuilder,private productService:ProductsService){
+    constructor(private fb:FormBuilder,private productService:ProductsService,private _elRef:ElementRef){
       this.enviarForm = this.fb.group({
         nombre:[''],
         correo:[''],
@@ -24,11 +24,20 @@ export class ContactComponent implements OnInit {
       })
     }
 
+    inputClicked(value){
+      let id = '#'+value+'-label'
+      let label = this._elRef.nativeElement.querySelectorAll(id);
+      label[0].style.transition = '1s';
+      label[0].style.top = '7%';
+      label[0].style.fontSize = ".9vw";
+      label[0].style.color = 'white';
+
+    } 
+
     ngOnInit(){}
     
     enviar(){
       let empty = this.isEmpty(this.enviarForm)
-      console.log('Empty: '+empty);
       if(empty != ''){
         this.empty = true;
         (document.querySelector('#'+empty+"-label") as HTMLElement).style.color = '#DC5050';
@@ -46,7 +55,6 @@ export class ContactComponent implements OnInit {
 
     isEmpty(formgroup){
       for(let control in formgroup.controls){
-        console.log(formgroup.controls[control].value);
         if(formgroup.controls[control].value == ''){
           return control;
         }

@@ -13,15 +13,14 @@ declare const Buffer:any;
 export class ProductsService {
 
 
-  endPoint = '/api'; 
-  //endPoint = 'http://localhost:8080/api'// FOR DEVELOPMENT
+  //endPoint = 'https://mallas-server.herokuapp.com/api'; 
+  endPoint = 'http://localhost:8080/api'// FOR DEVELOPMENT
   response: any;
 
   constructor(private http:Http, private httpClient:HttpClient) {
    }
 
   getCategorias(){
-    console.log('Calling categorias')
     return this.httpClient.get(this.endPoint+'/categorias')
       .pipe(map(res=>{return res}));
   }
@@ -42,7 +41,6 @@ export class ProductsService {
   }
 
   addCategory(nombre:any){
-    console.log('Service: '+nombre)
     return this.http.post(this.endPoint+'/addCategory',[nombre])
       .pipe(map(res=>{return res}))
   }
@@ -84,7 +82,6 @@ export class ProductsService {
       .pipe(map(res=>{return res;}))
   }
   getOpciones(product_id:any,espec:any){
-    console.log('Getting opciones where product_id is: '+product_id+' and espec is: '+espec);
     return this.httpClient.get(this.endPoint+'/getOpciones/'+product_id+'/'+espec)
       .pipe(map(res=>{return res;}))
   }
@@ -97,7 +94,6 @@ export class ProductsService {
       .pipe(map(res=>{return res;}))
   }
   addOpcion(nombre,espec_id,product_id){
-    console.log('Adding opcion with: '+nombre+' '+espec_id+' '+product_id);
     return this.http.post(this.endPoint+'/addOpcion',[nombre,espec_id,product_id])
       .pipe(map(res=>{return res}));
   }
@@ -136,6 +132,10 @@ export class ProductsService {
   }
   enviarEmail(values){
     return this.http.post(this.endPoint+'/enviarEmail',[values])
+      .pipe(map(res=>{return res}));
+  }
+  eliminarImagenes(producto){
+    return this.http.post(this.endPoint+'/deleteImgs',[producto])
       .pipe(map(res=>{return res}));
   }
 }

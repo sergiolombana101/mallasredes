@@ -19,25 +19,25 @@
                     <div class="grid-x grid-padding-x name-input">
                         <div class="cell medium-6">
                             <label for="nombre" id="nombre-label">Nombre</label>
-                            <input formControlName="nombre" class="input" type="text" name="nombre">
+                            <input formControlName="nombre" class="input" type="text" name="nombre" (click)="inputClicked('nombre')">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x correo-input">
                         <div class="cell medium-6">
                             <label for="correo" id="correo-label">Correo Electronico</label>
-                            <input class="input" type="text" formControlName="correo" name="correo">
+                            <input class="input" type="text" formControlName="correo" name="correo"(click)="inputClicked('correo')">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x telefono-input">
                         <div class="cell medium-6">
                             <label for="telefono" id="telefono-label">Telefono</label>
-                            <input class="input" type="text" formControlName="telefono" name="telefono">
+                            <input class="input" type="text" formControlName="telefono" name="telefono"(click)="inputClicked('telefono')">
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x mensaje-input">
                         <div class="cell medium-6">
                             <label for="mensaje" id="mensaje-label">Mensaje</label>
-                            <textarea class="input" name="mensaje" formControlName="mensaje"></textarea>
+                            <textarea class="input" name="mensaje" formControlName="mensaje"(click)="inputClicked('mensaje')"></textarea>
                         </div>
                     </div>
                     <div class="grid-x grid-padding-x submit-input">
@@ -58,12 +58,12 @@
         <div class="cell medium-6 medium-offset-1 fb-logo">
             <img src="../../../assets/img/facebook-logo.png">
             <img src="../../../assets/img/phone-logo.png">
-            <span class="phone-n">4505620</span>
+            <span class="phone-n">57 1 4505620, 57 3157588232, 57 3165269188</span>
             <br>
-            <span>Cra. 72L #36 Sur-1 a 36 Sur-77. Bogota</span>
+            <span style="margin-left:20%">Cra. 72L #36 Sur-1 a 36 Sur-77. Bogota</span>
         </div>
         <div class="cell medium-2 separator">
-            <span></span>
+            <span style="margin-left:5%"></span>
         </div>
         <div class="cell medium-6 medium-offset-7 diseñado">
             <span>Diseñado por Sergio Lombana</span>

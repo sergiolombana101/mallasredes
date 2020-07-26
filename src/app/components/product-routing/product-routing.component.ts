@@ -30,11 +30,9 @@ export class ProductRoutingComponent implements OnInit {
           navigateTo(section);
         },200)
       }
-      console.log(path);
     }
 
     onActivate(event:any){
-      console.log("On Activate called in prodct routing");
     }
     loadScript(url, details=false){
       return new Promise((resolve,reject)=>{

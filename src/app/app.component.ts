@@ -37,8 +37,8 @@ export class AppComponent{
         this.loadScript("assets/js/home-landing.js").then(()=>{
           this.loadScript("assets/js/onepage-details.js").then(()=>{
             this.loadScript("assets/js/products.js").then(()=>{
-              this.loaded = true;
-              localStorage.setItem("loaded","true");
+                this.loaded = true;
+                localStorage.setItem("loaded","true");
             })
           })
         })
@@ -50,7 +50,6 @@ export class AppComponent{
 
   // Scroll To Top When Route Changes
   onActivate(event: any) {
-    console.log("onActivate called");
     this.componentName = event.constructor.__annotations__[0].selector;
     switch(this.componentName){
       case "app-home-routing":
@@ -74,11 +73,6 @@ export class AppComponent{
       case "app-clientes":
         cancelInterval();
         localStorage.setItem("component","clientes");
-        break;
-      case "app-contact":
-        cancelInterval();
-        localStorage.setItem("component","contact");
-        this.loadScript("assets/js/contact.js").then(()=>{})
         break;
       case "app-login":
         cancelInterval();
@@ -110,8 +104,8 @@ export class AppComponent{
         this.loadScript("assets/js/nav-bar.js").then(()=>{
           this.loadScript("assets/js/onepage-details.js").then(()=>{
             this.loadScript("assets/js/products.js").then(()=>{
-              this.loaded = true;
-              localStorage.setItem("loaded","true");
+                this.loaded = true;
+                localStorage.setItem("loaded","true");
             })
           })
         })

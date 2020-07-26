@@ -404,7 +404,7 @@ app.get("/api/getCatId/:nombre",(req,res)=>{
 app.get("/api/getProductId/:nombre",(req,res)=>{
     connection.query(
         'SELECT id FROM productos WHERE nombre=?',
-        [req.params.nombre],
+        [req.params.nombre],    
         (err,resultados)=>{
             if(err){
                 console.log(err);
@@ -590,7 +590,6 @@ app.post("/api/editProduct",(req,res)=>{
 })
 
 app.post("/api/deleteProduct",(req,res)=>{
-    console.log(req.body[0]+' '+req.body[1]);
     connection.query(
         `DELETE FROM productos WHERE nombre = ? AND categoria = ?`,
         [req.body[0],req.body[1]],
@@ -603,6 +602,23 @@ app.post("/api/deleteProduct",(req,res)=>{
                 response.data = [];
                 let path = req.body[2]+'/'+req.body[0];
                 //deleteFolder(path)
+            }
+            res.status(200).json(response);
+        }
+    )
+})
+
+app.post('/api/deleteImgs',(req,res)=>{
+    connection.query(
+        'DELETE FROM imagenes WHERE producto_id = ?',
+        [req.body[0]],
+        (err,resultados)=>{
+            if(err){
+                console.log(err);
+            }else{
+                response.status = 200;
+                response.message = "Imagenes Eliminadas";
+                response.data = [];
             }
             res.status(200).json(response);
         }
@@ -933,7 +949,7 @@ app.post('/api/addDesc',(req,res)=>{
 
 app.post('/api/enviarEmail',(req,res)=>{
     console.log(req.body[0])
-    sendEmail(req.body)
+    sendEmail(req.body[0])
     //sendmail({from:})
 })
 
@@ -976,165 +992,41 @@ function getBankImgNames(){
     })
 }
 
-function sendEmail(values){
-    var transporter = nodemailer.createTransport({
-        host:'smtp.hostinger.com',
-        port:587,
-        secure:true,
-        auth:{
-            user:'contactanos@mallas-redes.store',
-            pass: 'lombana'
-        }
-      });
-    var mailOptions = {
-        from:"contactanos@mallas-redes.store",
-        to: "checholombana@gmail.com",
-        subject: 'Correo de Contactanos!',
-        text : values[3]
-  
-    }
 
-    //log file logic to be decided for send mail so info isn't saved to console
-
-    transporter.sendMail(mailOptions, (error,info)=>{
-        if(error){
-            console.log(error);
-        }else{
-            console.log('Email sent!')
-            res.status(200)
-        }
-    });
-}
-
-/*const express = require('express');
-const app = express();
-const path = require('path');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const encrypt = require('./encryption');
-const router = express.Router();
-
-app.use(express.static(__dirname+'/dist'));
-
-app.get('/*', function(req,res){
-    res.sendFile(path.join(__dirname+'/dist/index.html'));
-})
-
-
-const port = process.env.PORT || 8080;
-
-app.listen(port,()=>{
-    console.log(`app listenining at port ${port}`);
-})
-
-const connection = mysql.createConnection({
-    host:'sql139.main-hosting.eu',
-    user : 'u983165150_admin',
-    password: 'hTq3X!N',
-    database: 'u983165150_admin',
-    port:'3306'
-});
-
-
-connection.connect(function(err){
-    if(err) throw err;
-    console.log("Connected!");
-})
-
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-     extended: true
-})); 
-
-setInterval(()=>{
-    connection.query('SELECT * FROM usuarios',(err,results)=>{
-        if(err){
-            console.log(err);
-        }else{
-        }
-    })
-},10000)
-
-let response = {
-    status : 200,
-    data:[],
-    message:null,
-    token:null
-}
-
-router.get("/api/categorias",(req,res)=>{
-    console.log('Categorias router')
-})
-
-app.get("/api/categorias",(req,res)=>{
-    console.log('Categorias');
-})
-
-app.post("/api/auth",(req,res)=>{
-    connection.query(
-        'SELECT * FROM usuarios WHERE Correo=?',
-        [req.body[0]],
-        (err,resultados)=>{
-            if(err){
-                console.log(err);
-            }else{
-                if(resultados.length == 0){
-                    response.message = 'Usuario no existe';
-                    response.status = 401;
-                }else{
-                    if(!encrypt.encrypt.comparePasswords(resultados[0]["Clave"],req.body[1])){
-                        response.status = 401;
-                        response.message = 'Clave Incorrecta'
-                    }else if(encrypt.encrypt.comparePasswords(resultados[0]["Clave"],req.body[1])){
-                        response.status = 200;
-                        response.message = 'Autenticado';
-                        response.data = resultados[0];
-                    }
-                }
-                res.status(200).json(response);
-            }
-        }
-        )
-})*/
-
-
-/*var nodemailer = require('nodemailer');
+var nodemailer = require('nodemailer');
 
 function sendEmail(values){
+    console.log(values[1])
     var transporter = nodemailer.createTransport({
         host:'smtp.gmail.com',
         port:465,
         secure:true,
         auth:{
-            user:'gbc.shiva.exports@gmail.com',
-            pass: 'cheesebagel8'
+            user:'contactanosmallasredes@gmail.com',
+            pass: 'mallas123'
         }
       });
-    url = values["url"];
     var mailOptions = {
-        from:"gbc.shiva.exports@gmail.com",
-        to: values["email"],
-        subject: 'Recover Password',
-        text : 'Hi,\nYou have requested a new password. Please click the link below and follow the '+
-              'instructions to get a new password.\n'+url+'\n\nThanks,\nGBC Shiva Exports Team.'
+        from:"contactanosmallasredes@gmail.com",
+        to: "lombanahnos@mallas-redes.net",
+        subject: 'Mensaje de Cliente',
+        text : 'Has recibido un mensaje de un cliente desde mallas-redes.net:\n'+
+               '\nNombre: '+values[0]+
+               '\nCorreo: '+values[1]+
+               '\nTelefono: '+values[2]+
+               '\nMensaje: '+values[3]+
+               '\n\nEste es un mensaje personalizado para manejar la pagina de mallas-redes.net. Por favor no responder a este correo'
   
     }
 
     //log file logic to be decided for send mail so info isn't saved to console
 
     transporter.sendMail(mailOptions, (error,info)=>{
+        console.log('sending');
         if(error){
-            var stream = fs.createWriteStream('../logs/assetlog.txt', {flags: 'a'})
-            var date = new Date()();
-            stream.write("***\n" + date + ": " + "password reset failed to be sent for email:  " + values["email"] + "\nError log: " +
-            error + "\n***\n") 
+            console.log(error);
         }else{
-            var stream = fs.createWriteStream('../logs/pwresetlog.txt', {flags: 'a'})
-            var date = new Date()();
-            stream.write(date + ": password reset mail sent for username: " + values["email"] + "\n")
-            res.status(200)
+            console.log('Message sent')
         }
     });
-}*/
+}

@@ -781,6 +781,23 @@
                     </div>
                 </div>
             </div>
+            <!--SELECT PTODUCT FIRST-->
+            <div class="grid-x grid-padding-x select-img-type-container" *ngIf="cover_mode == 'error_select'">
+                <div class="cell medium-6">
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell medium-12 select-img-type-cell">
+                            <div class="span-container"style="margin-top:10%;width:100%;text-align:center;margin-left:0%;">
+                                <span>Seleccione un producto antes de agregar las imagenes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-x grid-padding-x img-type-cancelar-grid">
+                        <div class="cell medium-6 img-type-cancelar-cell" (click)="cancelarForm()">
+                            <button>CANCELAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

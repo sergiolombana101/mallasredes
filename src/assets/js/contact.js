@@ -1,4 +1,4 @@
-if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component") == "contact"){
+/*if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component") == "contact"){
     let inputs = document.getElementsByClassName("input");
 
     for(let x = 0; x<inputs.length;x++){
@@ -13,4 +13,4 @@ if(localStorage.getItem("loaded") == "true" && localStorage.getItem("component")
         }
 
     }
-}
+}*/
