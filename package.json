@@ -54,7 +54,7 @@
     "express": "^4.17.1",
     "foundation-sites": "6.5.3",
     "gsap": "^3.2.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "motion-ui": "2.0.3",
     "mysql": "^2.18.1",
     "ncp": "^2.0.0",
