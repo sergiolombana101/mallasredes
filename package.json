@@ -60,7 +60,7 @@
     "ncp": "^2.0.0",
     "ng2-charts": "^2.2.5",
     "ngx-foundation": "^1.0.8",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "rxjs": "^6.4.0",
     "sendmail": "^1.6.1",
     "typescript": "3.1.6",
